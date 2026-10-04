@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "metrics.schema.json",
+  "title": "KSTE metrics.yaml",
+  "type": "object",
+  "required": [
+    "metrics",
+    "baselines"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "procedural_words",
+        "descriptive_words",
+        "paragraph_sentences",
+        "noun_chain_words",
+        "clause_connectors",
+        "passive_density",
+        "info_preservation_ratio",
+        "note"
+      ],
+      "properties": {
+        "procedural_words": {
+          "type": "object",
+          "required": [
+            "warn",
+            "strong"
+          ],
+          "properties": {
+            "warn": {
+              "type": "number"
+            },
+            "strong": {
+              "type": "number"
+            }
+          }
+        },
+        "descriptive_words": {
+          "type": "object",
+          "required": [
+            "warn",
+            "strong"
+          ],
+          "properties": {
+            "warn": {
+              "type": "number"
+            },
+            "strong": {
+              "type": "number"
+            }
+          }
+        },
+        "paragraph_sentences": {
+          "type": "object",
+          "required": [
+            "warn"
+          ],
+          "properties": {
+            "warn": {
+              "type": "number"
+            }
+          }
+        },
+        "noun_chain_words": {
+          "type": "object",
+          "required": [
+            "warn",
+            "error"
+          ],
+          "properties": {
+            "warn": {
+              "type": "number"
+            },
+            "error": {
+              "type": "number"
+            }
+          }
+        },
+        "clause_connectors": {
+          "type": "object",
+          "required": [
+            "info"
+          ],
+          "properties": {
+            "info": {
+              "type": "number"
+            }
+          }
+        },
+        "passive_density": {
+          "type": "object",
+          "required": [
+            "info_vs_baseline"
+          ],
+          "properties": {
+            "info_vs_baseline": {
+              "type": "boolean"
+            }
+          }
+        },
+        "info_preservation_ratio": {
+          "type": "object",
+          "required": [
+            "warn"
+          ],
+          "properties": {
+            "warn": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "strict_error": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "strict_warn": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "baselines": {
+      "type": "object",
+      "required": [
+        "source",
+        "genres"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "minLength": 8,
+          "description": "출처 필수: 문서+쪽(+pair id) 또는 원문 증거. 비어 있으면 검증 실패."
+        },
+        "genres": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "files",
+              "sentences",
+              "words_median",
+              "words_p90",
+              "pct_over_12",
+              "pct_over_16",
+              "pct_over_20",
+              "pct_passive_sentences",
+              "double_passive",
+              "pct_clause_connectors_ge2",
+              "pct_noun_chain_ge4",
+              "pct_imperative",
+              "use_as_baseline"
+            ],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "files": {
+                "type": "integer"
+              },
+              "sentences": {
+                "type": "integer"
+              },
+              "words_median": {
+                "type": "number"
+              },
+              "words_p90": {
+                "type": "number"
+              },
+              "pct_over_12": {
+                "type": "number"
+              },
+              "pct_over_16": {
+                "type": "number"
+              },
+              "pct_over_20": {
+                "type": "number"
+              },
+              "pct_passive_sentences": {
+                "type": "number"
+              },
+              "double_passive": {
+                "type": "integer"
+              },
+              "pct_clause_connectors_ge2": {
+                "type": "number"
+              },
+              "pct_noun_chain_ge4": {
+                "type": "number"
+              },
+              "pct_imperative": {
+                "type": "number"
+              },
+              "use_as_baseline": {
+                "type": "boolean"
+              },
+              "applies_to": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "reference_subsets": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

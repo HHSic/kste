@@ -1,0 +1,422 @@
+# KSTE verbs.yaml — 절차문 통제 동사 (T0)
+# 상태: 제안(proposed). 사람이 승인하기 전에는 확정이 아니다.
+# 기본 17개: skeletons.md 7절 동사 상위 30 중 조작·절차 동사.
+#   제외: 발생하다(126, 상태 서술), 주의하다(42, 경고 문장 전용 → K6), 기능동사(되다·있다·위하다·따르다·의하다·인하다·대하다).
+#   '끄다·분리하다'는 통제 동사 후보(skeletons §8-1)지만 상위 빈도에 없어 pair 필드(켜다↔끄다)로만 연결한다.
+# discouraged[].stance: avoid=비권장, context_ok=조건을 만족하면 허용(condition 에 조건 명시).
+# 예: '클릭하다'는 GUI 마우스 조작에서 통용되므로 context_ok. 문서 전체에서 하나로 통일한다.
+# 스키마: schema/verbs.schema.json
+policy:
+  source: research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보
+  one_verb_one_meaning: true
+  max_actions_per_step: 2
+  register_choices:
+  - 하세요
+  - 하십시오
+  - 한다
+  note: 한 문서는 register_choices 중 하나로 통일한다(K4.1). 항목당 동작 1개 74.1%, 2개 23.9%, 3개 1.8%(skeletons §8-1) 이므로 상한 2.
+verbs:
+- id: V-001
+  lemma: 사용하다
+  pos: VV
+  freq: 327
+  sense: 도구·장비·기능·값을 쓴다
+  forms:
+    haeyo: 사용하세요
+    hasipsio: 사용하십시오
+    plain: 사용한다
+  discouraged:
+  - word: 이용하다
+    surface: 이용(?:하|해|합|한)
+    stance: context_ok
+    condition: 서비스·시설을 누릴 때만 허용(서비스를 이용하다). 도구·장비·옵션은 '사용하다'. 한 문서에서 같은 대상에 둘을 섞지 않는다.
+  - word: 활용하다
+    surface: 활용(?:하|해|합|한)
+    stance: avoid
+    condition: '''사용''과 뜻 경계가 흐리다. 대상을 쓰는 것이면 ''사용하다''.'
+  - word: 쓰다
+    surface: (?<![가-힣])쓰(?:세요|십시오|는|ㄴ다)
+    stance: context_ok
+    condition: 구어. 문서 전체를 '쓰다'로 통일했을 때만 허용. 기본은 '사용하다'.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''사용하다'' 327회'
+  status: proposed
+- id: V-002
+  lemma: 설치하다
+  pos: VV
+  freq: 182
+  sense: 장비·프로그램을 자리에 두고 쓸 수 있게 한다
+  forms:
+    haeyo: 설치하세요
+    hasipsio: 설치하십시오
+    plain: 설치한다
+  discouraged:
+  - word: 인스톨하다
+    surface: 인스톨(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장 외래어. '설치하다'.
+  - word: 깔다
+    surface: (?<![가-힣])깔(?:아|고|면|았)
+    stance: avoid
+    condition: 구어. 프로그램은 '설치하다'.
+  - word: 세팅하다
+    surface: 세팅|셋팅
+    stance: avoid
+    condition: '''설정하다''(값을 정함)와 혼동. 설치와 설정을 나눠 쓴다.'
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''설치하다'' 182회'
+  status: proposed
+- id: V-003
+  lemma: 연결하다
+  pos: VV
+  freq: 122
+  sense: 두 대상을 선·무선으로 잇는다 (물리·논리 링크, 페어링)
+  forms:
+    haeyo: 연결하세요
+    hasipsio: 연결하십시오
+    plain: 연결한다
+  discouraged:
+  - word: 접속하다
+    surface: 접속(?:하|해|합|한)
+    stance: context_ok
+    condition: 네트워크·서버·계정에 '들어가는' 동작은 별도 용어 '접속'으로 구분해 쓴다. 장비끼리 잇는 것은 '연결'.
+  - word: 커넥트하다
+    surface: 커넥트
+    stance: avoid
+    condition: 비권장 외래어.
+  - word: 잇다
+    surface: (?<![가-힣])이(?:으세요|으십시오)
+    stance: avoid
+    condition: 절차문에서는 '연결하다'로 통일.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''연결하다'' 122회'
+  status: proposed
+- id: V-004
+  lemma: 확인하다
+  pos: VV
+  freq: 98
+  sense: 상태·내용을 살펴 맞는지 안다
+  forms:
+    haeyo: 확인하세요
+    hasipsio: 확인하십시오
+    plain: 확인한다
+  discouraged:
+  - word: 체크하다
+    surface: 체크(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장 외래어. 상태를 보면 '확인하다', 체크박스를 고르면 '선택하다'.
+  - word: 점검하다
+    surface: 점검(?:하|해|합|한)
+    stance: context_ok
+    condition: 정기·절차적 검사를 뜻할 때만 허용. 단순히 살펴보는 것은 '확인하다'.
+  - word: 검토하다
+    surface: 검토(?:하|해|합|한)
+    stance: context_ok
+    condition: 판단·평가가 따를 때만 허용.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''확인하다'' 98회'
+  status: proposed
+- id: V-005
+  lemma: 누르다
+  pos: VV
+  freq: 93
+  sense: 버튼·키를 눌러 작동시킨다
+  forms:
+    haeyo: 누르세요
+    hasipsio: 누르십시오
+    plain: 누른다
+  discouraged:
+  - word: 클릭하다
+    surface: 클릭(?:하|해|합|한)
+    stance: context_ok
+    condition: 컴퓨터 화면(GUI)에서 마우스로 누르는 조작은 '클릭'이 통용되므로 허용한다. 문서 전체에서 '누르다'와 '클릭하다' 중 하나로 통일하고, 물리 버튼·키·터치 버튼은 '누르다'를 쓴다.
+  - word: 탭하다
+    surface: 탭(?:하|해|합|한)
+    stance: context_ok
+    condition: 터치스크린 조작을 '탭'으로 정의한 문서(앱·모바일)에서만 허용.
+  - word: 터치하다
+    surface: 터치(?:하|해|합|한)
+    stance: context_ok
+    condition: 터치스크린 문서에서 '탭하다'와 둘 중 하나로 통일할 때만 허용.
+  - word: 푸시하다
+    surface: 푸시(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장. 알림(push)과 혼동.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''누르다'' 93회'
+  status: proposed
+- id: V-006
+  lemma: 넣다
+  pos: VV
+  freq: 86
+  sense: 무언가를 안에 들어가게 한다
+  forms:
+    haeyo: 넣으세요
+    hasipsio: 넣으십시오
+    plain: 넣는다
+  discouraged:
+  - word: 삽입하다
+    surface: 삽입(?:하|해|합|한)
+    stance: avoid
+    condition: 한자어. 카드·전지·부품은 '넣다'. 텍스트 편집의 '삽입'은 기능명이면 허용.
+  - word: 끼우다
+    surface: 끼우(?:세요|십시오|는|ㄴ다)
+    stance: context_ok
+    condition: 끼워서 고정하는 부품일 때 허용.
+  - word: 투입하다
+    surface: 투입(?:하|해|합|한)
+    stance: context_ok
+    condition: 동전·재료처럼 투입구에 넣는 경우만 허용.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''넣다'' 86회'
+  status: proposed
+- id: V-007
+  lemma: 보관하다
+  pos: VV
+  freq: 54
+  sense: 물품·부품을 잘 두어 둔다
+  forms:
+    haeyo: 보관하세요
+    hasipsio: 보관하십시오
+    plain: 보관한다
+  discouraged:
+  - word: 저장하다
+    surface: 저장(?:하|해|합|한)
+    stance: context_ok
+    condition: 파일·데이터는 '저장하다', 물품·부품은 '보관하다'. 두 말을 서로 바꿔 쓰지 않는다.
+  - word: 보존하다
+    surface: 보존(?:하|해|합|한)
+    stance: context_ok
+    condition: 원형·상태를 오래 유지할 때만 허용.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''보관하다'' 54회'
+  status: proposed
+- id: V-008
+  lemma: 열다
+  pos: VV
+  freq: 53
+  sense: 닫힌 것을 열린 상태로 만든다
+  forms:
+    haeyo: 여세요
+    hasipsio: 여십시오
+    plain: 연다
+  discouraged:
+  - word: 오픈하다
+    surface: 오픈(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장 외래어. '열다'.
+  - word: 펼치다
+    surface: 펼치(?:세요|십시오|는|ㄴ다)
+    stance: context_ok
+    condition: 접힌 것을 펴는 동작일 때만 허용.
+  - word: 띄우다
+    surface: 띄우(?:세요|십시오|는|ㄴ다)
+    stance: avoid
+    condition: 화면 창은 '열다'로 통일.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''열다'' 53회'
+  status: proposed
+- id: V-009
+  lemma: 켜다
+  pos: VV
+  freq: 44
+  sense: 전원·기능을 작동 상태로 만든다
+  forms:
+    haeyo: 켜세요
+    hasipsio: 켜십시오
+    plain: 켠다
+  pair: 끄다
+  discouraged:
+  - word: 작동시키다
+    surface: 작동\s?시키
+    stance: avoid
+    condition: -시키다 비권장(K2.9). '켜다' 또는 '작동하다'.
+  - word: 기동하다
+    surface: 기동(?:하|해|합|한)
+    stance: context_ok
+    condition: 서버·시스템 서비스의 시작을 가리키는 전문용어로 정의했을 때만 허용.
+  - word: 온 하다
+    surface: (?<![가-힣])온\s?(?:하|해)
+    stance: avoid
+    condition: 비권장. '켜다'.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''켜다'' 44회'
+  status: proposed
+- id: V-010
+  lemma: 제거하다
+  pos: VV
+  freq: 41
+  sense: 붙어 있거나 들어 있는 것을 없애 버린다 (물리 부품·이물질)
+  forms:
+    haeyo: 제거하세요
+    hasipsio: 제거하십시오
+    plain: 제거한다
+  discouraged:
+  - word: 삭제하다
+    surface: 삭제(?:하|해|합|한)
+    stance: context_ok
+    condition: 데이터·파일·항목은 '삭제하다', 물리 부품·이물질은 '제거하다'로 구분.
+  - word: 없애다
+    surface: 없애(?:세요|십시오|는|ㄴ다)
+    stance: avoid
+    condition: 절차문에서는 '제거하다'(물리) 또는 '삭제하다'(데이터)로 통일.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''제거하다'' 41회'
+  status: proposed
+- id: V-011
+  lemma: 설정하다
+  pos: VV
+  freq: 41
+  sense: 기능·옵션의 값을 정한다
+  forms:
+    haeyo: 설정하세요
+    hasipsio: 설정하십시오
+    plain: 설정한다
+  discouraged:
+  - word: 세팅하다
+    surface: 세팅|셋팅
+    stance: avoid
+    condition: 비권장 외래어. 용어 통일표(terms) 설정 항목과 같다.
+  - word: 지정하다
+    surface: 지정(?:하|해|합|한)
+    stance: context_ok
+    condition: 특정 대상을 고를 때만 허용(경로를 지정하다).
+  - word: 구성하다
+    surface: 구성(?:하|해|합|한)
+    stance: context_ok
+    condition: '''configure'' 의 번역어로 ''구성''을 쓰려면 프로젝트가 ''설정''과 구분을 정의해야 한다.'
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''설정하다'' 41회'
+  status: proposed
+- id: V-012
+  lemma: 빼다
+  pos: VV
+  freq: 40
+  sense: 꽂힌 것을 밖으로 뽑아 낸다
+  forms:
+    haeyo: 빼세요
+    hasipsio: 빼십시오
+    plain: 뺀다
+  discouraged:
+  - word: 분리하다
+    surface: 분리(?:하|해|합|한)
+    stance: context_ok
+    condition: 결합된 부품을 떼어 낼 때 허용. 꽂은 것을 뽑는 동작은 '빼다'.
+  - word: 뽑다
+    surface: 뽑(?:으세요|으십시오|는|는다)
+    stance: context_ok
+    condition: 플러그·카드를 뽑을 때 허용. 문서 전체에서 '빼다'와 하나로 통일.
+  - word: 제거하다
+    surface: 제거(?:하|해|합|한)
+    stance: context_ok
+    condition: '''제거하다''는 없애는 것이다. 다시 쓸 물건을 빼는 동작에는 쓰지 않는다.'
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''빼다'' 40회'
+  status: proposed
+- id: V-013
+  lemma: 선택하다
+  pos: VV
+  freq: 35
+  sense: 여럿 중 하나를 고른다
+  forms:
+    haeyo: 선택하세요
+    hasipsio: 선택하십시오
+    plain: 선택한다
+  discouraged:
+  - word: 고르다
+    surface: 고르(?:세요|십시오|는|ㄴ다)
+    stance: context_ok
+    condition: 문서 전체를 '고르다'로 통일할 때만 허용. 기본은 '선택하다'.
+  - word: 체크하다
+    surface: 체크(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장 외래어. 체크박스는 '선택하다'(해제는 '선택을 해제하다').
+  - word: 지정하다
+    surface: 지정(?:하|해|합|한)
+    stance: context_ok
+    condition: 값·경로를 정할 때는 '지정하다', 목록에서 고를 때는 '선택하다'.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''선택하다'' 35회'
+  status: proposed
+- id: V-014
+  lemma: 연락하다
+  pos: VV
+  freq: 33
+  sense: 상대에게 소식·요청을 전한다
+  forms:
+    haeyo: 연락하세요
+    hasipsio: 연락하십시오
+    plain: 연락한다
+  discouraged:
+  - word: 문의하다
+    surface: 문의(?:하|해|합|한)
+    stance: context_ok
+    condition: 질문·요청의 내용이 있을 때 허용. 단순 연락은 '연락하다'.
+  - word: 컨택하다
+    surface: 컨택(?:하|해|합|한)
+    stance: avoid
+    condition: 비권장 외래어.
+  - word: 연락해 주세요
+    surface: 연락해\s?주
+    stance: context_ok
+    condition: 절차문 명령형은 '연락하세요'로 통일(K4.1). 요청 문체를 쓰는 문서면 전체를 같은 문체로.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''연락하다'' 33회'
+  status: proposed
+- id: V-015
+  lemma: 닫다
+  pos: VV
+  freq: 33
+  sense: 열린 것을 닫힌 상태로 만든다
+  forms:
+    haeyo: 닫으세요
+    hasipsio: 닫으십시오
+    plain: 닫는다
+  pair: 열다
+  discouraged:
+  - word: 클로즈하다
+    surface: 클로즈
+    stance: avoid
+    condition: 비권장 외래어.
+  - word: 종료하다
+    surface: 종료(?:하|해|합|한)
+    stance: context_ok
+    condition: 프로그램·세션·연결은 '종료하다', 창·덮개·문은 '닫다'.
+  - word: 접다
+    surface: 접(?:으세요|으십시오|는|는다)
+    stance: context_ok
+    condition: 접히는 부품일 때만 허용.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''닫다'' 33회'
+  status: proposed
+- id: V-016
+  lemma: 청소하다
+  pos: VV
+  freq: 32
+  sense: 먼지·이물질을 없애 깨끗이 한다
+  forms:
+    haeyo: 청소하세요
+    hasipsio: 청소하십시오
+    plain: 청소한다
+  pair: 닦다
+  discouraged:
+  - word: 세척하다
+    surface: 세척(?:하|해|합|한)
+    stance: context_ok
+    condition: 물·세제로 씻어 낼 때 허용.
+  - word: 정리하다
+    surface: 정리(?:하|해|합|한)
+    stance: avoid
+    condition: '''청소''가 아니다. 뜻을 구분한다.'
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''청소하다'' 32회'
+  status: proposed
+- id: V-017
+  lemma: 닦다
+  pos: VV
+  freq: 32
+  sense: 천·수건 등으로 문질러 깨끗이 한다
+  forms:
+    haeyo: 닦으세요
+    hasipsio: 닦으십시오
+    plain: 닦는다
+  pair: 청소하다
+  discouraged:
+  - word: 청소하다
+    surface: 청소(?:하|해|합|한)
+    stance: context_ok
+    condition: 표면을 문지르는 동작이면 '닦다', 먼지·이물질 제거 전체면 '청소하다'.
+  - word: 문지르다
+    surface: 문지르(?:세요|십시오|는|ㄴ다)
+    stance: context_ok
+    condition: 힘 주어 비빌 때만 허용.
+  - word: 훔치다
+    surface: 훔치(?:세요|십시오|는|ㄴ다)
+    stance: avoid
+    condition: 물기를 닦을 때는 '닦다'로 통일.
+  source: 'research/results/skeletons.md §7 어휘(동사 상위 30, 절차문 2,687문장)와 §8-1 통제 동사 후보: ''닦다'' 32회'
+  status: proposed

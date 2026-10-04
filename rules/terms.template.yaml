@@ -1,0 +1,48 @@
+# KSTE terms.template.yaml — 프로젝트 용어 통일표 템플릿
+# 상태: 템플릿. 아래 5개는 형식 예시(example: true)이며 프로젝트 합의로 교체한다.
+# 사용: 이 파일을 프로젝트 루트의 rules/terms.yaml 로 복사하고 예시를 지운 뒤 합의한 용어를 채운다.
+# 스키마: schema/terms.schema.json
+#
+# 필드
+#   preferred : 그 개념을 부르는 유일한 용어 (STE "one word one meaning", 국어원 2025 일의성)
+#   variants  : 쓰지 않을 변이형. 린터가 발견하면 preferred 로 통일하라고 제안한다.
+#   pos       : Kiwi 품사 태그. Kiwi userWords 로도 주입한다 (NNG 일반명사, NNP 고유명사, VV 동사).
+#   scope     : (선택) 적용 범위·예외. 코드 스팬·백틱·식별자 안은 항상 검사 제외(K1.8).
+#   source    : 합의 근거(회의 날짜·문서·용어집). 필수.
+#   status    : proposed(제안) | approved(승인). 승인은 사람만 한다.
+terms:
+  - preferred: 설정
+    variants: [세팅, 셋팅, 컨피그, config]
+    pos: NNG
+    scope: "일반 서술. 제품 UI 에 표시되는 'Settings' 화면 이름과 코드 식별자는 제외."
+    source: "설계안 §3.2 예시 (템플릿). 프로젝트 합의 일자·문서로 교체"
+    status: proposed
+    example: true
+  - preferred: 회생제동
+    variants: [회생 제동, 회생브레이크]
+    pos: NNP
+    scope: "철도차량 문서"
+    source: "설계안 §3.2 예시 — 철도차량 용어집 3.2 (템플릿). 프로젝트 합의로 교체"
+    status: proposed
+    example: true
+  - preferred: 내려받다
+    variants: [다운받다, 다운로드하다, 다운로드 받다]
+    pos: VV
+    note: "명사형은 '내려받기'. rules/refined.yaml K1.6 다운로드 항목과 같은 방향. 프로젝트가 '다운로드'를 고정 용어로 정하면 preferred 와 variants 를 맞바꾼다."
+    source: "국립국어원 한눈에(2022) hannune p.52 pair v2-0387 (템플릿). 프로젝트 합의로 확정"
+    status: proposed
+    example: true
+  - preferred: 사용자
+    variants: [유저, 이용자]
+    pos: NNG
+    scope: "소프트웨어를 조작하는 사람. 서비스를 이용하는 고객은 '이용자'로 따로 정의할 수 있다."
+    source: "템플릿 예시 — 프로젝트 합의 일자·문서로 교체 (국어원 2025 일의성 기준: 한 용어 = 한 개념)"
+    status: proposed
+    example: true
+  - preferred: 비밀번호
+    variants: [패스워드, 암호, PW]
+    pos: NNG
+    note: "'암호'(cipher)와 구분해야 하는 보안 문서는 variants 에서 '암호'를 뺀다."
+    source: "국립국어원 바르고 쉬운 공공언어(2013) bareugo2013 p.182 pair v2-1246 (템플릿). 프로젝트 합의로 확정"
+    status: proposed
+    example: true

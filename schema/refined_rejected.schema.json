@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "refined_rejected.schema.json",
+  "title": "KSTE refined_rejected.yaml",
+  "type": "object",
+  "required": [
+    "rejected"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "rejected": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "pair_id",
+          "before",
+          "after",
+          "reason_code",
+          "reason",
+          "source",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^X-\\d{3}$"
+          },
+          "pair_id": {
+            "type": "string",
+            "pattern": "^v2-\\d{4}$"
+          },
+          "before": {
+            "type": "string"
+          },
+          "after": {
+            "type": "string"
+          },
+          "reason_code": {
+            "enum": [
+              "R1",
+              "R2",
+              "R3",
+              "R4",
+              "R5",
+              "R6",
+              "R7",
+              "R8",
+              "R9"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 4
+          },
+          "source": {
+            "type": "string",
+            "minLength": 8,
+            "description": "출처 필수: 문서+쪽(+pair id) 또는 원문 증거. 비어 있으면 검증 실패."
+          },
+          "source_docs": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "hannune",
+                "bareugo2013",
+                "report2021",
+                "jindan2019",
+                "giljabi"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "status": {
+            "const": "rejected"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "patterns.schema.json",
+  "title": "KSTE patterns.yaml",
+  "type": "object",
+  "required": [
+    "patterns"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tier",
+          "morph",
+          "severity",
+          "message",
+          "source",
+          "fallback_regex",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(?:DEP-)?K\\d\\.\\d{1,2}-\\d{3}$",
+            "description": "확정 규칙 ID(docs/KSTE-규칙.md §13.5) + 일련번호. DEP- 접두는 확정본에서 삭제된 초안 규칙."
+          },
+          "draft_id": {
+            "type": "string",
+            "pattern": "^K\\d\\.\\d{1,2}-\\d{3}$",
+            "description": "설계안 §2 초안 ID(추적용)."
+          },
+          "deprecated_reason": {
+            "type": "string",
+            "minLength": 8,
+            "description": "status=deprecated 일 때 필수. 확정 규칙 문서 §13 참조."
+          },
+          "severity_by_genre": {
+            "type": "object",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "procedural": {
+                "enum": [
+                  "error",
+                  "warn",
+                  "info"
+                ]
+              },
+              "descriptive": {
+                "enum": [
+                  "error",
+                  "warn",
+                  "info"
+                ]
+              }
+            },
+            "description": "장르별 등급(절차문/서술문). 규칙 문서가 장르별 등급을 둔 항목에만 둔다. severity 는 기본 등급."
+          },
+          "name": {
+            "type": "string"
+          },
+          "tier": {
+            "const": 1,
+            "description": "T1 형태소. fallback_regex 는 T0 근사."
+          },
+          "morph": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Kiwi 태그열. '|' 선택, '*' 임의 어간, '!(...)' 부재, 'chain(...)' 연쇄."
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warn",
+              "info"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 8,
+            "description": "출처 필수: 문서+쪽(+pair id) 또는 원문 증거. 비어 있으면 검증 실패."
+          },
+          "fallback_regex": {
+            "type": "string",
+            "minLength": 1
+          },
+          "flags": {
+            "enum": [
+              "M"
+            ]
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "density_only": {
+            "type": "boolean"
+          },
+          "precision": {
+            "enum": [
+              "high",
+              "mid",
+              "low"
+            ],
+            "description": "fallback_regex 정밀도 자체 평가"
+          },
+          "t0_enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "false 이면 fallback_regex(T0 근사)를 돌리지 않는다. precision low 항목이며 형태소 분석(T1)이 있을 때만 쓴다."
+          },
+          "examples": {
+            "type": "object",
+            "properties": {
+              "bad": {
+                "type": "string",
+                "minLength": 1
+              },
+              "good": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "bad"
+            ],
+            "additionalProperties": false
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "deprecated"
+            ],
+            "description": "proposed=제안(초안). 사람이 승인하면 approved. 승인 전에는 확정이 아니다. deprecated=확정 규칙 문서에서 삭제된 초안 규칙(deprecated_reason 필수, severity info)."
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "deprecated"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "required": [
+                "deprecated_reason"
+              ],
+              "properties": {
+                "severity": {
+                  "const": "info"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

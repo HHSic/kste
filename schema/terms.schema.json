@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "terms.schema.json",
+  "title": "KSTE terms.yaml / terms.template.yaml",
+  "type": "object",
+  "required": [
+    "terms"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "preferred",
+          "variants",
+          "pos",
+          "source"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "preferred": {
+            "type": "string",
+            "minLength": 1
+          },
+          "variants": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "pos": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,4}$",
+            "description": "Kiwi 품사 태그 (NNG, NNP, VV ...). Kiwi userWords 주입에 쓴다."
+          },
+          "scope": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 4
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "deprecated"
+            ],
+            "description": "proposed=제안(초안). 사람이 승인하면 approved. 승인 전에는 확정이 아니다. deprecated=확정 규칙 문서에서 삭제된 초안 규칙(deprecated_reason 필수, severity info)."
+          },
+          "example": {
+            "type": "boolean",
+            "description": "템플릿 예시. 프로젝트 파일에서는 지운다."
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

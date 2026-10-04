@@ -1,0 +1,2179 @@
+# KSTE banned.yaml 초안 (번역투·중복·명사화·군더더기·한자어 축약)
+# 상태: 제안(proposed). 사람이 승인하기 전에는 확정이 아니다 (설계안 §3.3).
+# 이 파일은 research/scripts/build_rules.py 가 생성한 초안이다. rules/ 쪽 본 파일은 사람이 수정하므로 덮어쓰지 않는다.
+# 쪽 번호는 pairs_v2.json / research/sources/*.txt 의 PDF 쪽 기준 (인쇄쪽과 다를 수 있음).
+banned:
+- id: K1.3-001
+  surface: 에\s?있어(?:서(?:의|는)?|의)?(?![가-힣])
+  suggest: 에서 / 에 관하여 / 할 때
+  category: 확정형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.14 [v2-0237]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0523]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0524]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0525]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.84 [v2-0550]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0237
+  - v2-0523
+  - v2-0524
+  - v2-0525
+  - v2-0550
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''서버에 있어서''처럼 장소 ''있다''의 연결형은 오탐. 사람이 가린다. [실무 기준] 코퍼스 B·C·D 11회(10만 자당 1.2회). 확정형 번역투지만 실무가 쓰는 항목이라 warn 으로 내린다.'
+  examples:
+    bad: 품질에 있어서 세계 최고
+    good: 품질 면에서 세계 최고
+  draft_id: K4.5-001
+  corpus_hits:
+    B: 0
+    C: 10
+    D: 1
+  severity_before_practice: error
+- id: K1.4-002
+  surface: 에\s?의(?:해서?|하여서?)(?![가-힣])
+  suggest: 에 따라 / (능동) -이/가 -하
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0501]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0719]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0501
+  - v2-0719
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: K1.4(의심형 번역투). 행위자가 분명하면 능동으로 바꾼다. [실무 기준] 코퍼스 B·C·D 99회(10만 자당 10.8회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 관리자에 의해 승인된다
+    good: 관리자가 승인한다
+  draft_id: K4.5-002
+  corpus_hits:
+    B: 44
+    C: 55
+    D: 0
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.4-003
+  surface: 에\s?의한(?![가-힣])
+  suggest: 에 따른 / -이/가 한
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0718]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0718
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 관리자에 의한 승인
+    good: 관리자가 한 승인
+  draft_id: K4.5-003
+  corpus_hits:
+    B: 29
+    C: 16
+    D: 0
+- id: K1.4-004
+  surface: '[을를]\s?통(?:해서?|하여|한)(?![가-힣])'
+  suggest: -으로 / -을 써서 / -을 거쳐 / -하여
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.20 [v2-0238]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0238
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: 기술문서에서 'API를 통해'가 매우 흔해 정보 수준. 수단이면 '-로/-으로' 검토. [실무 기준] 코퍼스 B·C·D 532회(10만 자당 57.9회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 취업 박람회 개최 등을 통해 지원한다
+    good: 취업 박람회를 개최하여 지원한다
+  draft_id: K4.5-004
+  corpus_hits:
+    B: 24
+    C: 491
+    D: 17
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.3-005
+  surface: 필요로\s?(?:하|합|한|했|해)
+  suggest: 필요하다
+  category: 확정형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0572]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0572
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 2회(10만 자당 0.2회). 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.'
+  examples:
+    bad: 현장에서 필요로 하는 장비
+    good: 현장에서 필요한 장비
+  draft_id: K4.5-005
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 1
+- id: K1.4-006
+  surface: 에\s?위치(?:한|하는|하고|해|합니다)
+  suggest: 에 있는 / 에 있다
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.54 [v2-0397]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0397
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 원 pair 태그 unsure. 건축·지도 문서에서는 허용할 수 있다.
+  examples:
+    bad: 성수동에 위치한 건물
+    good: 성수동에 있는 건물
+  draft_id: K4.5-006
+  corpus_hits:
+    B: 1
+    C: 2
+    D: 1
+- id: K1.4-007
+  surface: 에\s?대(?:하여|해서?|한)(?=\s)
+  suggest: -에게 / -을 / -의
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.42 [v2-0352]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.54 [v2-0401]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0448]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.80 [v2-0538]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0352
+  - v2-0401
+  - v2-0448
+  - v2-0538
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: '''~에 대한'' 전체를 막지 않는다. 사람 대상일 때 ''-에게'', 목적어일 때 조사 복원. [실무 기준] 코퍼스 B·C·D 799회(10만 자당 87.0회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.'
+  examples:
+    bad: 직원들에 대하여 교육한다
+    good: 직원들에게 교육한다
+  draft_id: K4.5-007
+  corpus_hits:
+    B: 62
+    C: 666
+    D: 71
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.4-008
+  surface: '[이가]\s?(?:존재|부재)(?:하|합|한|했)'
+  suggest: 있다 / 없다
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.22 [v2-0260]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0260
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 추상 주어의 존재/부재. 한눈에(2022) 번역투 항목.
+  examples:
+    bad: 처리 방안이 부재하다
+    good: 처리 방안이 없다
+  draft_id: K4.5-008
+  corpus_hits:
+    B: 1
+    C: 19
+    D: 2
+- id: K1.4-009
+  surface: 에\s?의거(?:하여|해|함|한)
+  suggest: 에 따라
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.112 [v2-0710]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.118 [v2-0736]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0710
+  - v2-0736
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 복무규정에 의거함
+    good: 복무규정에 따름
+  draft_id: K4.5-009
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.4-010
+  surface: (?:으)?로\s?인(?:해서?|하여|한)(?![가-힣])
+  suggest: -아/어서 / -기 때문에
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0675]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0675
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: '''~로 인한 장애''는 기술문서 관용. 정보 수준. [실무 기준] 코퍼스 B·C·D 174회(10만 자당 18.9회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.'
+  examples:
+    bad: 공사로 인해 출입문이 열려 있다
+    good: 공사 때문에 출입문이 열려 있다
+  draft_id: K4.5-010
+  corpus_hits:
+    B: 53
+    C: 118
+    D: 3
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.3-011
+  surface: 에\s?갈음(?:합|한|하)
+  suggest: (으)로 갈음하다 / 로 대신한다
+  category: 확정형 번역투
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.61 원문 '서명은 제출에 갈음합니다'
+  source_docs:
+  - report2021
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '조사 오류: ''~을 ~으로 갈음하다''.'
+  examples:
+    bad: 서명은 제출에 갈음합니다
+    good: 서명은 제출로 갈음합니다
+  draft_id: K4.5-011
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.3-012
+  surface: '[을를]\s?득(?:하|한|해|함)'
+  suggest: 받다 / 얻다
+  category: 확정형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0335]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0335
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 허가를 득하지 않고
+    good: 허가를 받지 않고
+  draft_id: K4.5-012
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.4-013
+  surface: '[을를]\s?기하(?:여|며|고|도록|십시오)'
+  suggest: -히 하다 / -게 하다
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.25 원문 '철저를 기하여'
+  source_docs:
+  - hannune
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 철저를 기하여 주시기 바라며
+    good: 철저히 해 주시기 바라며
+  draft_id: K4.5-013
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.4-014
+  surface: 하지\s?아니하(?:고|며|면|였|여)
+  suggest: 하지 않고 / 없이
+  category: 의심형 번역투
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0668]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0668
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 승차권을 소지하지 아니하고
+    good: 승차권 없이
+  draft_id: K4.5-014
+  corpus_hits:
+    B: 3
+    C: 2
+    D: 0
+- id: K1.4-015
+  surface: (?:코저|코자)(?![가-힣])
+  suggest: 하고자
+  category: 의심형 번역투
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.115 [v2-0987]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0987
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 공동주택부지를 조성코저
+    good: 공동주택부지를 조성하고자
+  draft_id: K4.5-015
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.4-016
+  surface: '[가-힣]함으로(?!써|서)(?![가-힣])'
+  suggest: -하므로
+  category: 의심형 번역투
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.115 [v2-0989]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0989
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''-ㅁ으로(써)'' 수단 용법은 제외했으나 오탐 가능.'
+  examples:
+    bad: 원형 보존이 불가함으로
+    good: 원형 보존이 불가하므로
+  draft_id: K4.5-016
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: DEP-K4.6-001
+  surface: 사료(?:됨|된다|됩니다|되어|되며|하)
+  suggest: 생각하다 / 판단하다 (사실이면 단정)
+  category: 추측·완곡(삭제된 규칙)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.48 [v2-0375]; 국립국어원 공공언어 지침 연구보고서(2021) p.285 원문 '것으로 사료됨'
+  source_docs:
+  - hannune
+  - report2021
+  pair_ids:
+  - v2-0375
+  evidence: direct
+  tier: 0
+  severity: info
+  status: deprecated
+  note: ''
+  examples:
+    bad: 중상 이상이 될 것으로 사료됨
+    good: 중상 이상이 될 것으로 생각함
+  draft_id: K4.6-001
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K4.6 추측·완곡 표현 금지는 실무와 어긋나 삭제됨(§13.1). '-ㄹ 수 있습니다'는 매뉴얼 기능 설명 골격이고 전문가 변환에도 추측 표현 교정 유형이 없다.
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: DEP-K4.6-002
+  surface: 것으로\s?(?:보인다|보입니다|보이며|보여|판단된다|판단됩니다|생각된다|생각됩니다|추정된다|추정됩니다)
+  suggest: 단정하거나 근거·조건을 쓴다
+  category: 추측·완곡(삭제된 규칙)
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.116 원문 '것으로 보인다'
+  source_docs:
+  - report2021
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: info
+  status: deprecated
+  note: STE 조동사 규칙 유추. 불확실성 자체가 정보면 유지. T1 패턴 DEP-K4.6-001 과 중복 탐지(둘 다 deprecated).
+  examples:
+    bad: 개선될 것으로 보인다
+    good: 개선된다
+  draft_id: K4.6-002
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K4.6 추측·완곡 표현 금지는 실무와 어긋나 삭제됨(§13.1). '-ㄹ 수 있습니다'는 매뉴얼 기능 설명 골격이고 전문가 변환에도 추측 표현 교정 유형이 없다.
+  corpus_hits:
+    B: 0
+    C: 28
+    D: 0
+- id: K2.6-001
+  surface: 보여(?:지|짐|집|졌|져)
+  suggest: 보이다 / 보임
+  category: 이중피동
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 [v2-0287]; 국립국어원 바르고 쉬운 공공언어(2013) p.115 [v2-0988]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 원문 '‘보여지다(보이어지다)’'
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0287
+  - v2-0988
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 1회(10만 자당 0.1회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.'
+  examples:
+    bad: 신종플루 감염으로 보여짐
+    good: 신종플루 감염으로 보임
+  draft_id: K3.2-001
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K2.9-001
+  surface: 개선\s?시(?:키|켜|킨|킬)
+  suggest: 개선하다
+  category: -시키다 사동
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.56 [v2-0410]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0410
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: ''
+  examples:
+    bad: 통계 서비스를 개선시킬 계획
+    good: 통계 서비스를 개선할 계획
+  draft_id: K3.3-001
+  corpus_hits:
+    B: 0
+    C: 2
+    D: 0
+- id: K2.9-002
+  surface: 구체화\s?시(?:키|켜|킨|킬)
+  suggest: 구체화하다
+  category: -시키다 사동
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0517]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0517
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: ''
+  examples:
+    bad: 방안을 구체화시켜
+    good: 방안을 구체화해
+  draft_id: K3.3-002
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K2.9-003
+  surface: 고취\s?시(?:키|켜|킨|킬)
+  suggest: 고취하다
+  category: -시키다 사동
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.145 원문 '고취 시키고'
+  source_docs:
+  - report2021
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: '국어원 2021: 사동 의미 없는 문장의 ''-시키다''.'
+  examples:
+    bad: 사기를 고취시키고
+    good: 사기를 고취하고
+  draft_id: K3.3-003
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K2.9-004
+  surface: 발전시키(?:는|고|며|ㄹ|다)
+  suggest: 발전하다 / 발전하게 하다
+  category: -시키다 사동
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.66 [v2-0464]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0464
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: '''발전시키다''는 사동 뜻이 있어 정당할 수 있다. 사람이 판단. 원 pair 는 띄어쓰기 교정.'
+  examples:
+    bad: 제도를 발전시키는데
+    good: 제도를 발전하게 하는 데
+  draft_id: K3.3-004
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: DEP-K3.4-001
+  surface: '[을를]\s?진행(?:하|한|합|했|할|해)'
+  suggest: '[명사]하다 (검토를 진행하다 → 검토하다)'
+  category: 명사화 경동사(삭제된 규칙)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0356]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0356
+  evidence: direct
+  tier: 0
+  severity: info
+  status: deprecated
+  note: '''회의를 진행''(주관하다) 같은 본동사 용법은 정당. 정보 수준.'
+  examples:
+    bad: 검토를 진행한다
+    good: 검토한다
+  draft_id: K3.4-001
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K3.4 명사화 금지(검토를 진행하다)는 근거가 없어 삭제됨(§13.1). 전문가가 '위해성 평가를 실시하여야 한다'를 그대로 두었고(v2-0018) 보고서 동사 2위가 '수행하다'다.
+  corpus_hits:
+    B: 8
+    C: 18
+    D: 8
+- id: DEP-K3.4-002
+  surface: '[을를]\s?실시(?:하|한|합|했|할|해)'
+  suggest: '[명사]하다 (지원을 실시하다 → 지원하다)'
+  category: 명사화 경동사(삭제된 규칙)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0450]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.62 [v2-0443]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0450
+  - v2-0443
+  evidence: direct
+  tier: 0
+  severity: info
+  status: deprecated
+  note: ''
+  examples:
+    bad: 교육을 실시하게
+    good: 교육을 하게
+  draft_id: K3.4-002
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K3.4 명사화 금지(검토를 진행하다)는 근거가 없어 삭제됨(§13.1). 전문가가 '위해성 평가를 실시하여야 한다'를 그대로 두었고(v2-0018) 보고서 동사 2위가 '수행하다'다.
+  corpus_hits:
+    B: 1
+    C: 10
+    D: 1
+- id: DEP-K3.4-003
+  surface: '[을를]\s?수행(?:하|한|합|했|할|해)'
+  suggest: '[명사]하다'
+  category: 명사화 경동사(삭제된 규칙)
+  source: 설계안 §2 K3.4 (경동사 목록 진행/실시/수행/시행, 국어원 2013 명사화 구성)
+  source_docs: []
+  pair_ids: []
+  evidence: derived
+  tier: 0
+  severity: info
+  status: deprecated
+  note: 설계안 K3.4 경동사 목록. 국어원 pair 직접 증거 없음.
+  examples:
+    bad: 점검을 수행한다
+    good: 점검한다
+  draft_id: K3.4-003
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K3.4 명사화 금지(검토를 진행하다)는 근거가 없어 삭제됨(§13.1). 전문가가 '위해성 평가를 실시하여야 한다'를 그대로 두었고(v2-0018) 보고서 동사 2위가 '수행하다'다.
+  corpus_hits:
+    B: 2
+    C: 129
+    D: 11
+- id: DEP-K3.4-004
+  surface: '[을를]\s?시행(?:하|한|합|했|할|해)'
+  suggest: '[명사]하다'
+  category: 명사화 경동사(삭제된 규칙)
+  source: 설계안 §2 K3.4 (경동사 목록 진행/실시/수행/시행, 국어원 2013 명사화 구성)
+  source_docs: []
+  pair_ids: []
+  evidence: derived
+  tier: 0
+  severity: info
+  status: deprecated
+  note: '''법을 시행하다'' 본동사 용법은 정당.'
+  examples:
+    bad: 점검을 시행한다
+    good: 점검한다
+  draft_id: K3.4-004
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K3.4 명사화 금지(검토를 진행하다)는 근거가 없어 삭제됨(§13.1). 전문가가 '위해성 평가를 실시하여야 한다'를 그대로 두었고(v2-0018) 보고서 동사 2위가 '수행하다'다.
+  corpus_hits:
+    B: 0
+    C: 3
+    D: 0
+- id: K2.4-005
+  surface: 중에\s?있(?:다|습니다|으며|는|음)
+  suggest: -하고 있다
+  category: 서술어 풀기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0355]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0356]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0355
+  - v2-0356
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 도로 공사를 진행 중에 있습니다
+    good: 도로 공사를 진행하고 있습니다
+  draft_id: K3.4-005
+  corpus_hits:
+    B: 0
+    C: 2
+    D: 0
+- id: DEP-K3.4-006
+  surface: '[이가]\s?요구(?:됩니다|된다|되며|됨)'
+  suggest: -해야 합니다
+  category: 명사화 경동사(삭제된 규칙)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0393]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0393
+  evidence: direct
+  tier: 0
+  severity: info
+  status: deprecated
+  note: ''
+  examples:
+    bad: 주의가 요구됩니다
+    good: 주의해야 합니다
+  draft_id: K3.4-006
+  deprecated_reason: 확정 규칙 문서 §13 변경 이력 참조 — 초안 K3.4 명사화 금지(검토를 진행하다)는 근거가 없어 삭제됨(§13.1). 전문가가 '위해성 평가를 실시하여야 한다'를 그대로 두었고(v2-0018) 보고서 동사 2위가 '수행하다'다.
+  corpus_hits:
+    B: 0
+    C: 7
+    D: 1
+- id: K2.2-001
+  surface: (?<![가-힣])요망(?![가-힣])
+  suggest: 바랍니다 / -해 주시기 바랍니다
+  category: 지시 개조식(-할 것/-바람/-요망)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0338]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0502]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0699]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0338
+  - v2-0502
+  - v2-0699
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 송금 요망
+    good: 송금하시기 바랍니다
+  draft_id: K2.3-001
+  severity_by_genre:
+    procedural: error
+    descriptive: warn
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K2.2-002
+  surface: (?<![가-힣])바람\s*\.?\s*$
+  suggest: 바랍니다.
+  category: 지시 개조식(-할 것/-바람/-요망)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0714]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0724]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0714
+  - v2-0724
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 줄 끝의 '바람'만. '바람이 분다'는 제외. [실무 기준] 코퍼스 B·C·D 1회(10만 자당 0.1회). error 를 warn 으로 낮춘다.
+  examples:
+    bad: 회신 바람.
+    good: 회신해 주시기 바랍니다.
+  draft_id: K2.3-002
+  severity_by_genre:
+    procedural: warn
+    descriptive: warn
+  flags: M
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+  severity_before_practice: error
+- id: K2.4-003
+  surface: (?<=[가-힣])\s시(?=[\s,.)]|$)
+  suggest: -할 때 / -하면
+  category: 서술어 풀기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.96 [v2-0631]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0516]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0329]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.80 [v2-0537]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0631
+  - v2-0516
+  - v2-0329
+  - v2-0537
+  evidence: direct
+  tier: 0
+  severity: info
+  status: proposed
+  note: '코퍼스 실측: 잘 쓴 매뉴얼·기술문서에서도 ''사용 시'' 같은 관용이 365건(1.01M자). 정보 수준. ''서울 시'' 행정구역 띄어쓰기는 오탐. [실무 기준] 코퍼스 B·C·D 339회(10만 자당 36.9회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.'
+  examples:
+    bad: 비교 시 유의한다
+    good: 비교할 때 유의한다
+  draft_id: K2.3-003
+  corpus_hits:
+    B: 101
+    C: 236
+    D: 2
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K2.4-004
+  surface: 미(?:동의|납부|제출|이행|완료|이수)\s?시
+  suggest: -하지 않으면
+  category: 서술어 풀기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.132 [v2-0200]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0698]
+  source_docs:
+  - report2021
+  - hannune
+  pair_ids:
+  - v2-0200
+  - v2-0698
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 미동의시 신청이 불가
+    good: 동의하지 않으면 신청할 수 없습니다
+  draft_id: K2.3-004
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K2.1-005
+  surface: (?<![가-힣])관련\s*(?:[,.]|$)
+  suggest: -와 관련하여 / -에 관하여
+  category: 개조식·서술어 생략
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.36 [v2-0325]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0328]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0341]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0325
+  - v2-0328
+  - v2-0341
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 11회(10만 자당 1.2회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.'
+  examples:
+    bad: 협력 회의 관련, 안내합니다
+    good: 협력 회의와 관련하여 안내합니다
+  draft_id: K2.3-005
+  flags: M
+  corpus_hits:
+    B: 6
+    C: 5
+    D: 0
+- id: K2.1-006
+  surface: (?:기재|제출|작성|확인)\s?필(?![가-힣])
+  suggest: 반드시 -하다
+  category: 개조식·서술어 생략
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0722]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0722
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 기재 필
+    good: 반드시 기재
+  draft_id: K2.3-006
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-001
+  surface: (?<![가-힣])금번(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 이번
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0266]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0266
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 금번 점검
+    good: 이번 점검
+  draft_id: K4.4-001
+  corpus_hits:
+    B: 0
+    C: 2
+    D: 0
+- id: K1.5-002
+  surface: (?<![가-힣])금일(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 오늘
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0268]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0268
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 금일 오후
+    good: 오늘 오후
+  draft_id: K4.4-002
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-003
+  surface: (?<![가-힣])금년(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 올해
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.70 [v2-0490]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0490
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 금년 예산
+    good: 올해 예산
+  draft_id: K4.4-003
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 1
+- id: K1.5-004
+  surface: (?<![가-힣])금회(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 이번
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0810]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0810
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 금회 배포
+    good: 이번 배포
+  draft_id: K4.4-004
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-005
+  surface: (?<![가-힣])익일(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 다음 날
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0359]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0811]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0857]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0359
+  - v2-0811
+  - v2-0857
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 익일 처리
+    good: 다음 날 처리
+  draft_id: K4.4-005
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-006
+  surface: (?<![가-힣])익월(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 다음 달
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0811]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0811
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 익월 정산
+    good: 다음 달 정산
+  draft_id: K4.4-006
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-007
+  surface: 익년(?:도)?(?![가-힣])
+  suggest: 다음 해 / 이듬해
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0426]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0811]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0426
+  - v2-0811
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 익년도 예산
+    good: 이듬해 예산
+  draft_id: K4.4-007
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-008
+  surface: (?<![가-힣])차월(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 다음 달
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0678]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0678
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 차월 지급
+    good: 다음 달 지급
+  draft_id: K4.4-008
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-009
+  surface: 차차월
+  suggest: 다다음 달
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0679]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0679
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 차차월 지급
+    good: 다다음 달 지급
+  draft_id: K4.4-009
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-010
+  surface: (?<![가-힣])차년도(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 다음 해 / 다음 연도
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0825]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0825
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 차년도 계획
+    good: 다음 연도 계획
+  draft_id: K4.4-010
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-011
+  surface: (?<![가-힣])동(?:년|월)(?![가-힣])
+  suggest: 같은 해 / 같은 달
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0820]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0811]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0820
+  - v2-0811
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 동월 말일
+    good: 같은 달 말일
+  draft_id: K4.4-011
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-012
+  surface: (?<![가-힣])동(?:법|항)(?=[에은는이가의을를]|\s|$)
+  suggest: 같은 법 / 같은 항
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0822]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0501]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0822
+  - v2-0501
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''동조''는 ''동조하다'' 오탐 우려로 제외.'
+  examples:
+    bad: 동법에 따라
+    good: 같은 법에 따라
+  draft_id: K4.4-012
+  corpus_hits:
+    B: 2
+    C: 6
+    D: 0
+- id: K1.5-013
+  surface: (?<![가-힣])당해(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 해당 / 그
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0720]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0818]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0720
+  - v2-0818
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 당해 연도
+    good: 해당 연도
+  draft_id: K4.4-013
+  corpus_hits:
+    B: 2
+    C: 2
+    D: 0
+- id: K1.5-014
+  surface: (?<![가-힣])상기(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 위의 / 위에 적은
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0334]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0339]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0334
+  - v2-0339
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: K1.9 지시어(정보)와 겹친다. 대상이 바로 앞 문장에 없으면 명사를 반복한다.
+  examples:
+    bad: 상기 내용
+    good: 위의 내용
+  draft_id: K4.4-014
+  corpus_hits:
+    B: 4
+    C: 1
+    D: 0
+- id: K1.5-015
+  surface: (?<![가-힣])타\s(?=[가-힣])
+  suggest: 다른
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0591]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0591
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''타 시스템''만. ''타 지역/타 부서'' 모두 ''다른''.'
+  examples:
+    bad: 타 시스템 연동
+    good: 다른 시스템 연동
+  draft_id: K4.4-015
+  corpus_hits:
+    B: 0
+    C: 7
+    D: 0
+- id: K1.5-016
+  surface: (?<![가-힣])기\s(?=통보|제출|배포|송부|보고|안내|공지)
+  suggest: 이미
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 [v2-0289]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0289
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 기 통보한 내용
+    good: 이미 알린 내용
+  draft_id: K4.4-016
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-017
+  surface: (?<![가-힣])불상(?:의|인)(?![가-힣])
+  suggest: 알 수 없는
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0830]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0830
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 불상의 사유
+    good: 알 수 없는 사유
+  draft_id: K4.4-017
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-018
+  surface: 적의\s?(?:조치|처리)
+  suggest: 알맞게 조치(처리)하여
+  category: 한자어 축약·지시어
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0821]; 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0914]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0821
+  - v2-0914
+  evidence: direct
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 적의 조치 바람
+    good: 알맞게 조치하기 바람
+  draft_id: K4.4-018
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-001
+  surface: 과반수\s?이상
+  suggest: 과반수
+  category: 중복·군더더기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.59 [v2-0066]; 국립국어원 공공언어 지침 연구보고서(2021) p.59 원문 '‘과반수 이상’이라는 표'
+  source_docs:
+  - report2021
+  pair_ids:
+  - v2-0066
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 과반수 이상 참석
+    good: 과반수 참석
+  draft_id: K1.5-001
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-002
+  surface: 약\s?\d[\d,.]*[만천백억조]?여\s?[명개건원회종대]
+  suggest: 약 N + 단위 (약 30명) 또는 N여 + 단위 (30여 명)
+  category: 중복·군더더기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.54 [v2-0399]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0399
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 약 30여 명
+    good: 약 30명
+  draft_id: K1.5-002
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-003
+  surface: 유무\s?여부
+  suggest: 여부 (또는 유무)
+  category: 중복·군더더기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.316 원문 '제출유무여부란'
+  source_docs:
+  - report2021
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 제출유무여부란
+    good: 제출 여부란
+  draft_id: K1.5-003
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-004
+  surface: 소유\s?유무
+  suggest: 소유 여부
+  category: 중복·군더더기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.59 [v2-0065]; 국립국어원 쉬운 공문서 쓰기 길잡이 p.30 [v2-1500]
+  source_docs:
+  - report2021
+  - giljabi
+  pair_ids:
+  - v2-0065
+  - v2-1500
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '''있음과 없음''이 뜻이면 ''유무''가 맞다. 맥락상 ''있는지 없는지''면 ''여부''.'
+  examples:
+    bad: 재산 소유 유무의 확인용
+    good: 재산 소유 여부의 확인용
+  draft_id: K1.5-004
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-005
+  surface: 접수받
+  suggest: 접수하다 / 받다
+  category: 중복·군더더기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.316 원문 '제안서를접수받는다고'
+  source_docs:
+  - report2021
+  pair_ids: []
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 제안서를 접수받는다
+    good: 제안서를 접수한다
+  draft_id: K1.5-005
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-006
+  surface: 매\s?\d+\s?(?:년|개월|월|주|일|시간|분|초|회)\s?마다
+  suggest: N마다 (매 N 은 단독)
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1003]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.59 원문 '매 1년마다'
+  source_docs:
+  - bareugo2013
+  - hannune
+  pair_ids:
+  - v2-1003
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 매 1년마다
+    good: 1년마다
+  draft_id: K1.5-006
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-007
+  surface: \d+월달
+  suggest: N월
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-0995]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0995
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 7월달
+    good: 7월
+  draft_id: K1.5-007
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-008
+  surface: (?:월|화|수|목|금|토|일)요일날
+  suggest: ~요일
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1004]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1004
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 월요일날
+    good: 월요일
+  draft_id: K1.5-008
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-009
+  surface: 파편\s?조각
+  suggest: 파편
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-0996]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0996
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 파편 조각
+    good: 파편
+  draft_id: K1.5-009
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-010
+  surface: (?<![가-힣])생일날
+  suggest: 생일
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-0997]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0997
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: 원 pair 태그 unsure.
+  examples:
+    bad: 생일날
+    good: 생일
+  draft_id: K1.5-010
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-011
+  surface: 옥상\s?위(?:에|에서)
+  suggest: 옥상에
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-0998]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0998
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 옥상 위에
+    good: 옥상에
+  draft_id: K1.5-011
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-012
+  surface: 기간\s?동안
+  suggest: 기간 / 동안 (하나만)
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1000]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.118 [v2-0737]
+  source_docs:
+  - bareugo2013
+  - hannune
+  pair_ids:
+  - v2-1000
+  - v2-0737
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: 국어원이 중복으로 보지만 기술문서 관용이 많다. 정보 수준. [실무 기준] 코퍼스 B·C·D 9회(10만 자당 1.0회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.
+  examples:
+    bad: 공사 기간 동안
+    good: 공사 기간에
+  draft_id: K1.5-012
+  corpus_hits:
+    B: 1
+    C: 8
+    D: 0
+- id: K1.2-013
+  surface: 여러\s?가지\s?종류
+  suggest: 여러 가지 / 여러 종류
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1005]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1005
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 여러 가지 종류
+    good: 여러 가지
+  draft_id: K1.5-013
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-014
+  surface: 쓰이는\s?용도
+  suggest: 용도 / 쓰임새
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1007]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1007
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 쓰이는 용도에 따라
+    good: 용도에 따라
+  draft_id: K1.5-014
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-015
+  surface: 가까운\s?근교
+  suggest: 근교 / 도시 근처
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1010]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1010
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 가까운 근교
+    good: 근교
+  draft_id: K1.5-015
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-016
+  surface: 새로\s?(?:나온\s?)?신(?:설|상품)
+  suggest: 신설 / 새로 나온 물품
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1053]; 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1011]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1053
+  - v2-1011
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 새로 신설하다
+    good: 신설하다
+  draft_id: K1.5-016
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-017
+  surface: 지나간\s?과거
+  suggest: 과거 / 지나온 날
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1012]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1012
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 지나간 과거
+    good: 과거
+  draft_id: K1.5-017
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-018
+  surface: 하얀\s?백지
+  suggest: 백지 / 하얀 종이
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1006]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1006
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 하얀 백지
+    good: 백지
+  draft_id: K1.5-018
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-019
+  surface: 동그란\s?원(?![가-힣])
+  suggest: 원
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1008]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1008
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 동그란 원
+    good: 원
+  draft_id: K1.5-019
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-020
+  surface: 기름진\s?옥토
+  suggest: 옥토 / 기름진 땅
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1009]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1009
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 기름진 옥토
+    good: 옥토
+  draft_id: K1.5-020
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-021
+  surface: 지나던\s?행인
+  suggest: 행인 / 지나던 사람
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1014]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1014
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 지나던 행인
+    good: 행인
+  draft_id: K1.5-021
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-022
+  surface: 철로변\s?주위
+  suggest: 철로 주위
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1002]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1002
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 철로변 주위
+    good: 철로 주위
+  draft_id: K1.5-022
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-023
+  surface: 리포트\s?과제
+  suggest: 리포트 / 과제
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1018]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1018
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 리포트 과제
+    good: 과제
+  draft_id: K1.5-023
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-024
+  surface: 중앙\s?센터
+  suggest: 중앙 / 센터
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1021]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1021
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 중앙 센터
+    good: 센터
+  draft_id: K1.5-024
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-025
+  surface: 존재하고\s?있
+  suggest: 존재하다 / 있다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1025]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1025
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 존재하고 있다
+    good: 있다
+  draft_id: K1.5-025
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-026
+  surface: 관점에서\s?본다면
+  suggest: 관점에서
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1027]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1027
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 이 관점에서 본다면
+    good: 이 관점에서
+  draft_id: K1.5-026
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-027
+  surface: 피해를\s?입(?:다|었|은|는|고|어)
+  suggest: 피해를 보다 / 해를 입다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1028]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1028
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: 원 pair 태그 unsure. [실무 기준] 코퍼스 B·C·D 1회(10만 자당 0.1회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.
+  examples:
+    bad: 피해를 입다
+    good: 피해를 보다
+  draft_id: K1.5-027
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.2-028
+  surface: 수입해서\s?들여
+  suggest: 수입하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1030]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1030
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 수입해서 들여오다
+    good: 수입하다
+  draft_id: K1.5-028
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-029
+  surface: 소급하여\s?올라가
+  suggest: 소급하다 / 거슬러 올라가다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1032]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1032
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 소급하여 올라가다
+    good: 소급하다
+  draft_id: K1.5-029
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-030
+  surface: 방송을\s?보내
+  suggest: 방송하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1034]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1034
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 방송을 보내다
+    good: 방송하다
+  draft_id: K1.5-030
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-031
+  surface: 맛을\s?음미
+  suggest: 맛을 보다 / 음미하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1040]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1040
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 맛을 음미하다
+    good: 음미하다
+  draft_id: K1.5-031
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-032
+  surface: 똑같은\s?동일한|동일한\s?똑같은
+  suggest: 똑같은 / 동일한
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1042]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1042
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 똑같은 동일한 구문
+    good: 똑같은 구문
+  draft_id: K1.5-032
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-033
+  surface: 집에서\s?가출
+  suggest: 집에서 나오다 / 가출하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1043]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1043
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 집에서 가출했다
+    good: 가출했다
+  draft_id: K1.5-033
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-034
+  surface: 서로\s?상통
+  suggest: 서로 통하다 / 상통하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1044]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1044
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 서로 상통하다
+    good: 상통하다
+  draft_id: K1.5-034
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-035
+  surface: 다시\s?회복
+  suggest: 회복하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1045]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1045
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 다시 회복하다
+    good: 회복하다
+  draft_id: K1.5-035
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-036
+  surface: 서로\s?상이한
+  suggest: 서로 다른 / 상이한
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1046]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1046
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 서로 상이한 견해
+    good: 서로 다른 견해
+  draft_id: K1.5-036
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-037
+  surface: 반드시\s?필승
+  suggest: 필승해야 / 반드시 이겨야
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1047]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1047
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 반드시 필승해야
+    good: 반드시 이겨야
+  draft_id: K1.5-037
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-038
+  surface: 미리\s?예(?:습|측)
+  suggest: 예습 / 예측
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1050]; 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1048]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1050
+  - v2-1048
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 1회(10만 자당 0.1회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.'
+  examples:
+    bad: 미리 예측하다
+    good: 예측하다
+  draft_id: K1.5-038
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.2-039
+  surface: 다시\s?반복
+  suggest: 반복하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1051]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1051
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 다시 반복하다
+    good: 반복하다
+  draft_id: K1.5-039
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-040
+  surface: 반드시\s?필요
+  suggest: 필요하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1052]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1052
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 2회(10만 자당 0.2회) 나오지만 규칙 문서가 오류로 명시한 항목이라 등급을 유지한다.'
+  examples:
+    bad: 반드시 필요하다
+    good: 필요하다
+  draft_id: K1.5-040
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 1
+- id: K1.2-041
+  surface: 가운데에\s?명중
+  suggest: 맞히다 / 명중하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1038]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1038
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 가운데에 명중하다
+    good: 명중하다
+  draft_id: K1.5-041
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-042
+  surface: 술\s?마시고\s?음주
+  suggest: 음주 운전하다
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1039]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1039
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 술 마시고 음주 운전하다
+    good: 음주 운전하다
+  draft_id: K1.5-042
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.2-043
+  surface: 보통의\s?평범한
+  suggest: 보통 / 평범한
+  category: 중복·군더더기
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.172 [v2-1041]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1041
+  evidence: direct
+  tier: 0
+  severity: error
+  status: proposed
+  note: ''
+  examples:
+    bad: 보통의 평범한 사람
+    good: 보통 사람
+  draft_id: K1.5-043
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0

@@ -1,0 +1,28 @@
+{
+  "name": "kste",
+  "version": "1.0.0",
+  "description": "KSTE linter (Tier 0 regex + Tier 1 Kiwi morphology)",
+  "scripts": {
+    "test": "node --test",
+    "install-model": "node scripts/install-model.mjs"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "yaml": "^2.9.1"
+  },
+  "bin": {
+    "kste": "bin/kste.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "optionalDependencies": {
+    "kiwi-nlp": "^0.24.0"
+  },
+  "author": "HHSic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HHSic/kste.git"
+  }
+}

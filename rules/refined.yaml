@@ -1,0 +1,2113 @@
+# KSTE refined.yaml 초안 (한자어·외래어 교체, 기술문서 통용분만)
+# 상태: 제안(proposed). 사람이 승인하기 전에는 확정이 아니다 (설계안 §3.3).
+# 이 파일은 research/scripts/build_rules.py 가 생성한 초안이다. rules/ 쪽 본 파일은 사람이 수정하므로 덮어쓰지 않는다.
+# 쪽 번호는 pairs_v2.json / research/sources/*.txt 의 PDF 쪽 기준 (인쇄쪽과 다를 수 있음).
+refined:
+- id: K1.5-001
+  surface: (?<![가-힣])제고(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 높이다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.66 [v2-0461]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0608]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0461
+  - v2-0608
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 설계안 §1.7 대표 예 '제고를 위해 → 높이도록'.
+  examples:
+    bad: 품질 제고를 위해
+    good: 품질을 높이기 위해
+  draft_id: K1.4-001
+  corpus_hits:
+    B: 0
+    C: 40
+    D: 0
+- id: K1.5-002
+  surface: (?<![가-힣])감안(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 고려하다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0332]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0332
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 상황을 감안하여
+    good: 상황을 고려하여
+  draft_id: K1.4-002
+  corpus_hits:
+    B: 2
+    C: 1
+    D: 0
+- id: K1.5-003
+  surface: (?<![가-힣])향후(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 앞으로
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.50 [v2-0383]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0383
+  tier: 0
+  severity: info
+  status: proposed
+  note: 설계안 §1.7 예 '향후 감사 시 → 앞으로 감사할 때'. [실무 기준] 코퍼스 B·C·D 52회(10만 자당 5.7회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 향후 계획
+    good: 앞으로 계획
+  draft_id: K1.4-003
+  corpus_hits:
+    B: 0
+    C: 50
+    D: 2
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.5-004
+  surface: 유관\s?기관
+  suggest: 관계 기관
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.82 [v2-0542]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0542
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 유관기관 협의
+    good: 관계 기관 협의
+  draft_id: K1.4-004
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-005
+  surface: (?<![가-힣])조속히(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 빨리 / 되도록 빨리
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.22 [v2-0257]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0333]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0257
+  - v2-0333
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 조속히 처리
+    good: 빨리 처리
+  draft_id: K1.4-005
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-006
+  surface: (?<![가-힣])필히(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 반드시
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0681]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0681
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 필히 확인
+    good: 반드시 확인
+  draft_id: K1.4-006
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-007
+  surface: (?<![가-힣])면밀히(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 자세히
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.86 [v2-0562]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0562
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 면밀히 검토
+    good: 자세히 검토
+  draft_id: K1.4-007
+  corpus_hits:
+    B: 0
+    C: 2
+    D: 0
+- id: K1.5-008
+  surface: (?<![가-힣])가급적(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 될 수 있으면
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0897]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0897
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 가급적 사용 금지
+    good: 될 수 있으면 사용하지 않는다
+  draft_id: K1.4-008
+  corpus_hits:
+    B: 1
+    C: 1
+    D: 0
+- id: K1.5-009
+  surface: (?<![가-힣])상이한(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 서로 다른
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0607]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0896]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0607
+  - v2-0896
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 상이한 값
+    good: 서로 다른 값
+  draft_id: K1.4-009
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-010
+  surface: (?<![가-힣])부합(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 맞다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.82 [v2-0541]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0617]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0541
+  - v2-0617
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 기준에 부합하는 값
+    good: 기준에 맞는 값
+  draft_id: K1.4-010
+  corpus_hits:
+    B: 0
+    C: 6
+    D: 0
+- id: K1.5-011
+  surface: (?<![가-힣])시정(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 바로잡다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0901]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0901
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 오류를 시정한다
+    good: 오류를 바로잡는다
+  draft_id: K1.4-011
+  corpus_hits:
+    B: 0
+    C: 2
+    D: 0
+- id: K1.5-012
+  surface: (?<![가-힣])유보(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 미루다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0902]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0902
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 결정을 유보한다
+    good: 결정을 미룬다
+  draft_id: K1.4-012
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-013
+  surface: 미연에\s?방지
+  suggest: 미리 막다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0898]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0898
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 장애를 미연에 방지
+    good: 장애를 미리 막기
+  draft_id: K1.4-013
+  corpus_hits:
+    B: 1
+    C: 0
+    D: 0
+- id: K1.5-014
+  surface: 일환으로
+  suggest: 하나로
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0457]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0457
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 개선의 일환으로
+    good: 개선 활동의 하나로
+  draft_id: K1.4-014
+  corpus_hits:
+    B: 0
+    C: 6
+    D: 0
+- id: K1.5-015
+  surface: (?<![가-힣])소기의(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 기대한
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0900]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0900
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 소기의 목적
+    good: 기대한 목적
+  draft_id: K1.4-015
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-016
+  surface: (?<![가-힣])해소(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 없애다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.34 [v2-0313]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0313
+  tier: 0
+  severity: info
+  status: proposed
+  note: '''갈등 해소''처럼 명사 용법은 관용. 정보 수준. [실무 기준] 코퍼스 B·C·D 79회(10만 자당 8.6회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.'
+  examples:
+    bad: 문제를 해소하며
+    good: 문제를 없애며
+  draft_id: K1.4-016
+  corpus_hits:
+    B: 0
+    C: 76
+    D: 3
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.5-017
+  surface: (?<![가-힣])송부(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 보내다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0337]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0337
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 자료를 송부한다
+    good: 자료를 보낸다
+  draft_id: K1.4-017
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-018
+  surface: 제공\s?받(?:다|는|을|은|아|고)
+  suggest: 받다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0432]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0432
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 서비스를 제공받는다
+    good: 서비스를 받는다
+  draft_id: K1.4-018
+  corpus_hits:
+    B: 2
+    C: 36
+    D: 0
+- id: K1.5-019
+  surface: (?<![가-힣])지득(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 알다 / 알게 되다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0823]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0823
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 내용을 지득한 경우
+    good: 내용을 알게 된 경우
+  draft_id: K1.4-019
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-020
+  surface: 가용(?:하다|한|하지)
+  suggest: 쓸 수 있다 / 쓸 수 있는
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0793]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0793
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''가용 메모리''처럼 복합어 접두 용법은 대상 아님. 용어 통일표가 우선.'
+  examples:
+    bad: 가용한 자원
+    good: 쓸 수 있는 자원
+  draft_id: K1.4-020
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-021
+  surface: (?<![가-힣])금명간(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 곧 / 오늘내일
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0807]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0807
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 금명간 배포
+    good: 곧 배포
+  draft_id: K1.4-021
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-022
+  surface: (?<![가-힣])임석(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 참석
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0815]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0815
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 임석 확인
+    good: 참석 확인
+  draft_id: K1.4-022
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-024
+  surface: 수범\s?사례
+  suggest: 모범 사례 / 잘된 사례
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0792]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0792
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 수범 사례 공유
+    good: 모범 사례 공유
+  draft_id: K1.4-024
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-025
+  surface: (?<![가-힣])시건장치(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 잠금장치
+  category: 한자어→쉬운말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.41 [v2-0909]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0796]
+  source_docs:
+  - bareugo2013
+  - hannune
+  pair_ids:
+  - v2-0909
+  - v2-0796
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 시건장치 확인
+    good: 잠금장치 확인
+  draft_id: K1.4-025
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-026
+  surface: (?<![가-힣])징구(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 요구하다
+  category: 한자어→쉬운말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0910]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0910
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 서류를 징구한다
+    good: 서류를 요구한다
+  draft_id: K1.4-026
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.5-029
+  surface: (?<![가-힣])도합(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 합계
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0847]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0847
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 도합 3건
+    good: 합계 3건
+  draft_id: K1.4-029
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-030
+  surface: (?<![가-힣])적기(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 알맞은 시기 / 제때
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0819]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0819
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 적기에 투입
+    good: 알맞은 시기에 투입
+  draft_id: K1.4-030
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-031
+  surface: (?<![가-힣])패용(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 달다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0835]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0835
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 출입증을 패용한다
+    good: 출입증을 단다
+  draft_id: K1.4-031
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-032
+  surface: (?<![가-힣])첨두시(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 가장 붐빌 때
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0829]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0829
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 첨두시 부하
+    good: 가장 붐빌 때 부하
+  draft_id: K1.4-032
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-033
+  surface: (?<![가-힣])별건(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 다른 건
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0826]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0826
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 별건으로 처리
+    good: 다른 건으로 처리
+  draft_id: K1.4-033
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-034
+  surface: (?<![가-힣])불시에(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 예고 없이 / 갑자기
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0832]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0832
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 불시에 점검
+    good: 예고 없이 점검
+  draft_id: K1.4-034
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-035
+  surface: 내구\s?연한
+  suggest: 사용 연한 / 사용 가능 기간
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0812]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0812
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 내구 연한 5년
+    good: 사용 연한 5년
+  draft_id: K1.4-035
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-036
+  surface: (?<![가-힣])행선지(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 목적지
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0839]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0839
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 행선지 표시
+    good: 목적지 표시
+  draft_id: K1.4-036
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-037
+  surface: (?<![가-힣])구좌(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 계좌
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0848]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0848
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 구좌 번호
+    good: 계좌 번호
+  draft_id: K1.4-037
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-038
+  surface: 게첨|게첩
+  suggest: 게시 / 붙이다 / 내걸다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0799]; 국립국어원 바르고 쉬운 공공언어(2013) p.41 [v2-0903]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0799
+  - v2-0903
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 안내문을 게첨한다
+    good: 안내문을 게시한다
+  draft_id: K1.4-038
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-039
+  surface: (?<![가-힣])당초(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 처음 / 기존
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0280]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0280
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 당초 계획
+    good: 처음 계획
+  draft_id: K1.4-039
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-040
+  surface: (?<![가-힣])소관(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 담당
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0278]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0278
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 소관 부서
+    good: 담당 부서
+  draft_id: K1.4-040
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-041
+  surface: 수령(?:하|한|함|할|을|를)
+  suggest: 받다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0336]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0336
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 서류를 수령한다
+    good: 서류를 받는다
+  draft_id: K1.4-041
+  corpus_hits:
+    B: 2
+    C: 0
+    D: 0
+- id: K1.5-042
+  surface: 동봉(?:하|한|함|합)
+  suggest: 함께 보내다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0733]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0733
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 자료를 동봉한다
+    good: 자료를 함께 보낸다
+  draft_id: K1.4-042
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-043
+  surface: (?<![가-힣])반입(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 들여오다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.22 [v2-0259]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.102 [v2-0653]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.102 [v2-0655]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0259
+  - v2-0653
+  - v2-0655
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 보안 문서의 '반입 금지' 관용은 허용 가능.
+  examples:
+    bad: 외부 장치 반입 금지
+    good: 외부 장치를 들여오지 않는다
+  draft_id: K1.4-043
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-044
+  surface: (?<![가-힣])반출(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 내가다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.102 [v2-0654]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0654
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 자료 반출 금지
+    good: 자료를 내가지 않는다
+  draft_id: K1.4-044
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K7.4-045
+  surface: (?<![가-힣])의심스런(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 의심스러운
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0384]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0384
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 활용형 표기 오류.
+  examples:
+    bad: 의심스런 파일
+    good: 의심스러운 파일
+  draft_id: K1.4-045
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-046
+  surface: (?<![가-힣])꼼꼼이(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 꼼꼼히
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.100 [v2-0648]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0648
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 부사 표기 오류.
+  examples:
+    bad: 꼼꼼이 확인
+    good: 꼼꼼히 확인
+  draft_id: K1.4-046
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-047
+  surface: 삼가하
+  suggest: 삼가
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.102 [v2-0656]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0656
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 활용형 표기 오류.
+  examples:
+    bad: 삼가하여 주십시오
+    good: 삼가 주십시오
+  draft_id: K1.4-047
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-048
+  surface: (?<![가-힣])시너지효과(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 상승효과
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0892]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0892
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 시너지효과
+    good: 상승효과
+  draft_id: K1.4-048
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-049
+  surface: (?<![가-힣])소명(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 밝히다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0507]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0507
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 감사·보안 문서의 '소명 자료'는 관용. 정보 수준.
+  examples:
+    bad: 사유를 소명한다
+    good: 사유를 밝힌다
+  draft_id: K1.4-049
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-050
+  surface: (?<![가-힣])연루(?=하|해|했|한|함|할|합|되|돼|[은는이가을를의에도와과로만]|으로|에서|[^가-힣]|$)
+  suggest: 관련되다
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.118 [v2-0738]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0738
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 사고에 연루되어
+    good: 사고와 관련되어
+  draft_id: K1.4-050
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.5-051
+  surface: (?<![가-힣])잔고(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 잔액
+  category: 한자어→쉬운말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0858]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0858
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 금융·마이데이터 문서 용어. 업권 용어와 충돌하면 용어 통일표로.
+  examples:
+    bad: 계좌 잔고
+    good: 계좌 잔액
+  draft_id: K1.4-051
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-052
+  surface: (?<![가-힣])오너(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 소유자 / 주인
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1110]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1110
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 조직 역할명이면 용어 통일표로.
+  examples:
+    bad: 서비스 오너
+    good: 서비스 소유자
+  draft_id: K1.4-052
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-053
+  surface: (?<![가-힣])브로슈어(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 안내서 / 소책자
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0687]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0775]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0687
+  - v2-0775
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 제품 브로슈어
+    good: 제품 안내서
+  draft_id: K1.4-053
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-054
+  surface: (?<![가-힣])업데이트(?![가-힣]*트)
+  suggest: 갱신
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0283]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0283
+  tier: 0
+  severity: info
+  status: proposed
+  note: 설계안 §3.3 채택 예. 제품 버전을 올리는 '소프트웨어 업데이트'는 고정 용어로 두어도 된다(용어 통일표). [실무 기준] 코퍼스 B·C·D 56회(10만 자당 6.1회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 데이터를 업데이트한다
+    good: 데이터를 갱신한다
+  draft_id: K1.4-054
+  corpus_hits:
+    B: 4
+    C: 29
+    D: 23
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.6-055
+  surface: (?<![가-힣])업로드(?![가-힣]*드)
+  suggest: 올리다
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0281]; 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1102]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0281
+  - v2-1102
+  tier: 0
+  severity: info
+  status: proposed
+  note: '[실무 기준] 코퍼스 B·C·D 77회(10만 자당 8.4회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.'
+  examples:
+    bad: 파일을 업로드한다
+    good: 파일을 올린다
+  draft_id: K1.4-055
+  corpus_hits:
+    B: 0
+    C: 67
+    D: 10
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.6-056
+  surface: (?<![가-힣])다운로드(?![가-힣]*드)
+  suggest: 내려받다
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0387]; 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1089]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0721]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0387
+  - v2-1089
+  - v2-0721
+  tier: 0
+  severity: info
+  status: proposed
+  note: 설계안 §3.3 채택 예. 명사형은 '내려받기'. [실무 기준] 코퍼스 B·C·D 74회(10만 자당 8.1회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 파일을 다운로드한다
+    good: 파일을 내려받는다
+  draft_id: K1.4-056
+  corpus_hits:
+    B: 3
+    C: 67
+    D: 4
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.6-057
+  surface: 홈페이지
+  suggest: 누리집
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.50 [v2-0381]; 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0928]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0381
+  - v2-0928
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 설계안 §3.3 채택 예.
+  examples:
+    bad: 홈페이지에서 확인
+    good: 누리집에서 확인
+  draft_id: K1.4-057
+  corpus_hits:
+    B: 9
+    C: 24
+    D: 0
+- id: K1.6-058
+  surface: 패스\s?워드
+  suggest: 비밀번호
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1246]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1246
+  tier: 0
+  severity: info
+  status: proposed
+  note: 보안 문서에서 '암호'와 충돌한다. '암호'와 구분하려면 프로젝트가 정한다. 로그인 UI 문구는 제품 표기를 따른다. [실무 기준] 코퍼스 B·C·D 56회(10만 자당 6.1회). 잘 쓴 기술문서가 쓰는 표현이라 info·기본 출력 숨김. suggest 는 유지한다.
+  examples:
+    bad: 패스워드 입력
+    good: 비밀번호 입력
+  draft_id: K1.4-058
+  corpus_hits:
+    B: 0
+    C: 56
+    D: 0
+  practice: tolerated
+  show_by_default: false
+  severity_before_practice: warn
+- id: K1.6-059
+  surface: 체크\s?리스트
+  suggest: 점검표
+  category: 외래어→우리말
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.89 [v2-0101]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0269]; 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0927]
+  source_docs:
+  - report2021
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0101
+  - v2-0269
+  - v2-0927
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 체크리스트
+    good: 점검표
+  draft_id: K1.4-059
+  corpus_hits:
+    B: 10
+    C: 4
+    D: 19
+- id: K1.6-061
+  surface: 스케(?:줄|쥴)
+  suggest: 일정
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1256]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1256
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 작업 스케줄러(cron) 같은 고정 명칭은 제외.
+  examples:
+    bad: 스케줄 확인
+    good: 일정 확인
+  draft_id: K1.4-061
+  corpus_hits:
+    B: 1
+    C: 1
+    D: 0
+- id: K1.6-062
+  surface: (?<![가-힣])타이틀(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 제목
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1226]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1226
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 타이틀 표시
+    good: 제목 표시
+  draft_id: K1.4-062
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 1
+- id: K1.6-063
+  surface: (?<![가-힣])룰(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 규칙
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1135]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1135
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 룰 정의
+    good: 규칙 정의
+  draft_id: K1.4-063
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-064
+  surface: (?<![가-힣])리스크(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 위험
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0759]; 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1143]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0759
+  - v2-1143
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 리스크 분석
+    good: 위험 분석
+  draft_id: K1.4-064
+  corpus_hits:
+    B: 0
+    C: 8
+    D: 0
+- id: K1.6-065
+  surface: (?<![가-힣])카테고리(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 범주
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1172]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1172
+  tier: 0
+  severity: warn
+  status: proposed
+  note: UI 메뉴 이름이면 제품 표기를 따른다.
+  examples:
+    bad: 카테고리 선택
+    good: 범주 선택
+  draft_id: K1.4-065
+  corpus_hits:
+    B: 0
+    C: 3
+    D: 0
+- id: K1.6-066
+  surface: (?<![가-힣])코스트(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 비용
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1219]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1219
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 코스트 절감
+    good: 비용 절감
+  draft_id: K1.4-066
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 1
+- id: K1.6-067
+  surface: 스탠(?:다|더)드
+  suggest: 표준
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1262]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1262
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 상품명이면 유지.
+  examples:
+    bad: 스탠다드 요금제
+    good: 표준 요금제
+  draft_id: K1.4-067
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-068
+  surface: (?<![가-힣])(?:소트|쏘트)(?![가-힣]*트)
+  suggest: 정렬
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1251]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1251
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''소트'' 알고리즘 명칭은 유지.'
+  examples:
+    bad: 소트 순서
+    good: 정렬 순서
+  draft_id: K1.4-068
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-069
+  surface: (?<![가-힣])스페어(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 여분
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1266]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1266
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 스페어 배터리
+    good: 여분 배터리
+  draft_id: K1.4-069
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-070
+  surface: (?<![가-힣])(?:밸런스|발란스)(?![가-힣])
+  suggest: 균형
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1200]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1200
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''로드 밸런서''는 고유 장비명. 대상 아님(뒤에 한글이 붙어 제외됨).'
+  examples:
+    bad: 밸런스 조정
+    good: 균형 조정
+  draft_id: K1.4-070
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-071
+  surface: (?<![가-힣])포커스(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 초점
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1286]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1286
+  tier: 0
+  severity: warn
+  status: proposed
+  note: UI 'focus'(입력 초점)는 '초점' 또는 '포커스' 프로젝트 합의.
+  examples:
+    bad: 포커스 이동
+    good: 초점 이동
+  draft_id: K1.4-071
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 1
+- id: K1.6-072
+  surface: (?<![가-힣])(?:타겟|타깃)(?![가-힣])
+  suggest: 목표 / 대상
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1224]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1224
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 목표·대상 중 맥락으로 고른다.
+  examples:
+    bad: 타겟 서버
+    good: 대상 서버
+  draft_id: K1.4-072
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-073
+  surface: 라이프\s?사이클
+  suggest: 생애 주기 / 생명주기
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1095]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1095
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 소프트웨어에서는 '생명주기'가 통용.
+  examples:
+    bad: 라이프 사이클 관리
+    good: 생애 주기 관리
+  draft_id: K1.4-073
+  corpus_hits:
+    B: 0
+    C: 5
+    D: 1
+- id: K1.6-074
+  surface: (?<![가-힣])로열티(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 사용료
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1132]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1132
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 로열티 지급
+    good: 사용료 지급
+  draft_id: K1.4-074
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-075
+  surface: 시너지\s?효과
+  suggest: 상승효과
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0925]; 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1269]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0925
+  - v2-1269
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 시너지 효과
+    good: 상승효과
+  draft_id: K1.4-075
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.6-076
+  surface: 마스터\s?플랜
+  suggest: 종합 계획 / 기본 계획
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0527]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0761]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0527
+  - v2-0761
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 마스터플랜 수립
+    good: 종합 계획 수립
+  draft_id: K1.4-076
+  corpus_hits:
+    B: 0
+    C: 9
+    D: 0
+- id: K1.6-077
+  surface: 액션\s?플랜
+  suggest: 실행 계획
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0788]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0788
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 액션 플랜 확정
+    good: 실행 계획 확정
+  draft_id: K1.4-077
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-078
+  surface: (?:어|아)젠다
+  suggest: 의제
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0790]; 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1274]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0790
+  - v2-1274
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 회의 어젠다
+    good: 회의 의제
+  draft_id: K1.4-078
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-079
+  surface: (?<![가-힣])니즈(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 요구 / 필요
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0749]; 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1087]
+  source_docs:
+  - hannune
+  - bareugo2013
+  pair_ids:
+  - v2-0749
+  - v2-1087
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 사용자 니즈
+    good: 사용자 요구
+  draft_id: K1.4-079
+  corpus_hits:
+    B: 0
+    C: 3
+    D: 0
+- id: K1.6-080
+  surface: 킥오프\s?회의
+  suggest: 첫 회의
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0756]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0756
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 킥오프 회의
+    good: 첫 회의
+  draft_id: K1.4-080
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-081
+  surface: (?<![가-힣])플랜(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 계획
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0580]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0580
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 요금 플랜(상품명)은 제외.
+  examples:
+    bad: 플랜 검토
+    good: 계획 검토
+  draft_id: K1.4-081
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-082
+  surface: (?<![가-힣])스크린(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 화면
+  category: 외래어→우리말
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.68 [v2-0475]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0475
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 스크린 해상도
+    good: 화면 해상도
+  draft_id: K1.4-082
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 1
+- id: K1.6-084
+  surface: 오픈(?:하|한|해|했)
+  suggest: 열다 / 개장하다
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1113]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1113
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 창을 오픈한다
+    good: 창을 연다
+  draft_id: K1.4-084
+  corpus_hits:
+    B: 0
+    C: 3
+    D: 3
+- id: K1.6-085
+  surface: 핸드\s?폰
+  suggest: 휴대 전화
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1314]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1314
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 핸드폰 번호
+    good: 휴대 전화 번호
+  draft_id: K1.4-085
+  corpus_hits:
+    B: 1
+    C: 0
+    D: 1
+- id: K1.6-086
+  surface: 앙케(?:트|이트|이드)
+  suggest: 설문 조사
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1305]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1305
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 앙케트 결과
+    good: 설문 조사 결과
+  draft_id: K1.4-086
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-087
+  surface: (?<![가-힣])이니셜(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 머리글자
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1125]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1125
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 이니셜 표기
+    good: 머리글자 표기
+  draft_id: K1.4-087
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-090
+  surface: 뉴스\s?레터
+  suggest: 소식지
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0921]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-0921
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 뉴스레터 발송
+    good: 소식지 발송
+  draft_id: K1.4-090
+  corpus_hits:
+    B: 0
+    C: 4
+    D: 0
+- id: K1.6-092
+  surface: 엘리베(?:이|아)?(?:터|타)
+  suggest: 승강기
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1109]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1109
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 엘리베이터 점검
+    good: 승강기 점검
+  draft_id: K1.4-092
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-093
+  surface: (?<![가-힣])가솔린(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 휘발유
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1074]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1074
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 가솔린 엔진
+    good: 휘발유 엔진
+  draft_id: K1.4-093
+  corpus_hits:
+    B: 2
+    C: 0
+    D: 0
+- id: K1.6-094
+  surface: (?<![가-힣])메타포(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 은유
+  category: 외래어→우리말
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1154]
+  source_docs:
+  - bareugo2013
+  pair_ids:
+  - v2-1154
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: UI 메타포
+    good: UI 은유
+  draft_id: K1.4-094
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-096
+  surface: (?<![가-힣])집행율(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 집행률
+  category: 표기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.45 [v2-0040]
+  source_docs:
+  - report2021
+  pair_ids:
+  - v2-0040
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''률/율'' 표기: 받침 ㄴ·모음 뒤 ''율'', 그 외 ''률''.'
+  examples:
+    bad: 집행율
+    good: 집행률
+  draft_id: K1.4-096
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-097
+  surface: (?<![가-힣])실업율(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 실업률
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.104 [v2-0660]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0660
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''률/율'' 표기.'
+  examples:
+    bad: 실업율
+    good: 실업률
+  draft_id: K1.4-097
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-098
+  surface: (?<![가-힣])승인률(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 승인율
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.96 [v2-0634]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0634
+  tier: 0
+  severity: warn
+  status: proposed
+  note: '''률/율'' 표기.'
+  examples:
+    bad: 승인률
+    good: 승인율
+  draft_id: K1.4-098
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K7.4-099
+  surface: 년수(?![가-힣])
+  suggest: 연수
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.96 [v2-0633]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0633
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 두음법칙·'-연수' 표기.
+  examples:
+    bad: 사용 년수
+    good: 사용 연수
+  draft_id: K1.4-099
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-100
+  surface: 메뉴얼
+  suggest: 매뉴얼
+  category: 표기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.127 [v2-0184]; 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0684]
+  source_docs:
+  - report2021
+  - hannune
+  pair_ids:
+  - v2-0184
+  - v2-0684
+  tier: 0
+  severity: warn
+  status: proposed
+  note: 표기 오류. 위 '매뉴얼' 항목과 별개로 항상 교정.
+  examples:
+    bad: 메뉴얼
+    good: 매뉴얼
+  draft_id: K1.4-100
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K7.4-101
+  surface: (?<![가-힣])갯수(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 개수
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.20 [v2-0243]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0243
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 갯수
+    good: 개수
+  draft_id: K1.4-101
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-102
+  surface: (?<![가-힣])포탈(?=[은는이가을를의에도와과로만]|으로|에서|에게|[^가-힣]|$)
+  suggest: 포털
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.42 [v2-0353]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0353
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 포탈 사이트
+    good: 포털 사이트
+  draft_id: K1.4-102
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-103
+  surface: 센타(?![가-힣]*[가-힣]{2})
+  suggest: 센터
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0392]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0392
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 데이터 센타
+    good: 데이터 센터
+  draft_id: K1.4-103
+  corpus_hits:
+    B: 0
+    C: 1
+    D: 0
+- id: K1.6-104
+  surface: 워크샵
+  suggest: 워크숍
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.46 [v2-0361]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0361
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 워크샵 참석
+    good: 워크숍 참석
+  draft_id: K1.4-104
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-105
+  surface: 마켓팅
+  suggest: 마케팅
+  category: 표기
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.126 [v2-0182]
+  source_docs:
+  - report2021
+  pair_ids:
+  - v2-0182
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 마켓팅 전략
+    good: 마케팅 전략
+  draft_id: K1.4-105
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-106
+  surface: 팀웍
+  suggest: 팀워크
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.86 [v2-0560]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0560
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 팀웍 강화
+    good: 팀워크 강화
+  draft_id: K1.4-106
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0
+- id: K1.6-107
+  surface: 비젼
+  suggest: 비전
+  category: 표기
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0518]
+  source_docs:
+  - hannune
+  pair_ids:
+  - v2-0518
+  tier: 0
+  severity: warn
+  status: proposed
+  note: ''
+  examples:
+    bad: 비젼 수립
+    good: 비전 수립
+  draft_id: K1.4-107
+  corpus_hits:
+    B: 0
+    C: 0
+    D: 0

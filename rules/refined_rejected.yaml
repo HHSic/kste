@@ -1,0 +1,6935 @@
+# KSTE refined_rejected.yaml (term pair 중 채택하지 않은 항목과 사유)
+# 상태: 제안(proposed). 사람이 승인하기 전에는 확정이 아니다 (설계안 §3.3).
+# 이 파일은 research/scripts/build_rules.py 가 생성한 초안이다. rules/ 쪽 본 파일은 사람이 수정하므로 덮어쓰지 않는다.
+# 쪽 번호는 pairs_v2.json / research/sources/*.txt 의 PDF 쪽 기준 (인쇄쪽과 다를 수 있음).
+rejected:
+- id: X-001
+  pair_id: v2-0010
+  before: 니다.
+  after: 수 없습니다.
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.33 [v2-0010]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-002
+  pair_id: v2-0117
+  before: 가.
+  after: 가)
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.97 [v2-0117]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-003
+  pair_id: v2-0118
+  before: 나.
+  after: 나)
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.97 [v2-0118]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-004
+  pair_id: v2-0123
+  before: 경기
+  after: 경기도
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.102 [v2-0123]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-005
+  pair_id: v2-0183
+  before: 티켓팅
+  after: 티케팅
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.126 [v2-0183]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-006
+  pair_id: v2-0186
+  before: 쉘터
+  after: 셸터
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 공공언어 지침 연구보고서(2021) p.127 [v2-0186]
+  source_docs:
+  - report2021
+  status: rejected
+- id: X-007
+  pair_id: v2-0247
+  before: 거버넌스
+  after: 관리/협치/정책 등
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.20 [v2-0247]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-008
+  pair_id: v2-0248
+  before: 취업 컨설팅
+  after: 취업 상담
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.20 [v2-0248]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-009
+  pair_id: v2-0249
+  before: 부스
+  after: 홍보관
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.20 [v2-0249]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-010
+  pair_id: v2-0261
+  before: 슬럿지
+  after: 슬러지 / 침전물
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.22 [v2-0261]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-011
+  pair_id: v2-0266
+  before: 금번
+  after: 이번
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0266]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-012
+  pair_id: v2-0267
+  before: 마대
+  after: 포대/자루
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0267]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-013
+  pair_id: v2-0268
+  before: 금일
+  after: 오늘
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.24 [v2-0268]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-014
+  pair_id: v2-0272
+  before: 통보
+  after: 알림
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0272]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-015
+  pair_id: v2-0279
+  before: 게재하여
+  after: 실어
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0279]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-016
+  pair_id: v2-0282
+  before: 매뉴얼
+  after: 지침
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.26 [v2-0282]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-017
+  pair_id: v2-0287
+  before: 보여짐
+  after: 보임
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 [v2-0287]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-018
+  pair_id: v2-0289
+  before: 기 통보한
+  after: 이미 통보한 / 이미 알려 드린
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 [v2-0289]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-019
+  pair_id: v2-0291
+  before: 통보하여
+  after: 알려
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.28 [v2-0291]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-020
+  pair_id: v2-0302
+  before: 산출 내역서
+  after: 산출 명세서
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.30 [v2-0302]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-021
+  pair_id: v2-0306
+  before: 끝
+  after: 끝.
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.32 [v2-0306]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-022
+  pair_id: v2-0334
+  before: 상기
+  after: 위의 / 위에 적은
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.38 [v2-0334]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-023
+  pair_id: v2-0338
+  before: 요망
+  after: 바람.
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0338]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-024
+  pair_id: v2-0339
+  before: 상기
+  after: 위의
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.40 [v2-0339]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-025
+  pair_id: v2-0354
+  before: 수여하고자
+  after: 주고자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.42 [v2-0354]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-026
+  pair_id: v2-0359
+  before: 익일
+  after: 다음 날/이튿날
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0359]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-027
+  pair_id: v2-0363
+  before: 접수
+  after: 신청
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.46 [v2-0363]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-028
+  pair_id: v2-0375
+  before: 사료됨
+  after: 생각함
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.48 [v2-0375]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-029
+  pair_id: v2-0386
+  before: 이메일
+  after: 전자 우편
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0386]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-030
+  pair_id: v2-0389
+  before: 팝업
+  after: 알림창
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0389]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-031
+  pair_id: v2-0390
+  before: PC
+  after: 컴퓨터/피시(PC)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0390]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-032
+  pair_id: v2-0391
+  before: 출두
+  after: 출석
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0391]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-033
+  pair_id: v2-0393
+  before: 주의가 요구됩니다.
+  after: 주의해야 합니다.
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.52 [v2-0393]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-034
+  pair_id: v2-0403
+  before: 토크 콘서트
+  after: 이야기 공연
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.54 [v2-0403]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-035
+  pair_id: v2-0405
+  before: 20 SPACE
+  after: 20 스페이스(SPACE)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.54 [v2-0405]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-036
+  pair_id: v2-0412
+  before: 해커톤
+  after: 마라톤 토론회 / 끝장 토론 등
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.56 [v2-0412]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-037
+  pair_id: v2-0414
+  before: ICT
+  after: 아이시티(ICT) / 정보 통신 기술
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.56 [v2-0414]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-038
+  pair_id: v2-0415
+  before: 5 why
+  after: 5 와이(why)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.56 [v2-0415]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-039
+  pair_id: v2-0416
+  before: 이탈리안라이그라스
+  after: 이탤리언라이그래스
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0416]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-040
+  pair_id: v2-0424
+  before: 혼파
+  after: 섞어 심기 / 섞어 뿌림
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0424]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-041
+  pair_id: v2-0425
+  before: 연시회
+  after: 기술 시연회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0425]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-042
+  pair_id: v2-0426
+  before: 익년도
+  after: 이듬해
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0426]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-043
+  pair_id: v2-0427
+  before: 조사료
+  after: 거친 사료
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.58 [v2-0427]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-044
+  pair_id: v2-0439
+  before: "\x04원스톱"
+  after: 일괄/한자리/한번에/바로
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0439]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-045
+  pair_id: v2-0441
+  before: 설정
+  after: 설정하고
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.62 [v2-0441]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-046
+  pair_id: v2-0444
+  before: 로드맵
+  after: 청사진 / 밑그림 / 길잡이 / 단계별 이행안
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.62 [v2-0444]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-047
+  pair_id: v2-0446
+  before: 클러스터
+  after: 연합(지구)
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.62 [v2-0446]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-048
+  pair_id: v2-0447
+  before: LED
+  after: 엘이디(LED) / 발광 다이오드(LED)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.62 [v2-0447]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-049
+  pair_id: v2-0448
+  before: 종사자에 대한
+  after: 종사자에게
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0448]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-050
+  pair_id: v2-0450
+  before: 교육을 실시하게
+  after: 교육을 하게
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0450]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-051
+  pair_id: v2-0455
+  before: 있다”고
+  after: 있다.”라고 / 있다”라고
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0455]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-052
+  pair_id: v2-0456
+  before: 프로젝트
+  after: (연구) 과제/사업
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.64 [v2-0456]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-053
+  pair_id: v2-0474
+  before: VS
+  after: 대
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.68 [v2-0474]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-054
+  pair_id: v2-0476
+  before: 되었다”고
+  after: 되었다.”라고 / 되었다”라고
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.68 [v2-0476]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-055
+  pair_id: v2-0477
+  before: 바란다”고
+  after: 바란다.”라고 / 바란다”라고
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.68 [v2-0477]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-056
+  pair_id: v2-0487
+  before: ~이 제한됨
+  after: ~을 제한받음
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.70 [v2-0487]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-057
+  pair_id: v2-0490
+  before: 금년
+  after: 올해
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.70 [v2-0490]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-058
+  pair_id: v2-0491
+  before: 브랜드 슬로건
+  after: 대표 구호 / 홍보 문구 / 대표 가치 띄움말 등
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.72 [v2-0491]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-059
+  pair_id: v2-0492
+  before: 비전
+  after: 전망
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.72 [v2-0492]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-060
+  pair_id: v2-0493
+  before: 이미지 메이킹
+  after: 이미지 만들기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.72 [v2-0493]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-061
+  pair_id: v2-0494
+  before: BI
+  after: 비아이(BI) / 대표 이미지
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.72 [v2-0494]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-062
+  pair_id: v2-0495
+  before: 도출
+  after: 이끌어 냄
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.72 [v2-0495]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-063
+  pair_id: v2-0505
+  before: p21
+  after: 21쪽
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0505]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-064
+  pair_id: v2-0509
+  before: 지급
+  after: 속히
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.74 [v2-0509]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-065
+  pair_id: v2-0517
+  before: 구체화시켜
+  after: 구체화해
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0517]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-066
+  pair_id: v2-0519
+  before: Bush
+  after: 부시
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0519]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-067
+  pair_id: v2-0520
+  before: Obama
+  after: 오바마
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0520]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-068
+  pair_id: v2-0521
+  before: 기여하는
+  after: 이바지하는
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.76 [v2-0521]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-069
+  pair_id: v2-0522
+  before: 명문화함으로써
+  after: 밝힘으로써
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0522]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-070
+  pair_id: v2-0523
+  before: 이행에 있어
+  after: 이행에서
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0523]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-071
+  pair_id: v2-0526
+  before: 글로벌화
+  after: 세계화/국제화
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0526]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-072
+  pair_id: v2-0528
+  before: "\x04para. 1-2"
+  after: 1-2 단락
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.78 [v2-0528]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-073
+  pair_id: v2-0549
+  before: 합리적 조정해
+  after: 합리적으로 조정해
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.84 [v2-0549]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-074
+  pair_id: v2-0563
+  before: 모니터링하고
+  after: 관찰하고/지켜보고
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.86 [v2-0563]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-075
+  pair_id: v2-0564
+  before: 통화스왑
+  after: 통화스와프 / 통화교환
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.86 [v2-0564]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-076
+  pair_id: v2-0565
+  before: 對해외언론
+  after: 대해외 언론
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.86 [v2-0565]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-077
+  pair_id: v2-0575
+  before: 혁파
+  after: 없앰
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0575]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-078
+  pair_id: v2-0576
+  before: 패러다임
+  after: 틀/체계/방식
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0576]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-079
+  pair_id: v2-0577
+  before: 채널
+  after: 경로/창구
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0577]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-080
+  pair_id: v2-0578
+  before: 리더십
+  after: 지도력/통솔력
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0578]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-081
+  pair_id: v2-0579
+  before: 마이스터
+  after: 장인/예술가
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.88 [v2-0579]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-082
+  pair_id: v2-0587
+  before: DB
+  after: 데이터베이스
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0587]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-083
+  pair_id: v2-0588
+  before: 파일럿 테스트
+  after: 예비 시험
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0588]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-084
+  pair_id: v2-0589
+  before: 인프라
+  after: 기반
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0589]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-085
+  pair_id: v2-0590
+  before: 스포츠 클럽
+  after: 운동 모임 / 동호회
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0590]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-086
+  pair_id: v2-0591
+  before: 타 학교
+  after: 다른 학교
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.90 [v2-0591]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-087
+  pair_id: v2-0595
+  before: 제로 플랜
+  after: 없애기 계획
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0595]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-088
+  pair_id: v2-0596
+  before: 인센티브
+  after: 특전/혜택
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0596]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-089
+  pair_id: v2-0597
+  before: 원스톱
+  after: 일괄/통합
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0597]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-090
+  pair_id: v2-0598
+  before: 인프라
+  after: 기반 (시설)
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0598]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-091
+  pair_id: v2-0599
+  before: 유비쿼터스
+  after: 두루누리
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0599]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-092
+  pair_id: v2-0600
+  before: 학습시스템
+  after: 학습 체제
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0600]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-093
+  pair_id: v2-0601
+  before: 컨트롤 타워
+  after: 지휘부
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0601]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-094
+  pair_id: v2-0603
+  before: T/F
+  after: 특별 팀
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0603]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-095
+  pair_id: v2-0604
+  before: TV
+  after: 텔레비전
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0604]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-096
+  pair_id: v2-0605
+  before: R&D
+  after: 연구 개발
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0605]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-097
+  pair_id: v2-0606
+  before: GDP
+  after: 국내 총생산
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.92 [v2-0606]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-098
+  pair_id: v2-0611
+  before: 글로벌
+  after: 국제적/세계적
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0611]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-099
+  pair_id: v2-0612
+  before: 글로벌 네트워크
+  after: 국제적 연결망
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0612]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-100
+  pair_id: v2-0613
+  before: 매뉴얼
+  after: 설명서/안내서
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0613]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-101
+  pair_id: v2-0614
+  before: 모델
+  after: 본보기
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0614]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-102
+  pair_id: v2-0615
+  before: 비즈니스벨트
+  after: 사업 지대
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0615]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-103
+  pair_id: v2-0616
+  before: 비즈니스
+  after: 사업
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.94 [v2-0616]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-104
+  pair_id: v2-0624
+  before: 10천㎡이상
+  after: 1만㎡ 이상
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.96 [v2-0624]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-105
+  pair_id: v2-0640
+  before: 바닥으로부터
+  after: 바닥에서
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.98 [v2-0640]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-106
+  pair_id: v2-0647
+  before: Step 1.
+  after: 1단계
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.100 [v2-0647]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-107
+  pair_id: v2-0659
+  before: 표본
+  after: 조사 대상자
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.104 [v2-0659]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-108
+  pair_id: v2-0664
+  before: 고객
+  after: 승객
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0664]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-109
+  pair_id: v2-0665
+  before: 채널
+  after: 창구
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0665]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-110
+  pair_id: v2-0666
+  before: 스크린도어
+  after: 안전문
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0666]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-111
+  pair_id: v2-0667
+  before: 정차한 후
+  after: 멈춘 뒤
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.106 [v2-0667]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-112
+  pair_id: v2-0678
+  before: 차월
+  after: 다음 달
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0678]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-113
+  pair_id: v2-0679
+  before: 차차월
+  after: 다다음 달
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0679]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-114
+  pair_id: v2-0680
+  before: 자관
+  after: 우리 도서관
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0680]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-115
+  pair_id: v2-0682
+  before: 수납한 후
+  after: 받은 다음
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0682]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-116
+  pair_id: v2-0683
+  before: 관할
+  after: 담당
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0683]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-117
+  pair_id: v2-0685
+  before: 로그인
+  after: 접속
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0685]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-118
+  pair_id: v2-0686
+  before: 팝업창
+  after: 알림창
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0686]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-119
+  pair_id: v2-0688
+  before: SMS
+  after: 문자 메시지
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.108 [v2-0688]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-120
+  pair_id: v2-0693
+  before: 모집공고
+  after: 모집
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0693]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-121
+  pair_id: v2-0694
+  before: E-mail
+  after: 전자우편
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0694]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-122
+  pair_id: v2-0695
+  before: 접수
+  after: 제출
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0695]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-123
+  pair_id: v2-0699
+  before: 송금 요망
+  after: 송금하시기 바랍니다.
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.110 [v2-0699]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-124
+  pair_id: v2-0703
+  before: 4대보험
+  after: 4대 보험과
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.112 [v2-0703]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-125
+  pair_id: v2-0710
+  before: 복무규정에 의거함.
+  after: 복무규정에 따름
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.112 [v2-0710]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-126
+  pair_id: v2-0714
+  before: 바람
+  after: 바랍니다.
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0714]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-127
+  pair_id: v2-0718
+  before: 의한
+  after: 따른
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0718]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-128
+  pair_id: v2-0719
+  before: 의하여
+  after: 따라
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0719]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-129
+  pair_id: v2-0720
+  before: 당해
+  after: 그
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.114 [v2-0720]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-130
+  pair_id: v2-0722
+  before: 기재 필
+  after: 반드시 기재
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0722]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-131
+  pair_id: v2-0724
+  before: 바라며,
+  after: 바랍니다.
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0724]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-132
+  pair_id: v2-0727
+  before: 미달이더라도
+  after: 그에 미달하더라도
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0727]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-133
+  pair_id: v2-0734
+  before: 일체
+  after: 일절
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.116 [v2-0734]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-134
+  pair_id: v2-0735
+  before: 대상,
+  after: 대상으로
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.118 [v2-0735]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-135
+  pair_id: v2-0736
+  before: 의거
+  after: 의거하여 / 따라/따라서
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.118 [v2-0736]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-136
+  pair_id: v2-0743
+  before: 거버넌스
+  after: 민관 협력, 협치, 관리, 정책
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0743]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-137
+  pair_id: v2-0744
+  before: 오피니언 리더
+  after: 여론 주도자, 여론 주도층
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0744]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-138
+  pair_id: v2-0745
+  before: 규제 프리존
+  after: 규제 자유 구역, 규제 (대폭) 완화 지역, 무규제 지역
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0745]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-139
+  pair_id: v2-0746
+  before: 원스트라이크 아웃제
+  after: 즉각 처벌 제도, 즉시 퇴출제
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0746]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-140
+  pair_id: v2-0747
+  before: 규제 샌드박스
+  after: 규제 유예 (제도)
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0747]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-141
+  pair_id: v2-0748
+  before: 이니셔티브
+  after: 주도권, 선제권, 구상, 발의, 발의권
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0748]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-142
+  pair_id: v2-0750
+  before: 제로화
+  after: 원점화, 없애기, 뿌리 뽑기
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0750]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-143
+  pair_id: v2-0751
+  before: 데모데이
+  after: 시연회, 시연일, 시범 행사 (일), 사전 행사(일)
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0751]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-144
+  pair_id: v2-0752
+  before: 쿼터
+  after: 한도량, 할당량
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0752]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-145
+  pair_id: v2-0753
+  before: 드론
+  after: 무인기
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0753]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-146
+  pair_id: v2-0754
+  before: 클러스터
+  after: 산학 협력 지구, 연합 지구, 협력 지구
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0754]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-147
+  pair_id: v2-0755
+  before: 라운드 테이블
+  after: 원탁회의
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0755]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-148
+  pair_id: v2-0757
+  before: 롤모델
+  after: 본보기, 본보기상, 모범
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0757]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-149
+  pair_id: v2-0758
+  before: 태스크포스 (T/F, TF) / 태스크포스팀
+  after: 특별팀, 전담팀, (특별) 전담 조직
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0758]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-150
+  pair_id: v2-0760
+  before: 테스트 베드
+  after: 시험장, 시험대, 시험무대, 가늠터
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0760]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-151
+  pair_id: v2-0762
+  before: 투 트랙
+  after: 양면, 두 갈래
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0762]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-152
+  pair_id: v2-0763
+  before: 매뉴얼
+  after: 지침, 설명서, 안내서
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0763]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-153
+  pair_id: v2-0764
+  before: 팸투어
+  after: 홍보 여행, 초청 홍보 여행, 사전 답사 여행
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0764]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-154
+  pair_id: v2-0765
+  before: 매칭
+  after: 연계, 연결, 대응
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0765]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-155
+  pair_id: v2-0766
+  before: (···)풀
+  after: (···)후보군, (···)군, (···)명단
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.146 [v2-0766]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-156
+  pair_id: v2-0767
+  before: 메가트렌드
+  after: 대세, 거대 물결
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0767]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-157
+  pair_id: v2-0768
+  before: 허브
+  after: 중심, 중심지
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0768]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-158
+  pair_id: v2-0769
+  before: 모멘텀
+  after: (전환) 국면, (전환) 계기, 동인(動因)
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0769]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-159
+  pair_id: v2-0770
+  before: AI
+  after: ① 인공 지능 ② 조류 독감, 조류 인플루엔자
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0770]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-160
+  pair_id: v2-0771
+  before: 바우처
+  after: 이용권
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0771]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-161
+  pair_id: v2-0772
+  before: B2B/G2G
+  after: 기업 간 (거래)/ 정부 간 (거래)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0772]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-162
+  pair_id: v2-0773
+  before: 브라운백 미팅, 브라운백 세미나
+  after: 도시락 강연회, 도시락 회의, 도시락 토론회
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0773]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-163
+  pair_id: v2-0774
+  before: BI
+  after: 브랜드 정체성
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0774]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-164
+  pair_id: v2-0776
+  before: G20
+  after: 주요 20개국
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0776]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-165
+  pair_id: v2-0777
+  before: 세션
+  after: 분과, 시간
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0777]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-166
+  pair_id: v2-0778
+  before: ICT
+  after: 정보 통신 기술
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0778]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-167
+  pair_id: v2-0779
+  before: IoT
+  after: 사물 인터넷
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0779]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-168
+  pair_id: v2-0780
+  before: 스타트업
+  after: 창업 초기 기업, 새싹 기업
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0780]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-169
+  pair_id: v2-0781
+  before: IR
+  after: 기업 설명회, 기업 상담회
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0781]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-170
+  pair_id: v2-0782
+  before: 싱크 탱크
+  after: 참모진, 참모 집단, 두뇌 집단
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0782]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-171
+  pair_id: v2-0783
+  before: IT
+  after: 정보 기술
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0783]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-172
+  pair_id: v2-0784
+  before: 아웃리치
+  after: 현장 지원 활동, 현장 원조 활동, 거리 상담
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0784]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-173
+  pair_id: v2-0785
+  before: MOU
+  after: 업무 협약, 양해 각서
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0785]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-174
+  pair_id: v2-0786
+  before: 아카이브
+  after: 자료 보관소, 자료 저장소, 자료 전산화, 기록 보관
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0786]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-175
+  pair_id: v2-0787
+  before: O2O
+  after: 온오프라인 연계, 온오프라인 연계 마케팅, 온오프라인 연계 사업
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0787]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-176
+  pair_id: v2-0789
+  before: ODA
+  after: 공적 개발 원조, 정부 개발 원조
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0789]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-177
+  pair_id: v2-0791
+  before: 가료
+  after: 치료
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0791]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-178
+  pair_id: v2-0794
+  before: 수의시담
+  after: 가격 협의
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0794]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-179
+  pair_id: v2-0795
+  before: 개산/개산하다/ 개산급
+  after: 어림 계산, 대략 계산 / 어림잡아 계산하다, 대략 계산하다/어림 지급, 대략 계산 지급
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0795]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-180
+  pair_id: v2-0797
+  before: 거양/거양하다
+  after: 올림, (드)높임, 듦/올리다, (드)높이다, 들다
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0797]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-181
+  pair_id: v2-0798
+  before: 양도양수
+  after: 주고받음, 넘겨주고 넘겨받음
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0798]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-182
+  pair_id: v2-0800
+  before: (아스팔트 등) 양생
+  after: (아스팔트 등) 굳히기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.147 [v2-0800]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-183
+  pair_id: v2-0801
+  before: 견양
+  after: 보기, 본, 본보기, 서식
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0801]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-184
+  pair_id: v2-0802
+  before: 여입 결의
+  after: 회수 결정
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0802]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-185
+  pair_id: v2-0803
+  before: 계류 / 계류되다 / 계류 중
+  after: 묶임 / 묶여 있다, 묶이다 / 검토 중
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0803]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-186
+  pair_id: v2-0804
+  before: 예가
+  after: 예정 가격
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0804]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-187
+  pair_id: v2-0805
+  before: 계리
+  after: 회계처리
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0805]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-188
+  pair_id: v2-0806
+  before: 예산 지변 과목
+  after: 예산 과목
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0806]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-189
+  pair_id: v2-0808
+  before: 예찰
+  after: 미리 살피기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0808]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-190
+  pair_id: v2-0809
+  before: 이격
+  after: 벌어짐, 벌림, 떨어짐
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0809]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-191
+  pair_id: v2-0810
+  before: 금회
+  after: 이번
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0810]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-192
+  pair_id: v2-0811
+  before: 익일/익월/익년
+  after: 다음 날 / 다음 달 / 다음 해
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0811]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-193
+  pair_id: v2-0813
+  before: 일부인
+  after: 날짜 도장
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0813]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-194
+  pair_id: v2-0814
+  before: 내용 연수
+  after: 사용 연한, 사용 가능 기간, 사용 가능 햇수
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0814]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-195
+  pair_id: v2-0816
+  before: 단차
+  after: 고저차, 높이 차이, 높낮이 (차이)
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0816]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-196
+  pair_id: v2-0817
+  before: 자동 제세동기
+  after: 자동 심장 충격기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0817]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-197
+  pair_id: v2-0818
+  before: 당해
+  after: 그, 해당
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0818]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-198
+  pair_id: v2-0820
+  before: 동년/동월/동일
+  after: 같은 해 / 같은 달 / 같은 날
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0820]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-199
+  pair_id: v2-0821
+  before: 적의 조치 / 적의 조치하기 바람
+  after: 적절한 조치 / 적절히 조치하기 바람
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0821]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-200
+  pair_id: v2-0822
+  before: 동법/동조/동항
+  after: 같은 법 / 같은 조 / 같은 항
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0822]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-201
+  pair_id: v2-0824
+  before: 물품 수불 대장
+  after: 물품 출납 장부, 물품 출납 대장
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0824]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-202
+  pair_id: v2-0825
+  before: 차년도
+  after: 다음 해, 다음 연도
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0825]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-203
+  pair_id: v2-0827
+  before: (기부 등을) 채납/채납하다
+  after: (기부 등을) 받음, 받기 / 받다, 받아들이다
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0827]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-204
+  pair_id: v2-0828
+  before: 부락
+  after: 마을
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0828]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-205
+  pair_id: v2-0830
+  before: 불상의, 불상인
+  after: 알 수 없는, 자세하지 않은
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0830]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-206
+  pair_id: v2-0831
+  before: 초도순시
+  after: 첫 시찰, 첫 둘러보기
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0831]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-207
+  pair_id: v2-0833
+  before: (경보, 사이렌 등을) 취명 / 취명하다
+  after: (경보, 사이렌 등을) 울림 / 울리다
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0833]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-208
+  pair_id: v2-0834
+  before: 불입/불입하다
+  after: 납입, 납부, 냄 / 납입하다, 납부하다, 내다
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0834]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-209
+  pair_id: v2-0836
+  before: 불출/불출하다
+  after: 내줌, 공급, 지급 / 내주다, 공급하다, 지급하다
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0836]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-210
+  pair_id: v2-0837
+  before: 하구언
+  after: 하굿둑
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0837]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-211
+  pair_id: v2-0838
+  before: 성료
+  after: 성공적으로 마침, 성공적으로 끝남, 성대하게 마침
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.148 [v2-0838]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-212
+  pair_id: v2-0840
+  before: 망년회
+  after: 송년회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0840]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-213
+  pair_id: v2-0841
+  before: 거래선
+  after: 거래처
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0841]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-214
+  pair_id: v2-0842
+  before: 견습
+  after: 수습
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0842]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-215
+  pair_id: v2-0843
+  before: 종지부
+  after: 마침표
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0843]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-216
+  pair_id: v2-0844
+  before: 모포
+  after: 담요
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0844]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-217
+  pair_id: v2-0845
+  before: 대절
+  after: 전세
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0845]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-218
+  pair_id: v2-0846
+  before: 고수부지
+  after: 둔치
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0846]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-219
+  pair_id: v2-0849
+  before: 보합세
+  after: 주춤세
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0849]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-220
+  pair_id: v2-0850
+  before: 노견
+  after: 갓길
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0850]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-221
+  pair_id: v2-0851
+  before: 불입
+  after: 납입
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0851]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-222
+  pair_id: v2-0852
+  before: 가불
+  after: 선지급
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0852]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-223
+  pair_id: v2-0853
+  before: 고참
+  after: 선임
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0853]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-224
+  pair_id: v2-0854
+  before: 가처분
+  after: 임시 처분
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0854]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-225
+  pair_id: v2-0855
+  before: 다반사
+  after: 예삿일
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0855]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-226
+  pair_id: v2-0856
+  before: 수취인
+  after: 받는 이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0856]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-227
+  pair_id: v2-0857
+  before: 익일
+  after: 다음 날
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.149 [v2-0857]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-228
+  pair_id: v2-0859
+  before: 모찌
+  after: 찹쌀떡
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0859]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-229
+  pair_id: v2-0860
+  before: 쓰키다시
+  after: 곁들이찬
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0860]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-230
+  pair_id: v2-0861
+  before: 유도리
+  after: 융통성
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0861]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-231
+  pair_id: v2-0862
+  before: 아나고
+  after: 붕장어
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0862]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-232
+  pair_id: v2-0863
+  before: 나가리
+  after: 무산
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0863]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-233
+  pair_id: v2-0864
+  before: 가라
+  after: 가짜
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0864]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-234
+  pair_id: v2-0865
+  before: 나와바리
+  after: 구역
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0865]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-235
+  pair_id: v2-0866
+  before: 간지나다
+  after: 멋지다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0866]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-236
+  pair_id: v2-0867
+  before: 단도리
+  after: 단속/채비
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0867]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-237
+  pair_id: v2-0868
+  before: 무데뽀
+  after: 막무가내
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0868]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-238
+  pair_id: v2-0869
+  before: 땡땡이
+  after: 물방울
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0869]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-239
+  pair_id: v2-0870
+  before: 이빠이
+  after: 많이/가득
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0870]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-240
+  pair_id: v2-0871
+  before: 만땅
+  after: 가득 {차다/채우다}
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0871]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-241
+  pair_id: v2-0872
+  before: 곤조
+  after: 고집/근성
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0872]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-242
+  pair_id: v2-0873
+  before: 쇼부
+  after: 결판
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0873]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-243
+  pair_id: v2-0874
+  before: 기스
+  after: 흠/흠집
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0874]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-244
+  pair_id: v2-0875
+  before: 와사비
+  after: 고추냉이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0875]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-245
+  pair_id: v2-0876
+  before: 분빠이하다
+  after: 나누다/ 각자내기하다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0876]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-246
+  pair_id: v2-0877
+  before: 찌라시
+  after: 전단지/광고지
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0877]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-247
+  pair_id: v2-0878
+  before: 사시미
+  after: 생선회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0878]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-248
+  pair_id: v2-0879
+  before: 가오
+  after: 체면/무게
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0879]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-249
+  pair_id: v2-0880
+  before: 와꾸
+  after: 틀
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0880]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-250
+  pair_id: v2-0881
+  before: 쿠사리
+  after: 핀잔
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0881]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-251
+  pair_id: v2-0882
+  before: 지리
+  after: 맑은탕
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0882]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-252
+  pair_id: v2-0883
+  before: 노가다
+  after: 막노동/막일
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0883]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-253
+  pair_id: v2-0884
+  before: 뽀록나다
+  after: 들통나다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0884]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-254
+  pair_id: v2-0885
+  before: 대빵
+  after: 대장
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0885]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-255
+  pair_id: v2-0886
+  before: 비까번쩍하다
+  after: 번쩍번쩍하다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0886]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-256
+  pair_id: v2-0887
+  before: 나시
+  after: 민소매
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0887]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-257
+  pair_id: v2-0888
+  before: 삑사리
+  after: 실수 / 음 이탈 / 헛발질
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.150 [v2-0888]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-258
+  pair_id: v2-0889
+  before: MOU
+  after: 업무 협정/양해 각서
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0889]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-259
+  pair_id: v2-0890
+  before: 인센티브
+  after: 성과급/유인책/보상/혜택
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0890]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-260
+  pair_id: v2-0891
+  before: TF
+  after: 전담 팀 / 특별 팀
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0891]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-261
+  pair_id: v2-0893
+  before: 로드맵
+  after: (단계별) 이행안
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0893]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-262
+  pair_id: v2-0894
+  before: 프로세스
+  after: 공정/과정/경과/절차
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0894]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-263
+  pair_id: v2-0895
+  before: 허브
+  after: 중심축
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.60 [v2-0895]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-264
+  pair_id: v2-0899
+  before: 상정하다
+  after: 회의에 {부치다/올리다}
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 한눈에 알아보는 공공언어 바로 쓰기(개정판 2022) p.44 [v2-0899]
+  source_docs:
+  - hannune
+  status: rejected
+- id: X-265
+  pair_id: v2-0905
+  before: 연면적
+  after: 전체 면적(총면적)
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.41 [v2-0905]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-266
+  pair_id: v2-0907
+  before: 시방서
+  after: 세부 안내서, 세부 지침서, 설명서
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.41 [v2-0907]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-267
+  pair_id: v2-0912
+  before: 법면
+  after: 비탈면
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0912]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-268
+  pair_id: v2-0914
+  before: 적의조치
+  after: 알맞게 조치(처리)하여
+  reason_code: R9
+  reason: banned.yaml 에서 이미 처리 (한자어 축약·번역투·-시키다 등)
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0914]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-269
+  pair_id: v2-0916
+  before: 암거
+  after: 지하도랑
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0916]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-270
+  pair_id: v2-0918
+  before: 도복
+  after: (작물이) 쓰러진
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.42 [v2-0918]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-271
+  pair_id: v2-0920
+  before: 가드레일(guard-rail)
+  after: 보호 난간
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0920]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-272
+  pair_id: v2-0922
+  before: 롤모델(Role model)
+  after: 본보기상
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0922]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-273
+  pair_id: v2-0923
+  before: 멘토(Mentor)
+  after: (인생)길잡이
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0923]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-274
+  pair_id: v2-0924
+  before: 보이스피싱(voice phishing)
+  after: (음성)사기전화
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0924]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-275
+  pair_id: v2-0926
+  before: 와이파이(Wi-Fi)
+  after: 근거리무선망
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.43 [v2-0926]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-276
+  pair_id: v2-0929
+  before: 간호원
+  after: 간호사
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0929]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-277
+  pair_id: v2-0930
+  before: 구두닦이
+  after: 구두미화원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0930]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-278
+  pair_id: v2-0931
+  before: 신문팔이
+  after: 가두신문판매원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0931]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-279
+  pair_id: v2-0932
+  before: 우체부
+  after: 우편집배원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0932]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-280
+  pair_id: v2-0933
+  before: 운전수
+  after: 운전사
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0933]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-281
+  pair_id: v2-0934
+  before: 청소부
+  after: 환경미화원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0934]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-282
+  pair_id: v2-0935
+  before: 파출부/가정부
+  after: 가사도우미
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0935]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-283
+  pair_id: v2-0936
+  before: 군바리
+  after: 군인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0936]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-284
+  pair_id: v2-0937
+  before: 노가다/막일꾼
+  after: 건설노동자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0937]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-285
+  pair_id: v2-0938
+  before: 딴따라
+  after: 연예인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.44 [v2-0938]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-286
+  pair_id: v2-0939
+  before: 불구자/장애자
+  after: 장애인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0939]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-287
+  pair_id: v2-0940
+  before: 소경/장님/맹인
+  after: 시각장애인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0940]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-288
+  pair_id: v2-0941
+  before: 벙어리/귀머거리/언청이
+  after: 청각장애인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0941]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-289
+  pair_id: v2-0942
+  before: 앉은뱅이/절름발이/지체부자유자/외팔이/절름발이
+  after: 지체장애인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0942]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-290
+  pair_id: v2-0943
+  before: 저능아/정신박약아
+  after: 지적장애인
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0943]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-291
+  pair_id: v2-0944
+  before: ‘벙어리 냉가슴’을 앓고 있다.
+  after: 말 못할 고민에 빠졌다.
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0944]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-292
+  pair_id: v2-0945
+  before: ‘장님 코끼리 만지기’ 식이어서
+  after: 주먹구구식이어서
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0945]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-293
+  pair_id: v2-0946
+  before: ‘절름발이 내각’으로
+  after: 엉성한 내각으로
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.45 [v2-0946]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-294
+  pair_id: v2-0947
+  before: 얼굴마담
+  after: 대리 사장, 명의 사장
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.46 [v2-0947]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-295
+  pair_id: v2-0948
+  before: 살색
+  after: 연주황 → 살구색
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.46 [v2-0948]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-296
+  pair_id: v2-0949
+  before: 혼혈 가수
+  after: 가수
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.46 [v2-0949]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-297
+  pair_id: v2-0950
+  before: 조선족
+  after: 재중동포/중국동포
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.46 [v2-0950]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-298
+  pair_id: v2-1054
+  before: 임도
+  after: 임도(임산 도로)
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1054]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-299
+  pair_id: v2-1055
+  before: 전작권
+  after: 전작권(전시 작전 통제권)
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1055]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-300
+  pair_id: v2-1056
+  before: 부이
+  after: 계선 부표(buoy)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1056]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-301
+  pair_id: v2-1057
+  before: AP
+  after: 무선인터넷 공유기(AP)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1057]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-302
+  pair_id: v2-1058
+  before: Bottom-up방식
+  after: 하의상달형(Bottom-up) 방식
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1058]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-303
+  pair_id: v2-1059
+  before: LED
+  after: 발광다이오드(LED)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1059]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-304
+  pair_id: v2-1060
+  before: LNG
+  after: 액화천연가스(LNG)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1060]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-305
+  pair_id: v2-1061
+  before: Top-down방식
+  after: 상의하달형(Top-down) 방식
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1061]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-306
+  pair_id: v2-1062
+  before: T/F
+  after: 특별 팀(Task force)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1062]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-307
+  pair_id: v2-1063
+  before: Think-Tank역할
+  after: 두뇌 집단(Think-Tank) 역할
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1063]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-308
+  pair_id: v2-1064
+  before: QR코드
+  after: 정보 무늬(QR)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1064]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-309
+  pair_id: v2-1065
+  before: ADEX
+  after: 항공우주 및 방위산업 전시회(ADEX, Aerospace & Defence Exhibition)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1065]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-310
+  pair_id: v2-1066
+  before: AI
+  after: 조류인플루엔자(AI, Avian Influenza)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1066]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-311
+  pair_id: v2-1067
+  before: HPAI
+  after: 고병원성 조류인플루엔자(HPAI, Highly pathogenic Avian Influenza)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1067]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-312
+  pair_id: v2-1068
+  before: ADD
+  after: 국방과학연구소(ADD, Agency for Defense Development)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.177 [v2-1068]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-313
+  pair_id: v2-1069
+  before: FDA
+  after: 식품의약국(FDA, Food and Drug Administration)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.178 [v2-1069]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-314
+  pair_id: v2-1070
+  before: FTA
+  after: 자유무역협정(FTA, Free Trade Agreement)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.178 [v2-1070]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-315
+  pair_id: v2-1071
+  before: GDP
+  after: 국내총생산(GDP, Gross Domestic Product)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.178 [v2-1071]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-316
+  pair_id: v2-1072
+  before: ICT
+  after: 정보통신기술(ICT, Information & Communication Technology)
+  reason_code: R5
+  reason: '로마자 약어 풀이: 약어는 K1.7(최초 1회 한글(원어) 병기)로 처리, 치환 규칙 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.178 [v2-1072]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-317
+  pair_id: v2-1073
+  before: 가드레일
+  after: 보호난간
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1073]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-318
+  pair_id: v2-1075
+  before: 가이드라인
+  after: 지침서
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1075]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-319
+  pair_id: v2-1076
+  before: 갈라 쇼, 갈라 쑈
+  after: 뒤풀이 공연
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1076]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-320
+  pair_id: v2-1077
+  before: 관광투어
+  after: 관광 여행
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1077]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-321
+  pair_id: v2-1078
+  before: 그린 벨트
+  after: 개발제한구역
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1078]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-322
+  pair_id: v2-1079
+  before: 글로벌
+  after: 국제
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1079]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-323
+  pair_id: v2-1080
+  before: 글로벌 스탠더드
+  after: 국제 표준
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1080]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-324
+  pair_id: v2-1081
+  before: 넌버벌
+  after: 비언어적
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1081]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-325
+  pair_id: v2-1082
+  before: 네트워크
+  after: 통신망
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1082]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-326
+  pair_id: v2-1083
+  before: 네티즌, 내티즌
+  after: 누리꾼
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1083]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-327
+  pair_id: v2-1084
+  before: 노이로제
+  after: 신경쇠약
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1084]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-328
+  pair_id: v2-1085
+  before: 논픽션
+  after: 실화
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1085]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-329
+  pair_id: v2-1086
+  before: 뉘앙스, 뉴앙스
+  after: 어감
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1086]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-330
+  pair_id: v2-1088
+  before: 닉네임
+  after: 별명
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1088]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-331
+  pair_id: v2-1090
+  before: 다크 서클
+  after: 눈그늘
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1090]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-332
+  pair_id: v2-1091
+  before: 더치 페이
+  after: 각자 내기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1091]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-333
+  pair_id: v2-1092
+  before: 데코레이션, 데커레이션
+  after: 장식
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1092]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-334
+  pair_id: v2-1093
+  before: 드라마틱하다
+  after: 극적이다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1093]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-335
+  pair_id: v2-1094
+  before: 라이선스
+  after: 사용권
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1094]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-336
+  pair_id: v2-1096
+  before: 라이프 스타일
+  after: 생활 양식
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1096]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-337
+  pair_id: v2-1097
+  before: 랜드마크
+  after: 마루지, 표지물
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1097]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-338
+  pair_id: v2-1098
+  before: 레시피, 래시피
+  after: 조리법
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1098]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-339
+  pair_id: v2-1099
+  before: 레이스
+  after: 경주
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1099]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-340
+  pair_id: v2-1100
+  before: 러닝 타임, 런닝 타임
+  after: 상영 시간
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1100]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-341
+  pair_id: v2-1101
+  before: 언론 플레이
+  after: 여론몰이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1101]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-342
+  pair_id: v2-1103
+  before: 에듀테인먼트
+  after: 놀이학습
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1103]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-343
+  pair_id: v2-1104
+  before: 에레베타
+  after: 승강기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1104]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-344
+  pair_id: v2-1105
+  before: 에스컬레이터
+  after: 자동계단
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1105]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-345
+  pair_id: v2-1106
+  before: 에코맘
+  after: 환경친화주부
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1106]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-346
+  pair_id: v2-1107
+  before: 에피소드
+  after: 일화
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1107]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-347
+  pair_id: v2-1108
+  before: 엑스포
+  after: 박람회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1108]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-348
+  pair_id: v2-1111
+  before: 오프너
+  after: 병따개
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1111]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-349
+  pair_id: v2-1112
+  before: 오프닝
+  after: 개막
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1112]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-350
+  pair_id: v2-1114
+  before: 오피니언 리더층
+  after: 여론 주도층
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1114]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-351
+  pair_id: v2-1115
+  before: 올 인
+  after: 다걸기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1115]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-352
+  pair_id: v2-1116
+  before: 와이 파이
+  after: 근거리 무선망
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1116]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-353
+  pair_id: v2-1117
+  before: 워크숍
+  after: 연구 협의회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1117]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-354
+  pair_id: v2-1118
+  before: 워킹 맘
+  after: 직장인 엄마
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1118]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-355
+  pair_id: v2-1119
+  before: 워터 파크
+  after: 물놀이 공원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1119]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-356
+  pair_id: v2-1120
+  before: 웨딩 플래너
+  after: 결혼도우미
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1120]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-357
+  pair_id: v2-1121
+  before: 웰빙
+  after: 참살이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1121]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-358
+  pair_id: v2-1122
+  before: 웹 서핑, 웹서핑
+  after: 누리검색
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1122]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-359
+  pair_id: v2-1123
+  before: 유시시, 유씨씨, UCC
+  after: 손수제작물
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1123]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-360
+  pair_id: v2-1124
+  before: 이니셔티브, 이니시어티브
+  after: 주도권
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1124]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-361
+  pair_id: v2-1126
+  before: 이데올로기
+  after: 이념
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1126]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-362
+  pair_id: v2-1127
+  before: 이메일, e-mail
+  after: 전자 우편
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1127]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-363
+  pair_id: v2-1128
+  before: 이벤트
+  after: 행사
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.180 [v2-1128]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-364
+  pair_id: v2-1129
+  before: 레저, 레져
+  after: 여가
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1129]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-365
+  pair_id: v2-1130
+  before: 레크리에이션, 레크레이션
+  after: 오락
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1130]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-366
+  pair_id: v2-1131
+  before: 로열 박스, 로얄 박스
+  after: 귀빈석
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1131]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-367
+  pair_id: v2-1133
+  before: 로컬푸드
+  after: 지역 음식
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1133]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-368
+  pair_id: v2-1134
+  before: 루머
+  after: 뜬소문
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1134]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-369
+  pair_id: v2-1136
+  before: 룸 메이트
+  after: 방친구
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1136]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-370
+  pair_id: v2-1137
+  before: 리더
+  after: 지도자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1137]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-371
+  pair_id: v2-1138
+  before: 리더십, 리더쉽
+  after: 지도력
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1138]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-372
+  pair_id: v2-1139
+  before: 리드미컬하다, 리드미칼하다
+  after: 율동적이다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1139]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-373
+  pair_id: v2-1140
+  before: 리빙 룸
+  after: 거실
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1140]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-374
+  pair_id: v2-1141
+  before: 리사이클링
+  after: 재활용
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1141]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-375
+  pair_id: v2-1142
+  before: 리셉션
+  after: 연회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1142]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-376
+  pair_id: v2-1144
+  before: 리플
+  after: 댓글
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1144]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-377
+  pair_id: v2-1145
+  before: 리플릿
+  after: 광고 쪽지, 광고지
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1145]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-378
+  pair_id: v2-1146
+  before: 마스터 플랜, 마스터 플랜
+  after: 종합 계획
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1146]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-379
+  pair_id: v2-1147
+  before: 매너리즘, 메너리즘
+  after: 타성
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1147]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-380
+  pair_id: v2-1148
+  before: 매칭으로
+  after: 동반으로, 함께
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1148]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-381
+  pair_id: v2-1149
+  before: 맨투맨
+  after: 일대일
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1149]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-382
+  pair_id: v2-1150
+  before: 머스트 해브, must have
+  after: 필수품
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1150]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-383
+  pair_id: v2-1151
+  before: 멀티 탭
+  after: 모둠꽂이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1151]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-384
+  pair_id: v2-1152
+  before: 메세나
+  after: 문예 후원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1152]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-385
+  pair_id: v2-1153
+  before: 메인
+  after: 주요
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1153]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-386
+  pair_id: v2-1155
+  before: 메카
+  after: 중심지
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1155]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-387
+  pair_id: v2-1156
+  before: 멘토링
+  after: 후원, 상담, 지도
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1156]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-388
+  pair_id: v2-1157
+  before: 멜로디
+  after: 가락
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1157]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-389
+  pair_id: v2-1158
+  before: 모니터링/모니터링 검사
+  after: 점검
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1158]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-390
+  pair_id: v2-1159
+  before: 이슈
+  after: 쟁점
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1159]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-391
+  pair_id: v2-1160
+  before: 인센티브
+  after: 성과급
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1160]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-392
+  pair_id: v2-1161
+  before: 인스턴트 식품
+  after: 즉석식품
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1161]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-393
+  pair_id: v2-1162
+  before: 인터체인지, IC
+  after: 교차로
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1162]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-394
+  pair_id: v2-1163
+  before: 인턴사원
+  after: 실습 사원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1163]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-395
+  pair_id: v2-1164
+  before: 제로 베이스
+  after: 백지상태
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1164]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-396
+  pair_id: v2-1165
+  before: 조류인플루엔자
+  after: 조류 독감
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1165]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-397
+  pair_id: v2-1166
+  before: 추리닝, 추리닝복, 츄리닝, 츄리닝복
+  after: 운동복
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1166]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-398
+  pair_id: v2-1167
+  before: 치어 리더
+  after: 흥돋움이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1167]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-399
+  pair_id: v2-1168
+  before: 카 시트
+  after: 아이 안전의자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1168]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-400
+  pair_id: v2-1169
+  before: 카운슬러
+  after: 상담사
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1169]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-401
+  pair_id: v2-1170
+  before: 카운슬링
+  after: 상담
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1170]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-402
+  pair_id: v2-1171
+  before: 카운트 다운
+  after: 초읽기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1171]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-403
+  pair_id: v2-1173
+  before: 카 풀
+  after: 승용차 함께 타기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1173]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-404
+  pair_id: v2-1174
+  before: 커리어 우먼, 캐리어 우먼
+  after: 전문직 여성
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1174]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-405
+  pair_id: v2-1175
+  before: 캐비아, 캐비어
+  after: 철갑상어알
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1175]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-406
+  pair_id: v2-1176
+  before: 캐시 카드, 캐쉬 카드
+  after: 현금 카드
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1176]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-407
+  pair_id: v2-1177
+  before: 캐스팅 보트
+  after: 결정권
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1177]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-408
+  pair_id: v2-1178
+  before: 캐치 프레이즈
+  after: 구호
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1178]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-409
+  pair_id: v2-1179
+  before: 캘린더
+  after: 달력
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1179]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-410
+  pair_id: v2-1180
+  before: 캠프 파이어
+  after: 모닥불놀이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1180]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-411
+  pair_id: v2-1181
+  before: 캡처, 캡쳐
+  after: 갈무리
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1181]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-412
+  pair_id: v2-1182
+  before: 커플 룩
+  after: 짝꿍차림
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1182]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-413
+  pair_id: v2-1183
+  before: 컨설팅
+  after: 상담
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1183]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-414
+  pair_id: v2-1184
+  before: 컨소시엄
+  after: 연합체
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1184]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-415
+  pair_id: v2-1185
+  before: 컨퍼런스 콘퍼런스
+  after: 회의
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1185]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-416
+  pair_id: v2-1186
+  before: 커리어 우먼
+  after: 전문직 여성
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.181 [v2-1186]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-417
+  pair_id: v2-1187
+  before: 모델 케이스
+  after: 본보기
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1187]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-418
+  pair_id: v2-1188
+  before: 모럴, 모랄
+  after: 도덕
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1188]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-419
+  pair_id: v2-1189
+  before: 모티브, 모티프
+  after: 동기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1189]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-420
+  pair_id: v2-1190
+  before: 모티켓, 모티켙
+  after: 통신 예절
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1190]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-421
+  pair_id: v2-1191
+  before: 무빙 워크
+  after: 자동길
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1191]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-422
+  pair_id: v2-1192
+  before: 문화바우처
+  after: 문화복지상품권, 문화시설이용권
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1192]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-423
+  pair_id: v2-1193
+  before: 미스매치
+  after: 잘못된 배정
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1193]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-424
+  pair_id: v2-1194
+  before: 바겐 세일, 바겐 쎄일
+  after: 할인 판매
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1194]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-425
+  pair_id: v2-1195
+  before: 보디 가드, 바디 가드
+  after: 경호원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1195]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-426
+  pair_id: v2-1196
+  before: 보디 라인, 바디 라인
+  after: 체형
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1196]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-427
+  pair_id: v2-1197
+  before: 바베큐, 바비큐
+  after: 통구이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1197]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-428
+  pair_id: v2-1198
+  before: 바이어
+  after: 구매상
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1198]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-429
+  pair_id: v2-1199
+  before: 바캉스
+  after: 휴가
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1199]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-430
+  pair_id: v2-1201
+  before: 발레 파킹
+  after: 대리주차
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1201]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-431
+  pair_id: v2-1202
+  before: 방카 슈랑스, 방카 쉬랑스
+  after: 은행연계보험
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1202]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-432
+  pair_id: v2-1203
+  before: 버전, 버젼
+  after: 판
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1203]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-433
+  pair_id: v2-1204
+  before: 버튼
+  after: 단추
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1204]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-434
+  pair_id: v2-1205
+  before: 보너스, 보나스, 보우너스
+  after: 상여금
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1205]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-435
+  pair_id: v2-1206
+  before: 보이스 피싱
+  after: 음성 사기 전화
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1206]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-436
+  pair_id: v2-1207
+  before: 뷰 파인더
+  after: 보기창
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1207]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-437
+  pair_id: v2-1208
+  before: 브이아이피, VIP
+  after: 귀빈
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1208]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-438
+  pair_id: v2-1209
+  before: 브이오디 서비스, VOD 서비스
+  after: 다시보기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1209]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-439
+  pair_id: v2-1210
+  before: 블루 벨트
+  after: 청정수역
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1210]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-440
+  pair_id: v2-1211
+  before: 산악팀웍훈련
+  after: 산악협동훈련
+  reason_code: R6
+  reason: '표기 단편: 문장부호·번호·인용부호·외국 인명·단순 철자 (어휘 교체 쌍이 아니거나 기술문서 빈도 낮음)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1211]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-441
+  pair_id: v2-1212
+  before: 샐러리 맨
+  after: 봉급생활자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1212]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-442
+  pair_id: v2-1213
+  before: 샘플링
+  after: 표본 추출
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1213]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-443
+  pair_id: v2-1214
+  before: 서클, 써클
+  after: 동아리
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1214]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-444
+  pair_id: v2-1215
+  before: 세일즈
+  after: 판매
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1215]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-445
+  pair_id: v2-1216
+  before: 센서, 쎈서
+  after: 감지기
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1216]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-446
+  pair_id: v2-1217
+  before: 코르사주, 코사지
+  after: 맵시꽃
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1217]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-447
+  pair_id: v2-1218
+  before: 코스
+  after: 경로
+  reason_code: R8
+  reason: '추출 단편·문맥 의존: before/after 가 독립 어휘 쌍이 아님'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1218]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-448
+  pair_id: v2-1220
+  before: 쿼터제
+  after: 할당제
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1220]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-449
+  pair_id: v2-1221
+  before: 크레디트 카드, 크레딧 카드
+  after: 신용 카드
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1221]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-450
+  pair_id: v2-1222
+  before: 크로스 백
+  after: 엇걸이가방
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1222]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-451
+  pair_id: v2-1223
+  before: 클러스터
+  after: 연합
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1223]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-452
+  pair_id: v2-1225
+  before: 타운 하우스
+  after: 공동전원주택
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1225]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-453
+  pair_id: v2-1227
+  before: 타이틀 곡
+  after: 주제곡
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1227]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-454
+  pair_id: v2-1228
+  before: 타임 캡슐
+  after: 기억 상자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1228]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-455
+  pair_id: v2-1229
+  before: 탑 클래스, 탑 크라스, 톱 클래스, 톱 크라스
+  after: 정상급
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1229]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-456
+  pair_id: v2-1230
+  before: 턴키공사
+  after: 일괄 공사
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1230]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-457
+  pair_id: v2-1231
+  before: 테마
+  after: 주제
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1231]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-458
+  pair_id: v2-1232
+  before: 테스터
+  after: 체험 평가자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1232]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-459
+  pair_id: v2-1233
+  before: 테이블 세팅, 테이블 셋팅
+  after: 상차림
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1233]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-460
+  pair_id: v2-1234
+  before: 테이블 클로스
+  after: 식탁보
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1234]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-461
+  pair_id: v2-1235
+  before: 텔레 마케팅
+  after: 전화 판매
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1235]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-462
+  pair_id: v2-1236
+  before: 톨 게이트
+  after: 요금소
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1236]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-463
+  pair_id: v2-1237
+  before: 투 잡
+  after: 겹벌이
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1237]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-464
+  pair_id: v2-1238
+  before: 투어 콘서트
+  after: 순회공연
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1238]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-465
+  pair_id: v2-1239
+  before: 트레이닝복
+  after: 운동복
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1239]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-466
+  pair_id: v2-1240
+  before: 티오, T/O, TO
+  after: 정원
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1240]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-467
+  pair_id: v2-1241
+  before: 파트 타임
+  after: 시간제 근무
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1241]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-468
+  pair_id: v2-1242
+  before: 파트너십, 파트너쉽
+  after: 동반 관계
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1242]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-469
+  pair_id: v2-1243
+  before: 파파라치
+  after: 몰래제보꾼
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1243]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-470
+  pair_id: v2-1244
+  before: 팝업 창
+  after: 알림창
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1244]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-471
+  pair_id: v2-1245
+  before: 패딩
+  after: 누비옷
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.182 [v2-1245]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-472
+  pair_id: v2-1247
+  before: 쎈티멘탈리즘, 쎈치멘탈리즘
+  after: 감상주의
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1247]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-473
+  pair_id: v2-1248
+  before: 선루프, 썬루프
+  after: 지붕창
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1248]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-474
+  pair_id: v2-1249
+  before: 세일, 쎄일
+  after: 할인 판매
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1249]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-475
+  pair_id: v2-1250
+  before: 센티멘털리즘, 센티멘탈리즘, 센치멘털리즘, 센치멘탈리즘
+  after: 감상주의
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1250]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-476
+  pair_id: v2-1252
+  before: 스마트 워크
+  after: 원격 근무
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1252]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-477
+  pair_id: v2-1253
+  before: 스마트그리드
+  after: 지능형 전력망
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1253]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-478
+  pair_id: v2-1254
+  before: 스매싱
+  after: 강타
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1254]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-479
+  pair_id: v2-1255
+  before: 스캔들
+  after: 추문
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1255]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-480
+  pair_id: v2-1257
+  before: 스크린 도어
+  after: 안전문
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1257]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-481
+  pair_id: v2-1258
+  before: 스타트
+  after: 출발
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1258]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-482
+  pair_id: v2-1259
+  before: 스터디 그룹, 스타디 그룹
+  after: 공부 모임
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1259]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-483
+  pair_id: v2-1260
+  before: 스타디움
+  after: 경기장
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1260]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-484
+  pair_id: v2-1261
+  before: 스타팅 멤버
+  after: 선발(先發) 선수
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1261]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-485
+  pair_id: v2-1263
+  before: 스테이지
+  after: 무대
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1263]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-486
+  pair_id: v2-1264
+  before: 스토리
+  after: 이야기
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1264]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-487
+  pair_id: v2-1265
+  before: 스폿 광고, 스파트 광고, 스팟 광고 스포트 광고
+  after: 반짝광고
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1265]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-488
+  pair_id: v2-1267
+  before: 스프레이
+  after: 분무기
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1267]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-489
+  pair_id: v2-1268
+  before: 슬로건
+  after: 표어, 구호
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1268]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-490
+  pair_id: v2-1270
+  before: 신드롬, 씬드롬
+  after: 증후군
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1270]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-491
+  pair_id: v2-1271
+  before: 심결
+  after: 심리 결정
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1271]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-492
+  pair_id: v2-1272
+  before: 아이덴터티, 아이덴티티
+  after: 정체성
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1272]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-493
+  pair_id: v2-1273
+  before: 아이젠
+  after: 눈길덧신
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1273]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-494
+  pair_id: v2-1275
+  before: 패키지 상품
+  after: 꾸러미 상품
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1275]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-495
+  pair_id: v2-1276
+  before: 패턴
+  after: 유형
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1276]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-496
+  pair_id: v2-1277
+  before: 팩시밀리, FAX
+  after: 전송
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1277]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-497
+  pair_id: v2-1278
+  before: 팸투어
+  after: 사전 답사 여행
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1278]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-498
+  pair_id: v2-1279
+  before: 퍼레이드
+  after: 행진, 행렬
+  reason_code: R7
+  reason: '대체어가 여럿이고 맥락 의존: 단일 치환 불가 (사람이 고른 뒤 용어 통일표로)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1279]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-499
+  pair_id: v2-1280
+  before: 퍼포먼스
+  after: 공연
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1280]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-500
+  pair_id: v2-1281
+  before: 퍼포먼스 예술
+  after: 행위 예술
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1281]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-501
+  pair_id: v2-1282
+  before: 페스티벌
+  after: 축제
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1282]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-502
+  pair_id: v2-1283
+  before: 페어
+  after: 박람회
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1283]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-503
+  pair_id: v2-1284
+  before: 펜 네임
+  after: 필명
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1284]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-504
+  pair_id: v2-1285
+  before: 포스트 잇, 포스트이트
+  after: 붙임쪽지
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1285]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-505
+  pair_id: v2-1287
+  before: 포토존
+  after: 사진 촬영 구역
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1287]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-506
+  pair_id: v2-1288
+  before: 폴리스라인
+  after: 통제선
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1288]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-507
+  pair_id: v2-1289
+  before: 푸드코트
+  after: 음식 매장
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1289]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-508
+  pair_id: v2-1290
+  before: 프라이버시
+  after: 사생활
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1290]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-509
+  pair_id: v2-1291
+  before: 프라임 시간대
+  after: 황금 시간대
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1291]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-510
+  pair_id: v2-1292
+  before: 프론티어
+  after: 개척자
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1292]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-511
+  pair_id: v2-1293
+  before: 플래 카드, 프래 카드, 플랑 카드, 플랭 카드
+  after: 현수막
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1293]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-512
+  pair_id: v2-1294
+  before: 프러포즈, 프로포즈
+  after: 청혼
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1294]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-513
+  pair_id: v2-1295
+  before: 피니시
+  after: 도착
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1295]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-514
+  pair_id: v2-1296
+  before: 피아르, 피알, PR
+  after: 홍보
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1296]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-515
+  pair_id: v2-1297
+  before: 피엘 상품 PL 상품
+  after: 자체기획상품
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1297]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-516
+  pair_id: v2-1298
+  before: 피켓
+  after: 팻말
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1298]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-517
+  pair_id: v2-1299
+  before: 픽션
+  after: 허구
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1299]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-518
+  pair_id: v2-1300
+  before: 핀트
+  after: 초점
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1300]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-519
+  pair_id: v2-1301
+  before: 하이 테크
+  after: 첨단 기술
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1301]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-520
+  pair_id: v2-1302
+  before: 하이 파이브
+  after: 손뼉맞장구
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.183 [v2-1302]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-521
+  pair_id: v2-1303
+  before: 아카이빙
+  after: 자료 전산화
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1303]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-522
+  pair_id: v2-1304
+  before: 아티스트
+  after: 예술가
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1304]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-523
+  pair_id: v2-1306
+  before: 액기스, 액끼스, 엑기스, 엑끼스
+  after: 진액
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1306]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-524
+  pair_id: v2-1307
+  before: 액제
+  after: 물약
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1307]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-525
+  pair_id: v2-1308
+  before: 앰뷸런스, 앰불란스, 앰뷸런스
+  after: 구급차
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1308]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-526
+  pair_id: v2-1309
+  before: 앰프
+  after: 확성기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1309]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-527
+  pair_id: v2-1310
+  before: 어시스트
+  after: 도움
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1310]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-528
+  pair_id: v2-1311
+  before: 할리우드 액션, 할리웃 액션, 헐리우드 액션, 헐리웃 액션
+  after: 눈속임짓
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1311]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-529
+  pair_id: v2-1312
+  before: 핫라인
+  after: 직통 회선
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1312]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-530
+  pair_id: v2-1313
+  before: 핫 이슈
+  after: 주요 쟁점
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1313]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-531
+  pair_id: v2-1315
+  before: 핸드 프린팅
+  after: 기념손찍기
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1315]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-532
+  pair_id: v2-1316
+  before: 히트를 치다
+  after: 인기를 얻다
+  reason_code: R3
+  reason: '원어가 기술문서에 거의 안 나옴: 행정·생활·일본어 속어·직업·시사 어휘 (선별 대상 아님)'
+  source: 국립국어원 바르고 쉬운 공공언어(2013) p.184 [v2-1316]
+  source_docs:
+  - bareugo2013
+  status: rejected
+- id: X-533
+  pair_id: v2-1322
+  before: 아셈 노인 인권 콘퍼런스 콘셉트 페이퍼
+  after: 아셈 노인 인권학술회의 제안서 / 아셈 노인 인권학술 대회 제안서 / 아셈 노인 인권학술회의 기획안 / 아셈 노인 인권학술 대회 기획안
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1322]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-534
+  pair_id: v2-1323
+  before: 집회 시위 가이드라인
+  after: 집회 시위 지침서 / 집회 시위 지침 / 집회 시위 안내서
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1323]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-535
+  pair_id: v2-1324
+  before: 군 옴부즈만 연례 회의
+  after: 군 인권 보호관 연례회의
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1324]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-536
+  pair_id: v2-1325
+  before: 강제 실종 보호 협약가입 촉구 콘퍼런스
+  after: 강제 실종 보호협약 가입 촉구 학술회의 / 강제 실종 보호협약 가입 촉구 학술대회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1325]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-537
+  pair_id: v2-1326
+  before: 인권 경영 포럼
+  after: 인권 경영 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1326]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-538
+  pair_id: v2-1327
+  before: 글로벌 에이징 센터
+  after: 국제 노인 인권 센터
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1327]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-539
+  pair_id: v2-1328
+  before: 인권 교육 포럼
+  after: 인권 교육 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1328]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-540
+  pair_id: v2-1329
+  before: 지방 옴부즈만 (※ ‘옴부즈맨’이 옳은
+  after: 지역민 고충 처리반
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.89 [v2-1329]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-541
+  pair_id: v2-1330
+  before: 표기입니다.)
+  after: 지역민 고충 처리위원회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1330]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-542
+  pair_id: v2-1331
+  before: 국민 콜 110
+  after: 국민 민원 안내 110
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1331]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-543
+  pair_id: v2-1332
+  before: e-Navi
+  after: 차세대 해양 관리 체계
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1332]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-544
+  pair_id: v2-1333
+  before: 스마트 시티
+  after: 지능형 도시
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1333]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-545
+  pair_id: v2-1334
+  before: 날씨 ON
+  after: 날씨 방송 / 날씨 알림 / 기상 방송
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1334]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-546
+  pair_id: v2-1335
+  before: 팩트 체크
+  after: 기상 궁금증
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1335]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-547
+  pair_id: v2-1336
+  before: 현업 모델-UM
+  after: 통합형 수치 예측 모델
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1336]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-548
+  pair_id: v2-1337
+  before: 한국형 모델-KIM
+  after: 한국형 날씨 예측 모델
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1337]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-549
+  pair_id: v2-1338
+  before: 한국 2세대 스마트팜
+  after: 한국 2세대 지능형 농장 / 한국 2세대 지능형 농업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1338]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-550
+  pair_id: v2-1339
+  before: 세계 농촌 지도 포럼
+  after: 세계 농촌 지도 공개토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1339]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-551
+  pair_id: v2-1340
+  before: PLS 제도
+  after: 농약 허용 기준강화 제도 / 농약 허용 물질목록 관리 제도
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.90 [v2-1340]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-552
+  pair_id: v2-1341
+  before: 골든 시드 프로젝트
+  after: (수출용) 우량종자 육성 사업 / 황금 종자 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1341]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-553
+  pair_id: v2-1342
+  before: RDA, ARS, WUR공동 워크숍
+  after: 농촌진흥청, 미국농업연구청, 네덜란드 바헤닝언대학 연구소공동 연수회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1342]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-554
+  pair_id: v2-1343
+  before: 스마트 팜 혁신 밸리
+  after: 지능형 농장 혁신단지 / 지능형 농장 혁신지구 / 지능형 농업 혁신단지 / 지능형 농업 혁신지구
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1343]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-555
+  pair_id: v2-1344
+  before: 스마트 팜 테스트 베드
+  after: 지능형 농장 시범운영 지구 / 지능형 농업 시범운영 지구
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1344]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-556
+  pair_id: v2-1345
+  before: Jump-Up 육성 프로그램
+  after: 역량 강화 프로그램
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1345]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-557
+  pair_id: v2-1346
+  before: 그린 스쿨
+  after: 친환경 학교 / 녹색 학교
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1346]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-558
+  pair_id: v2-1347
+  before: 그린 인프라 기술
+  after: 친환경 기술 / 녹색 기술
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1347]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-559
+  pair_id: v2-1348
+  before: 스마트 그린 타운
+  after: 지능형 친환경 마을 / 지능형 녹색 마을
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1348]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-560
+  pair_id: v2-1349
+  before: 무형 유산 VR 체험관
+  after: 무형 유산 가상 현실체험관
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1349]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-561
+  pair_id: v2-1350
+  before: 백제 역사 지구 탐방팸 투어
+  after: 백제 역사 지구 사전답사 여행
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.91 [v2-1350]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-562
+  pair_id: v2-1351
+  before: 드림 프로그램
+  after: 겨울 스포츠 체험 프로그램
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1351]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-563
+  pair_id: v2-1352
+  before: 패션 창작 스튜디오
+  after: 패션 창작소 / 패션 창작 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1352]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-564
+  pair_id: v2-1353
+  before: 아트 비즈니스 센터
+  after: 예술 사업 센터
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1353]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-565
+  pair_id: v2-1354
+  before: 북 스타트
+  after: 독서 문화 운동
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1354]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-566
+  pair_id: v2-1355
+  before: 정책 위키
+  after: 민간 참여형 정책 사전
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1355]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-567
+  pair_id: v2-1356
+  before: 공예 메이커 스페이스
+  after: 공예 열린 제작실 / 공예 창작 활동공간 / 공예 공방
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1356]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-568
+  pair_id: v2-1357
+  before: 공예 트렌드 페어
+  after: 공예 박람회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1357]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-569
+  pair_id: v2-1358
+  before: 국민 소통 포럼
+  after: 국민 소통 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1358]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-570
+  pair_id: v2-1359
+  before: 클린 스포츠 센터
+  after: 스포츠 비리 신고 센터
+  reason_code: R2
+  reason: '대체어가 기술문서에서 통용되지 않음: 원어가 이미 정착 (예: 이메일→전자 우편, 버튼→단추, 와이파이→근거리무선망)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1359]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-571
+  pair_id: v2-1360
+  before: 스토리 창작 클러스터
+  after: 이야기 창작 지구 / 이야기 창작 단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1360]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-572
+  pair_id: v2-1361
+  before: 스토리움
+  after: 이야기 공유 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1361]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-573
+  pair_id: v2-1362
+  before: 오디오 북 녹음 스튜디오
+  after: 소리 책 녹음실
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1362]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-574
+  pair_id: v2-1363
+  before: 콘텐츠 코리아 랩
+  after: 기업 지원 센터
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1363]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-575
+  pair_id: v2-1364
+  before: 원 캠퍼스
+  after: 산학연 융합 캠퍼스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.92 [v2-1364]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-576
+  pair_id: v2-1365
+  before: 방송 포맷 랩
+  after: 방송 형식 연구소
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1365]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-577
+  pair_id: v2-1366
+  before: K-콘텐츠 엑스포
+  after: 한국 콘텐츠 박람회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1366]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-578
+  pair_id: v2-1367
+  before: 웰니스 관광
+  after: 건강 치유 관광
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1367]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-579
+  pair_id: v2-1368
+  before: 투어리즘 엑스포 저팬 2019
+  after: 2019 아시아 최대 여행 박람회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1368]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-580
+  pair_id: v2-1369
+  before: My First Korea 캠페인
+  after: '''처음 만난 한국'' 홍보'
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1369]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-581
+  pair_id: v2-1370
+  before: 웰컴 대학로
+  after: 반가워요, 대학로
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1370]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-582
+  pair_id: v2-1371
+  before: 창의 예술 교육 랩
+  after: 창의 예술 교육연구실 / 창의 예술 교육연구소
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1371]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-583
+  pair_id: v2-1372
+  before: 이 스포츠 투어
+  after: 전자 스포츠 체험
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1372]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-584
+  pair_id: v2-1373
+  before: 중소기업 옴부즈만
+  after: 중소기업 정책 자문단
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1373]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-585
+  pair_id: v2-1374
+  before: 산촌 혁신 포럼
+  after: 산촌 혁신 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1374]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-586
+  pair_id: v2-1375
+  before: I LOVE WOOD
+  after: 나무야, 사랑해
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1375]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-587
+  pair_id: v2-1376
+  before: Global LDN(토지 황폐화 중립) Forum
+  after: 국제 토지 황폐화 중립 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.93 [v2-1376]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-588
+  pair_id: v2-1377
+  before: 그린 아시아 이니셔티브
+  after: 청정 아시아 주도권
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1377]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-589
+  pair_id: v2-1378
+  before: 재생 에너지 클러스터
+  after: 재생 에너지 협력지구 / 재생 에너지 협력단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1378]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-590
+  pair_id: v2-1379
+  before: 혁신 성장 클러스터기본 계획
+  after: 혁신 성장 협력지구 기본 계획 / 혁신 성장 협력단지 기본 계획
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1379]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-591
+  pair_id: v2-1380
+  before: 스마트 컨스트럭션시범 실증사업
+  after: 지능형 건설 시범실증 사업 / 첨단 건설 시범실증 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1380]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-592
+  pair_id: v2-1381
+  before: 노마드 페스티벌
+  after: 유랑자 축제
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1381]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-593
+  pair_id: v2-1382
+  before: 화재 안전 100년 대계 마스터플랜
+  after: 화재 안전 100년 종합 계획
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1382]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-594
+  pair_id: v2-1383
+  before: 원스톱 지원 센터
+  after: 통합 지원 센터
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1383]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-595
+  pair_id: v2-1384
+  before: 119 안심 콜 서비스사업
+  after: 119 안심 전화 서비스 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1384]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-596
+  pair_id: v2-1385
+  before: 20‧30 청년 성평등미래 프로젝트
+  after: 20‧30 청년 성평등미래 계획
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1385]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-597
+  pair_id: v2-1386
+  before: 가족 콜
+  after: 가족 상담 전화
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.94 [v2-1386]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-598
+  pair_id: v2-1387
+  before: 청소년 옴부즈만
+  after: 청소년 보호관
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1387]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-599
+  pair_id: v2-1388
+  before: 자살 예방 게이트 키퍼 양성 교육
+  after: 자살 예방 생명 지킴이 양성 교육
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1388]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-600
+  pair_id: v2-1389
+  before: 레인보우 스쿨
+  after: 무지개 청소년 센터
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1389]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-601
+  pair_id: v2-1390
+  before: e-청소년
+  after: 청소년 활동 정보 서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1390]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-602
+  pair_id: v2-1391
+  before: DMZ 투어
+  after: 비무장 지대 탐방
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1391]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-603
+  pair_id: v2-1392
+  before: 평화·통일 교육 컨퍼런스
+  after: 평화 통일 교육학술회의 / 평화 통일 교육학술 대회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1392]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-604
+  pair_id: v2-1393
+  before: 통합 연안 VTS
+  after: 통합 연안 해상 교통관제 시스템
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1393]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-605
+  pair_id: v2-1394
+  before: e-내비게이션
+  after: 차세대 해양 관리 체계
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1394]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-606
+  pair_id: v2-1395
+  before: 보훈 복지 타운
+  after: 보훈 복지 마을
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1395]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-607
+  pair_id: v2-1396
+  before: 보훈 나눔 플러스
+  after: 보훈 나눔 더하기
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1396]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-608
+  pair_id: v2-1397
+  before: Buy Korea 제도
+  after: 수출 지원 제도(Buy Korea)
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.95 [v2-1397]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-609
+  pair_id: v2-1398
+  before: 법률 홈닥터
+  after: 찾아가는 서민 법률주치의
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1398]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-610
+  pair_id: v2-1399
+  before: F-X 사업
+  after: 차세대 전투기 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1399]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-611
+  pair_id: v2-1400
+  before: KF-X 사업
+  after: 한국형 차세대 전투기 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1400]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-612
+  pair_id: v2-1401
+  before: HUAV 사업
+  after: 고고도 정찰용 무인항공기 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1401]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-613
+  pair_id: v2-1402
+  before: 기술 교류 비즈니스포럼
+  after: 기술 교류 사업공개 토론회 / 기술 교류 경영공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1402]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-614
+  pair_id: v2-1403
+  before: 방산 수출 원스톱 서비스
+  after: 방산 수출 통합 지원서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1403]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-615
+  pair_id: v2-1404
+  before: 다파고(DAPA-GO)
+  after: 찾아가는 방사청
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1404]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-616
+  pair_id: v2-1405
+  before: 산업 협력 쿼터제
+  after: 산업 협력 할당제
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1405]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-617
+  pair_id: v2-1406
+  before: 시니어 취업 컨설턴트
+  after: 노년층 취업 상담사
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1406]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-618
+  pair_id: v2-1407
+  before: 닥터헬기
+  after: 의료 헬기 / 생명 헬기
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.96 [v2-1407]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-619
+  pair_id: v2-1408
+  before: 모바일 헬스케어 서비스
+  after: 모바일 건강 관리 서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1408]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-620
+  pair_id: v2-1409
+  before: 민간 스카우트 제도
+  after: 민간 전문가 영입 제도
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1409]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-621
+  pair_id: v2-1410
+  before: 공공 혁신 조달 플랫폼
+  after: 조달 장터 / 조달 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1410]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-622
+  pair_id: v2-1411
+  before: 해양 산업 클러스터
+  after: 해양 산업 연합지구 / 해양 산업 연합단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1411]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-623
+  pair_id: v2-1412
+  before: 상상 플랫폼 조성 사업
+  after: 상상 공간 조성 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1412]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-624
+  pair_id: v2-1413
+  before: 행복 카 쉐어
+  after: 행복 공유
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1413]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-625
+  pair_id: v2-1414
+  before: 광화문 1번가 열린소통 포럼
+  after: 광화문 1번가 열린소통 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1414]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-626
+  pair_id: v2-1415
+  before: 생활 SOC 사업
+  after: 생활 사회 간접 자본사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1415]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-627
+  pair_id: v2-1416
+  before: 재난 예·경보 플랫폼
+  after: 재난 예·경보 시스템
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.97 [v2-1416]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-628
+  pair_id: v2-1417
+  before: 광화문 1번가 국민참여 플랫폼
+  after: 광화문 1번가 국민참여 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1417]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-629
+  pair_id: v2-1418
+  before: 에코 사이언스 파크
+  after: 환경 친화 공원
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1418]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-630
+  pair_id: v2-1419
+  before: 물 산업 클러스터
+  after: 물 산업 연합 지구 / 물 산업 연합 단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1419]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-631
+  pair_id: v2-1420
+  before: 스마트 팜
+  after: 지능형 농장 / 지능형 농업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1420]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-632
+  pair_id: v2-1421
+  before: 취업 성공 패키지
+  after: 통합 취업 지원 프로그램
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1421]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-633
+  pair_id: v2-1422
+  before: 러닝 팩토리
+  after: 공동 실습장
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1422]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-634
+  pair_id: v2-1423
+  before: 생활 SOC 협동조합
+  after: 생활 사회 간접 자본사업 협동조합
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1423]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-635
+  pair_id: v2-1424
+  before: 국제 물류 허브 (GDC)
+  after: 국제 물류 중심지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1424]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-636
+  pair_id: v2-1425
+  before: CIQ 정보 공유 시스템
+  after: 세관·출입국 관리· 검역 정보 공유 시스템 / 출입국 수속 정보공유 시스템
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1425]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-637
+  pair_id: v2-1426
+  before: Smart Customs
+  after: 우리말 작명 필요
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.98 [v2-1426]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-638
+  pair_id: v2-1427
+  before: K 드론 시스템
+  after: 한국형 드론 체계
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1427]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-639
+  pair_id: v2-1428
+  before: 주거 복지 로드 맵
+  after: 주거 복지 이행안
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1428]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-640
+  pair_id: v2-1429
+  before: K-City
+  after: 자율 주행 자동차 실험 도시(K-City)
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1429]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-641
+  pair_id: v2-1430
+  before: 도시 재생 뉴딜 사업
+  after: 도시 재생 (활성화) 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1430]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-642
+  pair_id: v2-1431
+  before: 챌린지 사업
+  after: 공모 사업 / 민간 참여 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1431]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-643
+  pair_id: v2-1432
+  before: 융합 얼라이언스
+  after: 민관 합동 연합(체)
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1432]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-644
+  pair_id: v2-1433
+  before: 스마트 턴키
+  after: 지능형 일괄 입찰
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1433]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-645
+  pair_id: v2-1434
+  before: 제로 에너지 마을
+  after: 에너지 자급 마을
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1434]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-646
+  pair_id: v2-1435
+  before: MRO 사업
+  after: 항공 정비 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1435]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-647
+  pair_id: v2-1436
+  before: 스마트 헬스케어 주택
+  after: 지능형 건강 관리 주택
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1436]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-648
+  pair_id: v2-1437
+  before: Super-BRT
+  after: 초고속 간선 급행 버스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1437]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-649
+  pair_id: v2-1438
+  before: 카 셰어링 전용 구역
+  after: 공유 자동차 전용 구역
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1438]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-650
+  pair_id: v2-1439
+  before: 스마트 교통 플랫폼서비스
+  after: 지능형 교통 서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.99 [v2-1439]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-651
+  pair_id: v2-1440
+  before: 신혼 희망 타운
+  after: 신혼 희망 마을
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1440]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-652
+  pair_id: v2-1441
+  before: 마포 청년 혁신 타운
+  after: 마포 청년 혁신 마을
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1441]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-653
+  pair_id: v2-1442
+  before: 혁신 클러스터
+  after: 혁신 단지 / 혁신 지구
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1442]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-654
+  pair_id: v2-1443
+  before: Help-bell
+  after: 도움 벨
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1443]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-655
+  pair_id: v2-1444
+  before: EITC
+  after: 근로 장려 세금 제도
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1444]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-656
+  pair_id: v2-1445
+  before: 플래그십 프로젝트
+  after: 대표 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1445]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-657
+  pair_id: v2-1446
+  before: 로컬 푸드 모델
+  after: 지역 농산물 모델 / 지역 먹거리 모델
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1446]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-658
+  pair_id: v2-1447
+  before: 권역별 푸드 페스타
+  after: 권역별 먹거리 축제
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1447]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-659
+  pair_id: v2-1448
+  before: RPC 도정 공장
+  after: 미곡 종합 처리 도정공장
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1448]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-660
+  pair_id: v2-1449
+  before: 지역 일자리 플랫폼
+  after: 지역 일자리 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1449]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-661
+  pair_id: v2-1450
+  before: 스마트 축산 ICT 시범 단지
+  after: 지능형 축산 정보통신 기술 시범 단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.100 [v2-1450]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-662
+  pair_id: v2-1451
+  before: 스마트 팜 맵
+  after: 지능형 농장 정보지도 / 지능형 농업 정보지도
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1451]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-663
+  pair_id: v2-1452
+  before: D . N . A . ( D a t a , Network, AI)
+  after: 자료- 관계망- 인공지능
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1452]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-664
+  pair_id: v2-1453
+  before: 닥터 앤서
+  after: 우리말 작명 필요
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1453]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-665
+  pair_id: v2-1454
+  before: 스페이스 파이오니아사업
+  after: 우주 개척 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1454]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-666
+  pair_id: v2-1455
+  before: SW 마에스트로
+  after: 소프트웨어 인재
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1455]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-667
+  pair_id: v2-1456
+  before: ICT 이노베이션 스퀘어
+  after: 정보 통신 기술 혁신광장
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1456]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-668
+  pair_id: v2-1457
+  before: 디지털 컴패니언
+  after: 동반자 로봇
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.101 [v2-1457]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-669
+  pair_id: v2-1458
+  before: 규제 실증 테스트 베드
+  after: 규제 실증 시범공간 / 규제 실증 시범단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1458]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-670
+  pair_id: v2-1459
+  before: 사이버 안심 존
+  after: 사이버 안심 지역 / 사이버 안심 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1459]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-671
+  pair_id: v2-1460
+  before: 스마트 안심 드림 앱
+  after: 지능형 안심 드림 앱
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1460]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-672
+  pair_id: v2-1461
+  before: 새만금 재생 에너지클러스터
+  after: 새만금 재생 에너지 단지 / 새만금 재생 에너지 지구
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1461]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-673
+  pair_id: v2-1462
+  before: 차세대 ESS 생태계
+  after: 차세대 에너지 저장장치 생태계
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1462]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-674
+  pair_id: v2-1463
+  before: 원자력 미래 포럼
+  after: 원자력 미래 공개 토론회
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1463]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-675
+  pair_id: v2-1464
+  before: 스마트 그리드 체험단지
+  after: 지능형 전력망 체험단지
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1464]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-676
+  pair_id: v2-1465
+  before: 한중 우호 카라반
+  after: 한중 우호 교류단
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.102 [v2-1465]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-677
+  pair_id: v2-1466
+  before: Team Korea
+  after: 대한민국 협의체
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1466]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-678
+  pair_id: v2-1467
+  before: 스마트 공장
+  after: 지능형 공장
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1467]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-679
+  pair_id: v2-1468
+  before: 메이커 스페이스
+  after: 열린 제작실 / 창작 활동 공간
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1468]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-680
+  pair_id: v2-1469
+  before: 헬스케어
+  after: 건강 관리
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1469]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-681
+  pair_id: v2-1470
+  before: e-모빌리티
+  after: 차세대 교통수단
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1470]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-682
+  pair_id: v2-1471
+  before: 팁스
+  after: (민간 주도형) 기술창업 지원
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1471]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-683
+  pair_id: v2-1472
+  before: 제로 페이
+  after: 소상공인 간편 결제서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1472]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-684
+  pair_id: v2-1473
+  before: 상권 르네상스 프로
+  after: 상권 부흥 사업
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.103 [v2-1473]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-685
+  pair_id: v2-1474
+  before: 데이터 허브
+  after: 데이터 중추 / 데이터 중심지
+  reason_code: R1
+  reason: '의미 손실 또는 다의어 충돌: 대체어가 기술 문맥의 뜻을 못 담는다 (예: 로그인→접속, 세션→분과, 프로세스→과정)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1474]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-686
+  pair_id: v2-1475
+  before: KOSTAT 통계 플러스
+  after: 통계청 통계 더하기
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1475]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-687
+  pair_id: v2-1476
+  before: 지역 통계 표준 매뉴얼
+  after: 지역 통계 표준 지침서
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1476]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-688
+  pair_id: v2-1477
+  before: 경제 등록 센서스
+  after: 경제 등록 총조사
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1477]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-689
+  pair_id: v2-1478
+  before: 통계 지표 트리
+  after: 통계 지표 도식
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1478]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-690
+  pair_id: v2-1479
+  before: e-지방 지표
+  after: 한눈에 알아보는 지방 지표
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1479]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-691
+  pair_id: v2-1480
+  before: TLO
+  after: 기술 이전 전담 조직
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1480]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-692
+  pair_id: v2-1481
+  before: K-브랜드
+  after: 한국 상표
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1481]
+  source_docs:
+  - jindan2019
+  status: rejected
+- id: X-693
+  pair_id: v2-1482
+  before: 스마트 특허 넷
+  after: 지능형 특허 행정 서비스
+  reason_code: R4
+  reason: '사업명·프로그램명·고유명 다듬기: 일반 어휘 교체 규칙이 아님 (2019 진단 보고서 사례 등)'
+  source: 국립국어원 중앙행정기관 공공언어 진단(2019) p.104 [v2-1482]
+  source_docs:
+  - jindan2019
+  status: rejected

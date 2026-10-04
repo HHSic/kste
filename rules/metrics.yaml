@@ -1,0 +1,119 @@
+# KSTE metrics.yaml — 길이·밀도 임계값과 장르별 기준선
+# 상태: 제안(proposed). 임계값은 설계안 §3.2 수정본 + 확정 규칙 문서(§10) 등급 반영. 사람이 승인하기 전에는 확정이 아니다.
+# 임계값 근거: 설계안 §1.6 (2026-10-04 코퍼스 실측, 잘 쓴 문서 34편 104만 자).
+#   길이·피동·연결어미는 국어원 140쌍 대조에서 좋은 글과 나쁜 글을 가르지 못했다 -> 오류가 아니라 경고/정보.
+#   오류는 문법 완결성(K2.1)이다.
+# 기준선 근거: research/results/measure_result.md (Kiwi 측정). 수치는 그 표의 범주 행 그대로다.
+# 스키마: schema/metrics.schema.json
+# rule: 이 임계값이 구현하는 확정 규칙 ID(docs/KSTE-규칙.md §13.5). 등급은 규칙 문서 기준(§0.1, §10).
+#   K4.4 절차문 길이: 경고 17~20(=warn 16 초과), 강한 경고 21 이상(=strong 20 초과, 경고 등급, 엄격에서만 오류)
+#   K5.1 서술문 길이: 경고 21~25(=warn 20 초과), 강한 경고 26 이상(=strong 25 초과)
+metrics:
+  procedural_words: {warn: 16, strong: 20, rule: K4.4}        # LG 매뉴얼 p90 15~18
+  descriptive_words: {warn: 20, strong: 25, rule: K5.1}       # 개발자 문서 p90 16~25
+  paragraph_sentences: {warn: 6, rule: K5.2}                  # 규칙 등급 정보 (엄격 모드에서 경고)
+  noun_chain_words: {warn: 4, error: 6, rule: K2.7}           # 잘 쓴 문서 >=4어절 3~11%
+  clause_connectors: {info: 3, show_by_default: false, rule: K3.1}                    # 좋은/나쁜 글 구분 못 함 -> 정보성
+  passive_density: {info_vs_baseline: true, rule: K3.2}       # 장르 기준선 대비로만 표시 (매뉴얼 0.21, 기술보고서 0.33)
+  info_preservation_ratio: {warn: 0.60, strict_error: 0.70, strict_warn: 0.85, rule: K8.3}  # 80% 모드 0.60 미만 경고 (전문가 수정 쌍 29%가 0.70 미만이라 0.70은 오탐이 많다). 엄격 모드 0.70 미만 오류, 0.85 미만 경고
+  note: "길이·피동·연결어미는 140쌍 실측에서 좋은 글을 가르지 못했다. 오류가 아니라 경고/정보. 문법 완결성(K2.1)이 오류."
+
+baselines:
+  source: "research/results/measure_result.md 범주 행 (문장 단위 비율, 어절 중앙·p90 은 문장 어절 수)"
+  genres:
+    A_public_good:
+      label: "국어원 개선안·지침 (잘 쓴 공공 문서)"
+      files: 6
+      sentences: 2353
+      words_median: 6.3
+      words_p90: 16.9
+      pct_over_12: 22.4
+      pct_over_16: 13.9
+      pct_over_20: 8.3
+      pct_passive_sentences: 17.3
+      double_passive: 0
+      pct_clause_connectors_ge2: 19.7
+      pct_noun_chain_ge4: 5.1
+      pct_imperative: 0.8
+      use_as_baseline: true
+      applies_to: "공공 안내·지침 문서"
+    B_user_manual:
+      label: "사용자 매뉴얼 (LG 5편 + KAIST 안전 매뉴얼 + 국세청 안내)"
+      files: 7
+      sentences: 3562
+      words_median: 7.7
+      words_p90: 16.0
+      pct_over_12: 20.9
+      pct_over_16: 9.2
+      pct_over_20: 4.0
+      pct_passive_sentences: 21.5
+      double_passive: 1
+      pct_clause_connectors_ge2: 24.7
+      pct_noun_chain_ge4: 4.4
+      pct_imperative: 17.9
+      use_as_baseline: true
+      applies_to: "절차문 (procedural_words 기준선)"
+      note: "명령형 비율은 파일마다 0~32% 로 갈린다(ThinQ·세탁기는 설명 위주)."
+    C_tech_report:
+      label: "기술 보고서·가이드 (행안부 SW 개발보안·마이데이터, eGovFrame, NIA 백서)"
+      files: 6
+      sentences: 10095
+      words_median: 9.5
+      words_p90: 24.7
+      pct_over_12: 38.3
+      pct_over_16: 27.1
+      pct_over_20: 17.7
+      pct_passive_sentences: 33.3
+      double_passive: 2
+      pct_clause_connectors_ge2: 27.5
+      pct_noun_chain_ge4: 10.4
+      pct_imperative: 0.7
+      use_as_baseline: true
+      applies_to: "서술문 중 기술 보고서·가이드 (descriptive_words 상한 근거)"
+    D_developer_docs:
+      label: "개발자 문서 (토스·LINE 기술 블로그·가이드)"
+      files: 13
+      sentences: 2396
+      words_median: 9.8
+      words_p90: 18.7
+      pct_over_12: 32.3
+      pct_over_16: 16.8
+      pct_over_20: 7.7
+      pct_passive_sentences: 15.3
+      double_passive: 1
+      pct_clause_connectors_ge2: 42.7
+      pct_noun_chain_ge4: 2.7
+      pct_imperative: 8.0
+      use_as_baseline: true
+      applies_to: "서술문 중 개발자 문서"
+    E_contrast_bad:
+      label: "대조군 (국어원 '수정 전' 문장)"
+      files: 2
+      sentences: 611
+      words_median: 7.5
+      words_p90: 18.7
+      pct_over_12: 25.5
+      pct_over_16: 15.4
+      pct_over_20: 10.5
+      pct_passive_sentences: 20.1
+      double_passive: 0
+      pct_clause_connectors_ge2: 23.5
+      pct_noun_chain_ge4: 4.4
+      pct_imperative: 2.5
+      use_as_baseline: false
+      note: "기준선이 아니라 대조용. 좋은 글(A)과 별 차이가 없다는 점이 '길이·피동은 오류 기준이 못 된다'의 근거."
+  reference_subsets:
+    lg_manual_5:
+      files: [lg_desk_water_purifier, lg_drum_washer, lg_fridge_side_by_side, lg_thinq_on_hmak4w, lg_tv_zero_connect_quick_guide]
+      words_median: [7, 8]
+      words_p90: [15, 18]
+      pct_over_16: [6.7, 14.8]
+      pct_passive_sentences: [17.3, 27.4]
+      source: "measure_result.md 파일별 행. 절차문 procedural_words 임계값(16/20)의 직접 근거."
+    toss_technical_writing_guide:
+      sentences: 737
+      words_median: 8
+      words_p90: 16
+      pct_over_16: 7.5
+      pct_imperative: 20.6
+      source: "measure_result.md D_developer_docs/toss_technical_writing_guide 행."

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "verbs.schema.json",
+  "title": "KSTE verbs.yaml",
+  "type": "object",
+  "required": [
+    "policy",
+    "verbs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "policy": {
+      "type": "object",
+      "required": [
+        "source",
+        "one_verb_one_meaning",
+        "max_actions_per_step"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "minLength": 8,
+          "description": "출처 필수: 문서+쪽(+pair id) 또는 원문 증거. 비어 있으면 검증 실패."
+        },
+        "one_verb_one_meaning": {
+          "type": "boolean"
+        },
+        "max_actions_per_step": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "register_choices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "verbs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "lemma",
+          "pos",
+          "freq",
+          "sense",
+          "forms",
+          "discouraged",
+          "source",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^V-\\d{3}$"
+          },
+          "lemma": {
+            "type": "string"
+          },
+          "pos": {
+            "const": "VV"
+          },
+          "freq": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sense": {
+            "type": "string"
+          },
+          "forms": {
+            "type": "object",
+            "required": [
+              "haeyo",
+              "hasipsio",
+              "plain"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            },
+            "properties": {
+              "haeyo": {
+                "type": "string"
+              },
+              "hasipsio": {
+                "type": "string"
+              },
+              "plain": {
+                "type": "string"
+              }
+            }
+          },
+          "pair": {
+            "type": "string"
+          },
+          "discouraged": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "word",
+                "surface",
+                "stance",
+                "condition"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "word": {
+                  "type": "string"
+                },
+                "surface": {
+                  "type": "string"
+                },
+                "condition": {
+                  "type": "string",
+                  "minLength": 4
+                },
+                "stance": {
+                  "enum": [
+                    "avoid",
+                    "context_ok"
+                  ],
+                  "description": "avoid=비권장. context_ok=조건을 만족하면 허용."
+                }
+              }
+            }
+          },
+          "source": {
+            "type": "string",
+            "minLength": 8,
+            "description": "출처 필수: 문서+쪽(+pair id) 또는 원문 증거. 비어 있으면 검증 실패."
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "deprecated"
+            ],
+            "description": "proposed=제안(초안). 사람이 승인하면 approved. 승인 전에는 확정이 아니다. deprecated=확정 규칙 문서에서 삭제된 초안 규칙(deprecated_reason 필수, severity info)."
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
