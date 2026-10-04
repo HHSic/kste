@@ -232,3 +232,28 @@ test('hooks.json 은 기존 PostToolUse hook 과 mod 를 함께 등록한다', (
   assert.match(j.hooks.PostToolUse[0].hooks[0].command, /kste-hook\.mjs/);
   assert.ok(readdirSync(path.join(root, 'hooks')).includes('kste-mod.js'));
 });
+
+test('mod: /kste t1 install 은 셸 API 가 없으면 실행 명령을 안내한다', async () => {
+  const t = setup();
+  const r = await t.cmd('t1 install');
+  assert.match(r.text, /다음 명령을 실행하세요: node ".*install-t1\.mjs"/);
+});
+
+test('mod: /kste t1 install 은 $.process.run 으로 스크립트를 돌린다', async () => {
+  const t = setup();
+  const calls = [];
+  const h = t.hooks.find((x) => x.event === 'command.run');
+  const $ = {
+    plugin: { root: '/p' },
+    process: { run: async (argv, init) => { calls.push({ argv, init }); return { exitCode: 0, stdout: '', stderr: '모델 설치 완료' }; } },
+    ui: { toast() {} },
+    env: { get: async () => t.dir },
+    session: { root: async () => t.dir },
+    fs: { read: async (p) => readFileSync(p, 'utf8'), write: async () => {} },
+    store: { get: async () => undefined, set: async () => {} },
+  };
+  const r = await h.fn($, { command: 'kste', args: 't1 install' }, async (x) => x);
+  assert.deepEqual(calls[0].argv, ['node', '/p/scripts/install-t1.mjs']);
+  assert.equal(calls[0].init.timeoutMs, 600000);
+  assert.match(r.text, /T1 설치 완료/);
+});

@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 // KSTE hook + 상태 관리 CLI.
 //   hook 모드 (stdin 에 PostToolUse JSON):  node kste-hook.mjs
-//   상태 모드:                              node kste-hook.mjs set <on|off|80|strict|t1 on|t1 off|status>
+//   상태 모드:                              node kste-hook.mjs set <on|off|80|strict|t1 on|t1 off|t1 install|status>
 // 종료 코드: 0 통과(경고만 있으면 stdout JSON systemMessage 로 사용자에게만 알림), 2 오류 있음(stderr 가 모델에게 전달됨).
 // hook 은 T0 만 돌린다(빠름). T1 은 상태 파일의 t1:true 일 때만 켠다(로딩 5~8초, 메모리 ~1GB).
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { koreanRatio, applyMode, applyStateArgs, statusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
+import { spawnSync } from 'node:child_process';
+import { koreanRatio, applyMode, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
+import { checkReport } from '../scripts/install-t1.mjs';
 
 export { koreanRatio, applyMode };
 
@@ -107,17 +109,23 @@ export async function handle(input, now = Date.now()) {
   return { code: 2, stderr: renderFeedback({ file: abs, errors, warns, attempt: count, mode: state.mode }) };
 }
 
+const INSTALL_T1 = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'install-t1.mjs');
+
 export function setCommand(args, cwd = process.cwd()) {
   const r = applyStateArgs(loadState(cwd), args);
   if (!r.ok) return { ok: false, text: r.error };
   if (r.changed) saveState(cwd, r.state);
-  return { ok: true, text: statusLine(r.state, statePath(cwd)) };
+  const text = statusLine(r.state, statePath(cwd));
+  if (r.action === 't1-install') return { ok: true, action: r.action, text: `T1 설치: node "${INSTALL_T1}"` };
+  const status = !args.length || String(args[0]).toLowerCase() === 'status';
+  return { ok: true, text: status ? `${text}\n${t1StatusLine(checkReport())}` : text };
 }
 
 async function main() {
   const argv = process.argv.slice(2);
   if (argv[0] === 'set') {
     const r = setCommand(argv.slice(1));
+    if (r.ok && r.action === 't1-install') return spawnSync(process.execPath, [INSTALL_T1], { stdio: 'inherit' }).status ?? 1;
     (r.ok ? process.stdout : process.stderr).write(r.text + '\n');
     return r.ok ? 0 : 1;
   }

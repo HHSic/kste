@@ -6,7 +6,13 @@ allowed-tools: Bash(node:*), Read
 
 KSTE 린터로 `$ARGUMENTS` 파일을 검사합니다. 인자가 없으면 이 대화에서 가장 최근에 쓰거나 고친 한국어 `.md` 파일을 대상으로 하고, 대상을 정할 수 없으면 사용자에게 파일 경로를 물어보세요.
 
-1. 아래 명령을 실행합니다. T1(형태소 분석) 모델이 있으면 자동으로 켜집니다(첫 실행에 5~8초). 모델이 없으면 T0만 돌고 리포트에 "T1 inactive"가 나옵니다.
+0. **T1 확인(먼저).** 아래 명령으로 T1 설치 여부를 봅니다. JSON의 `installed`가 `false`이면 검사 전에 사용자에게 "T1 모델(약 110MB)을 ~/.kste/t1 에 받을까요? 받으면 조사 누락·피동·띄어쓰기 같은 형태소 규칙도 검사합니다. 아니요면 T0만 돌립니다."라고 **먼저 묻고 답을 기다립니다.** 사용자가 동의했을 때만 `node "${CLAUDE_PLUGIN_ROOT}/scripts/install-t1.mjs"`를 실행합니다(Bash timeout 600000ms, 진행률은 stderr). 거절하면 설치하지 않고 T0로 진행하며 같은 대화에서 다시 묻지 않습니다. `installed`가 `true`면 묻지 않습니다.
+
+   ```
+   node "${CLAUDE_PLUGIN_ROOT}/scripts/install-t1.mjs" --check
+   ```
+
+1. 아래 명령을 실행합니다. T1(형태소 분석)이 설치돼 있으면 자동으로 켜집니다(첫 실행에 5~8초). 없으면 T0만 돌고 리포트에 "T1 inactive"가 나옵니다.
 
    ```
    node "${CLAUDE_PLUGIN_ROOT}/bin/kste.js" check "<파일>" --t1 auto

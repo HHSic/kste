@@ -3,7 +3,7 @@
 //  - turn.complete: 답변을 T0 린터로 검사해 error가 있을 때만 토스트로 알린다. 답변을 재작성하지 않는다.
 //  - /kste on|off|80|strict|t1|status|last: commands/kste.md 와 같은 상태 파일(.kste/state.json)을 쓴다.
 // mod 환경은 Node 모듈을 못 쓴다(상대 경로 import 와 "claude-code"만 허용). 파일은 $.fs, 환경변수는 $.env 로 읽는다.
-import { koreanRatio, applyStateArgs, statusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
+import { koreanRatio, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
 import { directiveOf, lintAnswer, reportOf, toastOf } from '../lib/engine/chat.js';
 
 const DEFAULT_STATE = { enabled: true, mode: '80', t1: false };
@@ -53,13 +53,44 @@ async function save($, state) {
   await $.fs.write(await statePath($), JSON.stringify({ ...existing, ...current }, null, 2) + '\n');
 }
 
+// 셸 API: $.process.run(argv, { timeoutMs })가 있다(CLI 전용, 셸 없이 argv 로 실행, 최대 10분). 없거나 실패하면 null.
+async function runInstallScript($, args, timeoutMs) {
+  try {
+    const script = `${$.plugin.root}/scripts/install-t1.mjs`;
+    const r = await $.process.run(['node', script, ...args], { timeoutMs });
+    return { script, ...r };
+  } catch {
+    return null;
+  }
+}
+
+async function t1Status($) {
+  const r = await runInstallScript($, ['--check'], 15000);
+  if (!r) return '';
+  try {
+    return '\n' + t1StatusLine(JSON.parse(r.stdout));
+  } catch {
+    return '';
+  }
+}
+
+async function t1Install($) {
+  const hint = `다음 명령을 실행하세요: node "${$.plugin?.root ?? '<플러그인경로>'}/scripts/install-t1.mjs"`;
+  if (!$.process?.run) return hint;
+  $.ui.toast('T1 설치 시작: 모델 약 110MB, 몇 분 걸릴 수 있다');
+  const r = await runInstallScript($, [], 600000);
+  if (!r) return `T1 설치를 mod 에서 실행하지 못했다. ${hint}`;
+  const tail = (r.stderr || '').trim().split(/\r?\n/).slice(-6).join('\n');
+  return r.exitCode === 0 ? `T1 설치 완료.\n${tail}` : `T1 설치 실패(종료 코드 ${r.exitCode}).\n${tail}\n${hint}`;
+}
+
 export function register(on) {
   on('session.start', async ($, e, next) => {
     try {
       await $.command.register({
         name: 'kste',
         description: 'KSTE 켜기/끄기, 모드(80%/strict), T1 설정, 마지막 답변 검사 결과',
-        argumentHint: 'on | off | 80 | strict | t1 on | t1 off | status | last',
+        argumentHint: 'on | off | 80 | strict | t1 on | t1 off | t1 install | status | last',
       });
       await refresh($);
     } catch (err) {
@@ -106,11 +137,13 @@ export function register(on) {
     }
     const r = applyStateArgs(await refresh($), args);
     if (!r.ok) return { text: r.error };
+    if (r.action === 't1-install') return { text: await t1Install($) };
     if (r.changed) {
       await save($, r.state);
       $.ui.invalidate('ui.render');
     }
-    return { text: statusLine(r.state, await statePath($)) };
+    const status = !args.length || (args[0] || '').toLowerCase() === 'status';
+    return { text: statusLine(r.state, await statePath($)) + (status ? await t1Status($) : '') };
   });
 
   // 스피너 접미사: 켜져 있을 때만

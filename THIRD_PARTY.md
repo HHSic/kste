@@ -4,7 +4,7 @@
 
 T1(형태소 분석)은 [kiwi-nlp](https://www.npmjs.com/package/kiwi-nlp) 0.24.x를 선택 의존성으로 씁니다. kiwi-nlp는 Apache License 2.0입니다. 이 저장소에는 kiwi-nlp 코드를 넣지 않았습니다. `npm install`이 내려받습니다.
 
-Kiwi 모델 파일(`models/kiwi/`)도 저장소에 없습니다. `node scripts/install-model.mjs`가 PyPI의 `kiwipiepy-model` 배포본에서 가져옵니다. 모델은 해당 배포본의 라이선스를 따릅니다.
+Kiwi 모델 파일도 저장소에 없습니다(`~/.kste/t1/kiwi/`). `scripts/install-t1.mjs`가 PyPI의 `kiwipiepy-model` 배포본에서 가져옵니다. 모델은 해당 배포본의 라이선스를 따릅니다.
 
 ## yaml (ISC)
 

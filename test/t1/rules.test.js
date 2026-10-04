@@ -1,12 +1,12 @@
 // T1 규칙별 bad/good 문장 (모델 필요: 없으면 skip).
-// 준비: node scripts/install-model.mjs
+// 준비: node scripts/install-t1.mjs
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { t1Available } from '../../lib/t1/kiwi.js';
 import { lintTextT1, compareT1, closeT1 } from '../../lib/t1/engine.js';
 
 const ON = t1Available();
-const opts = ON ? {} : { skip: 'models/kiwi 또는 kiwi-nlp 없음 (node scripts/install-model.mjs)' };
+const opts = ON ? {} : { skip: 'models/kiwi 또는 kiwi-nlp 없음 (node scripts/install-t1.mjs)' };
 after(() => closeT1());
 
 const ids = async (text, o = {}) => (await lintTextT1(text, o)).findings.map((f) => f.ruleId);

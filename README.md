@@ -38,14 +38,20 @@ Node.js 20 이상이 필요합니다. 설치만 하면 T0(정규식과 사전 �
 
 ### T1 모델 설치 (선택)
 
-T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문법 규칙 16개를 더 검사합니다. 쓰려면 플러그인 디렉터리에서 다음 명령을 실행합니다.
+T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문법 규칙 16개를 더 검사합니다. Claude Code 안에서 한 번만 실행하면 됩니다.
 
 ```
-npm install
-node scripts/install-model.mjs
+/kste t1 install
 ```
 
-모델 파일 약 100MB를 `models/kiwi/`에 둡니다. 로컬 `kiwipiepy_model`이 있으면 복사하고, 없으면 PyPI에서 내려받습니다. 모델이 없으면 린터가 T0만 돌리고 리포트에 "T1 inactive"라고 표시합니다.
+`/kste:kste-check`를 처음 실행할 때 T1이 없으면 "받을까요?"라고 먼저 묻습니다. 예라고 답해도 같습니다. hook은 묻지 않고 T0만 돌립니다.
+
+- 받는 것: `kiwi-nlp` 패키지와 Kiwi 모델, 합쳐서 약 110MB입니다. 진행률은 stderr에 나옵니다.
+- 저장 위치: `~/.kste/t1/`입니다(Windows는 `%USERPROFILE%\.kste\t1\`). 플러그인 폴더는 업데이트 때 통째로 바뀌므로 버전과 무관한 사용자 폴더에 둡니다. 업데이트해도 다시 받지 않습니다. `KSTE_T1_DIR` 환경변수로 위치를 바꿀 수 있습니다.
+- 탐색 순서: `KSTE_T1_DIR`, `~/.kste/t1/`, 플러그인 로컬 `models/kiwi/` 순입니다.
+- 설치 여부 확인: `/kste status` 또는 `node scripts/install-t1.mjs --check`(JSON)입니다.
+- 터미널에서 직접: `node <플러그인경로>/scripts/install-t1.mjs`입니다. `npm`이 없어도 npm 레지스트리에서 직접 받습니다. 로컬 `kiwipiepy_model`이 있으면 모델을 복사하고, 없으면 PyPI에서 내려받습니다.
+- T1이 없으면 린터가 T0만 돌리고 리포트에 "T1 inactive"라고 표시합니다. `--t1 on`을 강제하면 안내 메시지와 함께 종료 코드 2로 끝납니다.
 
 ## 명령
 
@@ -98,6 +104,33 @@ Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook�
 `/kste on|off|80|strict|t1`은 hook과 같은 상태 파일(`.kste/state.json`)을 씁니다. 어느 쪽에서 바꿔도 양쪽에 적용됩니다. mod는 상태를 Claude Code의 store에도 저장합니다.
 
 **최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때는 파일 저장 hook과 `/kste` 명령(`commands/kste.md`)만 동작하고 채팅 답변 적용은 없습니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
+
+## Codex CLI에서 쓰기
+
+OpenAI Codex CLI는 Claude Code 플러그인을 읽지 못합니다. 대신 `integrations/codex/`의 파일을 Codex 확장 지점(AGENTS.md, Agent Skills, MCP, hooks)에 배치합니다. 조사 근거는 [docs/codex-integration-notes.md](docs/codex-integration-notes.md)에 있습니다.
+
+설치합니다. 먼저 `--dry-run`으로 계획을 확인합니다. 설치 전에 `config.toml`과 `AGENTS.md`는 백업됩니다.
+
+```
+git clone https://github.com/HHSic/kste && cd kste && npm install
+node integrations/codex/install.mjs --dry-run
+node integrations/codex/install.mjs              # AGENTS.md 절, skill, MCP 서버, prompt
+node integrations/codex/install.mjs --with-hooks # 파일 쓰기 후 린터 hook 추가
+node integrations/codex/install.mjs --uninstall  # 제거
+```
+
+`npm i -g .` 또는 `npm i -g kste`를 하면 어디서나 `kste check 문서.md`를 쓸 수 있습니다. 설치 후 Codex를 다시 시작합니다. hook은 처음 실행할 때 Codex가 신뢰 여부를 묻습니다.
+
+| 기능 | Claude Code | Codex CLI |
+|---|---|---|
+| 작문 지침 | skill `kste` | `AGENTS.md` 절 + Agent Skill `kste` (`$kste`) |
+| 파일 쓰기 후 자동 검사 | PostToolUse hook (Write, Edit) | PostToolUse hook (`apply_patch`), `--with-hooks`. 실제 Codex로는 검증하지 못함 |
+| 모델이 직접 린터 실행 | `/kste-check` | MCP 도구 `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
+| 슬래시 명령 | `/kste-check`, `/kste-rewrite`, `/kste` | `/prompts:kste-check`만 (prompts는 deprecated) |
+| hook 켜기·끄기·모드 | `/kste on\|off\|80\|strict` | 없음. `.kste/state.json`을 직접 고칩니다 |
+| 채팅 답변 검사·지시문 주입 | mod (`kste-mod.js`) | 없음. AGENTS.md 지시만 있습니다 |
+| 마켓플레이스 설치 | `/plugin install kste@kste` | 없음. `install.mjs` |
+| T1 형태소 검사 | hook 상태 `t1` | MCP 인자 `t1`, CLI `--t1` (모델 설치 필요) |
 
 ## 실무 기준
 
