@@ -4,7 +4,8 @@
   "description": "KSTE linter (Tier 0 regex + Tier 1 Kiwi morphology)",
   "scripts": {
     "test": "node --test",
-    "install-model": "node scripts/install-model.mjs"
+    "install-model": "node scripts/install-model.mjs",
+    "build-mod-rules": "node scripts/build-mod-rules.mjs"
   },
   "license": "MIT",
   "type": "module",

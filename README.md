@@ -54,6 +54,7 @@ node scripts/install-model.mjs
 | `/kste-check [파일]` | 문서를 검사하고 리포트를 보여 줍니다. 파일은 고치지 않습니다. |
 | `/kste-rewrite [파일]` | 문서를 KSTE로 다시 씁니다. 원문을 `.orig`로 남기고, 숫자·부정어·고유명사가 사라지지 않았는지 확인합니다. |
 | `/kste on\|off\|80\|strict\|t1 on\|t1 off\|status` | hook 켜기와 끄기, 모드, T1 설정을 바꿉니다. |
+| `/kste last` | 마지막 답변의 T0 검사 리포트를 전부 보여 줍니다. mod가 있는 Claude Code에서만 됩니다. |
 
 `kste` 스킬도 함께 들어 있습니다. 한국어 기술문서를 새로 쓸 때 Claude가 이 스킬로 템플릿과 규칙을 따릅니다.
 
@@ -82,6 +83,21 @@ Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook�
 | strict | 정밀도가 높은 warn 규칙을 error로 올립니다. |
 
 모든 경고를 error로 올리면 오탐이 늘고, 모델이 오탐을 피하려고 정보를 깎습니다. 정보 보존 실험에서 엄격한 지시는 사실을 46.8%나 잃게 했습니다. 그래서 기본값은 80% 모드입니다.
+
+## 채팅 답변 적용
+
+파일을 저장할 때만이 아니라 채팅 답변에도 KSTE를 적용합니다. Claude Code의 mod(`hooks/kste-mod.js`)가 다음 순서로 동작합니다.
+
+1. 프롬프트를 보낼 때 한글 비율(코드와 URL 제외, 한글 대 한글+라틴 글자)이 30% 이상이면 한국어 프롬프트로 기록합니다. 영어 프롬프트에는 아무것도 넣지 않습니다.
+2. 한국어 프롬프트이고 KSTE가 켜져 있으면, 시스템 프롬프트에 KSTE 지시문 섹션(`kste:directive`)을 넣습니다. 지시문은 `skills/kste/SKILL.md`를 1,200자 안쪽으로 줄인 것입니다. strict 모드에서는 길이 한도와 세미콜론 금지를 오류로 적습니다.
+3. 답변이 끝나면 한국어 답변만 T0 린터로 검사합니다. error가 있을 때만 `KSTE: error N · warn M` 한 줄을 토스트로 보여 줍니다. error가 없으면 아무것도 보여 주지 않습니다. 자세한 내용은 `/kste last`로 봅니다.
+4. 답변이 나오는 동안 스피너에 ` · KSTE[80%]`를 붙입니다. 켜져 있을 때만 붙습니다.
+
+답변을 다시 쓰지는 않습니다. 다시 쓰면 토큰이 두 배로 들기 때문입니다. 검사에는 T1을 쓰지 않습니다(로딩이 느립니다). 모델이 지시문을 따르는지는 검사 토스트로 확인합니다.
+
+`/kste on|off|80|strict|t1`은 hook과 같은 상태 파일(`.kste/state.json`)을 씁니다. 어느 쪽에서 바꿔도 양쪽에 적용됩니다. mod는 상태를 Claude Code의 store에도 저장합니다.
+
+**최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때는 파일 저장 hook과 `/kste` 명령(`commands/kste.md`)만 동작하고 채팅 답변 적용은 없습니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
 
 ## 실무 기준
 

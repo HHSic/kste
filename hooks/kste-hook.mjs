@@ -7,16 +7,14 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { koreanRatio, applyMode, applyStateArgs, statusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
+
+export { koreanRatio, applyMode };
 
 export const MAX_FIX = 3; // 모델에게 수정 기회를 주는 횟수. 이를 넘으면 통과시킨다.
 const STALE_MS = 30 * 60 * 1000; // 마지막 시도가 30분 지났으면 재시도 횟수를 새로 센다.
 const MAX_BYTES = 300 * 1024;
-const MIN_KO_RATIO = 0.3;
 const DEFAULT_STATE = { enabled: true, mode: '80', t1: false, retries: {} };
-
-// strict 모드: 규칙 문서 §10 표에서 "엄격에서 오류"인 항목 중 T0/T1 이 내는 것
-const STRICT_ERROR_BASES = new Set(['K1.5', 'K1.6', 'K2.4', 'K2.7', 'K3.3', 'K3.4', 'K4.1', 'K6.3']);
-const STRICT_STRONG_BASES = new Set(['K4.4', 'K5.1']); // 강한 경고(21/26어절 이상) -> 오류
 
 export function stateDir(cwd) {
   return process.env.KSTE_STATE_DIR || path.join(process.env.CLAUDE_PROJECT_DIR || cwd || process.cwd(), '.kste');
@@ -35,28 +33,6 @@ export function loadState(cwd) {
 export function saveState(cwd, state) {
   mkdirSync(stateDir(cwd), { recursive: true });
   writeFileSync(statePath(cwd), JSON.stringify(state, null, 2) + '\n');
-}
-
-/** 코드 블록·인라인 코드·URL 을 뺀 뒤 한글/(한글+라틴 글자) 비율 */
-export function koreanRatio(text) {
-  const body = text
-    .replace(/^---\r?\n[\s\S]*?\r?\n---/, '')
-    .replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, '')
-    .replace(/`[^`\n]*`/g, '')
-    .replace(/https?:\/\/\S+/g, '');
-  const ko = (body.match(/[가-힣]/g) ?? []).length;
-  const en = (body.match(/[A-Za-z]/g) ?? []).length;
-  return ko + en === 0 ? 0 : ko / (ko + en);
-}
-
-export function applyMode(findings, mode) {
-  if (mode !== 'strict') return findings;
-  return findings.map((f) => {
-    const base = f.base ?? f.ruleId.replace(/-\d+$/, '');
-    if (f.severity === 'warn' && (STRICT_ERROR_BASES.has(base) || (STRICT_STRONG_BASES.has(base) && f.strong))) return { ...f, severity: 'error' };
-    if (f.severity === 'info' && (base === 'K1.7' || base === 'K1.9')) return { ...f, severity: 'warn' };
-    return f;
-  });
 }
 
 const line = (f) => `${f.severity.padEnd(5)} ${f.ruleId} L${f.line ?? '-'}${f.col != null ? ':' + f.col : ''} "${f.match}" -> ${f.suggest}`;
@@ -132,16 +108,10 @@ export async function handle(input, now = Date.now()) {
 }
 
 export function setCommand(args, cwd = process.cwd()) {
-  const state = loadState(cwd);
-  const [a, b] = args.map((x) => String(x).toLowerCase());
-  if (a === 'on') state.enabled = true;
-  else if (a === 'off') state.enabled = false;
-  else if (a === '80' || a === '80%') state.mode = '80';
-  else if (a === 'strict') state.mode = 'strict';
-  else if (a === 't1' && (b === 'on' || b === 'off')) state.t1 = b === 'on';
-  else if (a && a !== 'status') return { ok: false, text: `알 수 없는 인자: ${args.join(' ')}\n사용: on | off | 80 | strict | t1 on | t1 off | status` };
-  if (a && a !== 'status') saveState(cwd, state);
-  return { ok: true, text: `KSTE hook: ${state.enabled ? 'on' : 'off'} · 모드 ${state.mode === 'strict' ? 'strict' : '80%'} · T1 ${state.t1 ? 'on' : 'off'} · 상태 파일 ${statePath(cwd)}` };
+  const r = applyStateArgs(loadState(cwd), args);
+  if (!r.ok) return { ok: false, text: r.error };
+  if (r.changed) saveState(cwd, r.state);
+  return { ok: true, text: statusLine(r.state, statePath(cwd)) };
 }
 
 async function main() {
