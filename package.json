@@ -1,6 +1,6 @@
 {
   "name": "kste",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "KSTE linter (Tier 0 regex + Tier 1 Kiwi morphology)",
   "scripts": {
     "test": "node --test",

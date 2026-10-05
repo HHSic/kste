@@ -1,5 +1,6 @@
 ---
 name: kste
+user-invocable: false
 description: 한국어 기술문서(매뉴얼, 개발자 문서, 보고서, README, 설치 안내)를 새로 쓰거나 재작성·교정할 때 쓰는 KSTE 작문 지침. Use when writing or rewriting Korean technical documentation.
 ---
 
