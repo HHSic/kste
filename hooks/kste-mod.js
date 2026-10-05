@@ -1,7 +1,7 @@
 // KSTE Claude Code mod: 채팅 답변에도 KSTE를 적용한다.
 //  - prompt.compose: 한국어 프롬프트 뒤에 KSTE 지시문을 시스템 프롬프트 섹션으로 넣는다.
 //  - turn.complete: 답변을 T0 린터로 검사해 error가 있을 때만 토스트로 알린다. 답변을 재작성하지 않는다.
-//  - /kste on|off|80|strict|t1|status|last: commands/kste.md 와 같은 상태 파일(.kste/state.json)을 쓴다.
+//  - /kste on|off|80|strict|t1|status|last: commands/set.md 와 같은 상태 파일(.kste/state.json)을 쓴다.
 // mod 환경은 Node 모듈을 못 쓴다(상대 경로 import 와 "claude-code"만 허용). 파일은 $.fs, 환경변수는 $.env 로 읽는다.
 import { koreanRatio, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
 import { directiveOf, lintAnswer, reportOf, toastOf } from '../lib/engine/chat.js';
@@ -34,7 +34,7 @@ async function readFile($) {
   }
 }
 
-// 상태 파일이 기준이다(hook·commands/kste.md 가 거기에 쓴다). 없으면 store, 그것도 없으면 기본값.
+// 상태 파일이 기준이다(hook·commands/set.md 가 거기에 쓴다). 없으면 store, 그것도 없으면 기본값.
 async function refresh($) {
   const file = await readFile($);
   if (file) current = pick(file);

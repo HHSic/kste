@@ -44,7 +44,7 @@ T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문
 /kste t1 install
 ```
 
-`/kste:kste-check`를 처음 실행할 때 T1이 없으면 "받을까요?"라고 먼저 묻습니다. 예라고 답해도 같습니다. hook은 묻지 않고 T0만 돌립니다.
+`/kste:check`를 처음 실행할 때 T1이 없으면 "받을까요?"라고 먼저 묻습니다. 예라고 답해도 같습니다. hook은 묻지 않고 T0만 돌립니다.
 
 - 받는 것: `kiwi-nlp` 패키지와 Kiwi 모델, 합쳐서 약 110MB입니다. 진행률은 stderr에 나옵니다.
 - 저장 위치: `~/.kste/t1/`입니다(Windows는 `%USERPROFILE%\.kste\t1\`). 플러그인 폴더는 업데이트 때 통째로 바뀌므로 버전과 무관한 사용자 폴더에 둡니다. 업데이트해도 다시 받지 않습니다. `KSTE_T1_DIR` 환경변수로 위치를 바꿀 수 있습니다.
@@ -57,9 +57,9 @@ T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문
 
 | 명령 | 하는 일 |
 |---|---|
-| `/kste-check [파일]` | 문서를 검사하고 리포트를 보여 줍니다. 파일은 고치지 않습니다. |
-| `/kste-rewrite [파일]` | 문서를 KSTE로 다시 씁니다. 원문을 `.orig`로 남기고, 숫자·부정어·고유명사가 사라지지 않았는지 확인합니다. |
-| `/kste on\|off\|80\|strict\|t1 on\|t1 off\|status` | hook 켜기와 끄기, 모드, T1 설정을 바꿉니다. |
+| `/kste:check [파일]` | 문서를 검사하고 리포트를 보여 줍니다. 파일은 고치지 않습니다. |
+| `/kste:rewrite [파일]` | 문서를 KSTE로 다시 씁니다. 원문을 `.orig`로 남기고, 숫자·부정어·고유명사가 사라지지 않았는지 확인합니다. |
+| `/kste on\|off\|80\|strict\|t1 install\|t1 on\|t1 off\|status` | hook 켜기와 끄기, 모드, T1 설치·설정을 바꿉니다. mod가 없는 Claude Code에서는 `/kste:set …`을 씁니다. |
 | `/kste last` | 마지막 답변의 T0 검사 리포트를 전부 보여 줍니다. mod가 있는 Claude Code에서만 됩니다. |
 
 `kste` 스킬도 함께 들어 있습니다. 한국어 기술문서를 새로 쓸 때 Claude가 이 스킬로 템플릿과 규칙을 따릅니다.
@@ -103,7 +103,7 @@ Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook�
 
 `/kste on|off|80|strict|t1`은 hook과 같은 상태 파일(`.kste/state.json`)을 씁니다. 어느 쪽에서 바꿔도 양쪽에 적용됩니다. mod는 상태를 Claude Code의 store에도 저장합니다.
 
-**최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때는 파일 저장 hook과 `/kste` 명령(`commands/kste.md`)만 동작하고 채팅 답변 적용은 없습니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
+**최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때는 파일 저장 hook과 `/kste:set` 명령(`commands/set.md`)만 동작하고 채팅 답변 적용은 없습니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
 
 ## Codex CLI에서 쓰기
 
@@ -125,8 +125,8 @@ node integrations/codex/install.mjs --uninstall  # 제거
 |---|---|---|
 | 작문 지침 | skill `kste` | `AGENTS.md` 절 + Agent Skill `kste` (`$kste`) |
 | 파일 쓰기 후 자동 검사 | PostToolUse hook (Write, Edit) | PostToolUse hook (`apply_patch`), `--with-hooks`. 실제 Codex로는 검증하지 못함 |
-| 모델이 직접 린터 실행 | `/kste-check` | MCP 도구 `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
-| 슬래시 명령 | `/kste-check`, `/kste-rewrite`, `/kste` | `/prompts:kste-check`만 (prompts는 deprecated) |
+| 모델이 직접 린터 실행 | `/kste:check` | MCP 도구 `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
+| 슬래시 명령 | `/kste:check`, `/kste:rewrite`, `/kste` | `/prompts:kste-check`만 (prompts는 deprecated) |
 | hook 켜기·끄기·모드 | `/kste on\|off\|80\|strict` | 없음. `.kste/state.json`을 직접 고칩니다 |
 | 채팅 답변 검사·지시문 주입 | mod (`kste-mod.js`) | 없음. AGENTS.md 지시만 있습니다 |
 | 마켓플레이스 설치 | `/plugin install kste@kste` | 없음. `install.mjs` |

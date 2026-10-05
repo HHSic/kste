@@ -169,7 +169,7 @@ test('mod: /kste off 가 .kste/state.json 을 갱신하고 hook 이 그것을 �
   }
 });
 
-test('mod: hook CLI(commands/kste.md 경로)로 바꾼 상태를 mod 가 따른다', async () => {
+test('mod: hook CLI(commands/set.md 경로)로 바꾼 상태를 mod 가 따른다', async () => {
   const t = setup();
   await t.prompt('한국어로 설명해 줘');
   process.env.KSTE_STATE_DIR = t.dir;

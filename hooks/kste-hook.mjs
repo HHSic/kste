@@ -93,7 +93,7 @@ export async function handle(input, now = Date.now()) {
     delete state.retries[key];
     saveState(cwd, state);
     if (warns.length === 0) return { code: 0 };
-    const msg = `KSTE: ${path.basename(abs)} 경고 ${warns.length}건 (${warns.slice(0, 3).map((f) => f.ruleId).join(', ')}). /kste-check 로 자세히 봅니다.`;
+    const msg = `KSTE: ${path.basename(abs)} 경고 ${warns.length}건 (${warns.slice(0, 3).map((f) => f.ruleId).join(', ')}). /kste:check 로 자세히 봅니다.`;
     return { code: 0, stdout: JSON.stringify({ systemMessage: msg }) };
   }
 

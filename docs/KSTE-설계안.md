@@ -397,8 +397,8 @@ ko-ste/
   .claude-plugin/plugin.json, marketplace.json
   skills/kste/SKILL.md            # 모델용 작문 규칙 (K1~K9, 80% 모드)
   skills/kste/references/         # 규칙별 근거·예문 (국어원 원문 인용)
-  commands/kste-check.md          # /kste check [file]
-  commands/kste-rewrite.md        # /kste rewrite — 재작성 + 정보 보존 검사
+  commands/check.md          # /kste check [file]
+  commands/rewrite.md        # /kste rewrite — 재작성 + 정보 보존 검사
   hooks/hooks.json                # Stop, PostToolUse(Write|Edit *.md)
   hooks/register.js               # /kste on|off|80|strict|pane
   lib/engine/
@@ -414,7 +414,7 @@ ko-ste/
   scripts/install-t1.mjs          # kiwi-nlp + Kiwi 모델 110MB 설치, ~/.kste/t1 (선택)
 ```
 
-- 채팅 답변 적용(mod): `hooks/hooks.json`의 `modules`가 `hooks/kste-mod.js`를 등록한다. mod는 `prompt.submit`에서 프롬프트의 한글 비율(30% 이상)을 기록하고, `prompt.compose`에서 한국어 프롬프트일 때만 `kste:directive` 섹션(SKILL.md를 1,200자 안쪽으로 압축한 지시문)을 시스템 프롬프트에 넣고, `turn.complete`에서 답변을 T0로 검사해 error가 있을 때만 토스트를 낸다. 답변은 재작성하지 않는다(토큰 두 배 금지). mod 환경은 Node 모듈을 못 쓰므로 T0 본체(`lib/engine/tier0-core.js`)와 YAML을 구운 `lib/rules/bundle.js`를 상대 경로로 import한다. 상태는 PostToolUse hook과 같은 `.kste/state.json`을 공유하고, 기존 hook과 `commands/kste.md`는 mod가 없는 Claude Code를 위해 그대로 둔다.
+- 채팅 답변 적용(mod): `hooks/hooks.json`의 `modules`가 `hooks/kste-mod.js`를 등록한다. mod는 `prompt.submit`에서 프롬프트의 한글 비율(30% 이상)을 기록하고, `prompt.compose`에서 한국어 프롬프트일 때만 `kste:directive` 섹션(SKILL.md를 1,200자 안쪽으로 압축한 지시문)을 시스템 프롬프트에 넣고, `turn.complete`에서 답변을 T0로 검사해 error가 있을 때만 토스트를 낸다. 답변은 재작성하지 않는다(토큰 두 배 금지). mod 환경은 Node 모듈을 못 쓰므로 T0 본체(`lib/engine/tier0-core.js`)와 YAML을 구운 `lib/rules/bundle.js`를 상대 경로로 import한다. 상태는 PostToolUse hook과 같은 `.kste/state.json`을 공유하고, 기존 hook과 `commands/set.md`는 mod가 없는 Claude Code를 위해 그대로 둔다.
 - Node 20 이상, 의존성: `kiwi-nlp`(선택), `yaml`, `ajv`.
 - 한국어 전용. 영어 문서에는 `/kste off`.
 - caveman 규칙과 충돌 없음. caveman은 "뭘 뺄지", KSTE는 "남은 문장을 어떻게 쓸지".
