@@ -5,11 +5,15 @@ import { lintText } from '../lib/engine/tier0.js';
 import { comparePreservation } from '../lib/engine/preserve.js';
 import { lintTextT1, compareT1, resolveT1Mode, closeT1 } from '../lib/t1/engine.js';
 import { buildReport, renderMarkdown, renderJson, shouldFail, filterFindings } from '../lib/engine/report.js';
+import { setState } from '../integrations/codex/state.mjs';
+import { setup, parseArgs as parseInstallArgs, completionMessage } from '../integrations/codex/install.mjs';
 
 const USAGE = `사용법:
   kste check <file|-> [--genre procedural|descriptive|auto] [--all] [--json] [--fail-on error|warn] [--noun-chain] [--t1 auto|on|off]
   kste diff <원문> <수정문> [--json] [--t1 auto|on|off] [--fail-on error|warn]
   kste rules
+  kste set [on|off|default|strict|t1 on|t1 off|t1 status|status|last]
+  kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]
 종료 코드: 0 정상, 1 fail-on 이상 위반 있음, 2 사용법 오류`;
 
 function parseArgs(argv) {
@@ -48,6 +52,18 @@ function out(s) {
 
 async function main() {
   const [cmd, ...rest] = process.argv.slice(2);
+  if (cmd === 'install') {
+    if (rest[0] !== 'codex') throw new Error('사용: kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]');
+    const opts = parseInstallArgs(rest.slice(1));
+    out((await setup(opts)).join('\n') + '\n');
+    const message = completionMessage(opts);
+    if (message) out(message + '\n');
+    return 0;
+  }
+  if (cmd === 'set') {
+    out(setState(rest).text + '\n');
+    return 0;
+  }
   const { pos, opt } = parseArgs(rest);
   const failOn = opt['fail-on'] ?? 'error';
   const t1Mode = opt.t1 ?? 'auto';

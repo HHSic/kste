@@ -5,6 +5,7 @@
   "scripts": {
     "test": "node --test",
     "install-t1": "node scripts/install-t1.mjs",
+    "install-codex": "node integrations/codex/install.mjs",
     "build-mod-rules": "node scripts/build-mod-rules.mjs"
   },
   "license": "MIT",
@@ -25,6 +26,8 @@
     "commands",
     "scripts",
     "integrations",
+    ".codex-plugin",
+    ".agents/plugins",
     ".claude-plugin",
     "LICENSE",
     "THIRD_PARTY.md"

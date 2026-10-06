@@ -107,30 +107,74 @@ Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook�
 
 ## Codex CLI에서 쓰기
 
-OpenAI Codex CLI는 Claude Code 플러그인을 읽지 못합니다. 대신 `integrations/codex/`의 파일을 Codex 확장 지점(AGENTS.md, Agent Skills, MCP, hooks)에 배치합니다. 조사 근거는 [docs/codex-integration-notes.md](docs/codex-integration-notes.md)에 있습니다.
+### 플러그인 설치
 
-설치합니다. 먼저 `--dry-run`으로 계획을 확인합니다. 설치 전에 `config.toml`과 `AGENTS.md`는 백업됩니다.
+Codex의 터미널 명령으로 마켓플레이스를 등록하고 플러그인을 설치합니다.
 
-```
-git clone https://github.com/HHSic/kste && cd kste && npm install
-node integrations/codex/install.mjs --dry-run
-node integrations/codex/install.mjs              # AGENTS.md 절, skill, MCP 서버, prompt
-node integrations/codex/install.mjs --with-hooks # 파일 쓰기 후 린터 hook 추가
-node integrations/codex/install.mjs --uninstall  # 제거
+```bash
+codex plugin marketplace add HHSic/kste
+codex plugin add kste@kste
 ```
 
-`npm i -g .` 또는 `npm i -g kste`를 하면 어디서나 `kste check 문서.md`를 쓸 수 있습니다. 설치 후 Codex를 다시 시작합니다. hook은 처음 실행할 때 Codex가 신뢰 여부를 묻습니다.
+로컬 수정본을 설치하려면 KSTE 저장소 폴더에서 `codex plugin marketplace add .`를 실행한 뒤 `codex plugin add kste@kste`를 실행합니다. `codex plugin` 명령이 없는 버전은 Codex를 업데이트하거나 아래 수동 설치를 사용합니다. Codex 안의 플러그인 메뉴는 `/plugins`입니다. Claude Code의 `/plugin install` 명령과 다릅니다.
+
+설치 후 새 세션을 시작하고 `/hooks`에서 KSTE hooks를 검토·신뢰합니다. 신뢰한 첫 세션에서 Kiwi 엔진·모델이 없으면 자동으로 준비합니다. 이후 새 세션마다 kste 스킬을 자동 적용합니다. 저장된 off 또는 t1 off 설정은 유지합니다. 엔진 준비가 실패하면 실패를 알리고 채팅 T0 검사는 계속합니다. `/kste default`로 준비를 다시 시도할 수 있습니다.
+
+Windows hook은 PowerShell 실행기를 사용합니다. Node.js 20 이상을 PATH와 표준 설치 위치에서 찾고, 한국어 stdin을 UTF-8로 전달합니다. macOS·Linux는 PATH 외에 Homebrew·nvm·fnm·Volta 설치 위치도 탐색합니다. 사용자 지정 실행 파일은 `KSTE_NODE_PATH`로 지정합니다. Node.js를 찾지 못하면 KSTE가 실행되지 않았다는 안내를 표시합니다. 초기 모듈 로딩 오류는 플러그인 데이터 폴더의 `hook-errors.log`에 기록하며 안내에 로그 경로를 표시합니다. hook 정의를 변경하면 `/hooks`에서 다시 검토·신뢰합니다.
+
+플러그인에는 Codex 전용 스킬·MCP·4종 hooks를 포함합니다. MCP 호출의 `cwd`에는 현재 프로젝트 경로를 줍니다. 플러그인 방식과 수동 설치는 하나를 선택합니다. 수동 hooks를 이미 설치했다면 `npm run install-codex -- --uninstall`로 제거한 뒤 플러그인을 설치하여 같은 답변을 두 번 검사하지 않도록 합니다.
+
+### 수동 설치
+
+`integrations/codex/`의 설치 스크립트가 Codex 확장 지점(AGENTS.md, Agent Skills, MCP, hooks)에 파일을 배치하고 Kiwi 엔진·모델을 준비합니다. **설치 후 새 세션마다 kste 스킬을 자동 적용하며, 한국어 답변도 자동 검사합니다.** 기본 설정은 on, default 모드, T1 on입니다. `/kste default`는 KSTE와 Kiwi(T1)를 함께 켭니다. default는 기존 80% 규칙이며 `80` 명령도 같은 동작의 별칭으로 지원합니다. Node.js 20 이상이 필요합니다. 조사 근거와 지원 범위는 [docs/codex-integration-notes.md](docs/codex-integration-notes.md)에 있습니다.
+
+다음 명령으로 설치합니다. 기존 Kiwi 엔진·모델은 다시 받지 않습니다. 설치 전에 `config.toml`과 `AGENTS.md`는 백업됩니다.
+
+```
+git clone https://github.com/HHSic/kste
+cd kste
+npm install
+npm run install-codex
+```
+
+설치 후 Codex를 다시 시작하고 CLI의 `/hooks`에서 KSTE hooks를 검토·신뢰합니다. 이후 SessionStart hook이 스킬 본문을 전달하므로 새 세션에서 `/kste`를 따로 호출할 필요가 없습니다. 신뢰 전에는 자동 적용 hook이 실행되지 않습니다. MCP와 hook은 설치 폴더의 절대 경로를 참조하므로 폴더를 유지합니다. Codex 데스크톱에서는 같은 실행 환경에 스크립트와 Node.js가 있어야 합니다. 이 설치가 다른 컴퓨터나 클라우드 환경까지 자동으로 배포하지는 않습니다.
+
+설치 계획 확인과 선택 옵션은 다음과 같습니다. `node integrations/codex/install.mjs`도 같은 설치 명령이며, 로컬 소스를 `npm i -g .`로 설치했다면 `kste install codex`를 쓸 수 있습니다.
+
+```bash
+npm run install-codex -- --dry-run
+npm run install-codex -- --no-hooks # 자동 검사 없이 설치(기존 KSTE hooks도 제거)
+npm run install-codex -- --no-t1    # Kiwi 엔진·모델 준비 생략
+npm run install-codex -- --uninstall
+```
+
+`--with-hooks`는 이전 설치 명령과의 호환을 위해 계속 지원합니다. `--no-t1`로 설치한 경우 형태소 검사를 쓰려면 나중에 엔진·모델을 준비하거나 `/kste t1 off`로 설정을 끕니다.
+
+데스크톱의 명령 메뉴에 `kste` 스킬이 보이면 `/kste off`, `/kste on`, `/kste strict`, `/kste default`, `/kste status`, `/kste last`로 제어합니다. 표시되지 않는 환경에서는 `$kste off`처럼 스킬을 직접 호출합니다. CLI용 대체 슬래시 호출은 `/prompts:kste off`입니다(prompts는 deprecated). 상태 명령은 문서를 고치지 않고 설정 결과만 알립니다.
+
+설정은 프로젝트 Git 루트의 `.kste/state.json`에 저장됩니다. Git 저장소 밖에서는 현재 작업 디렉터리를 기준으로 하며 `KSTE_STATE_DIR`로 바꿀 수 있습니다. 스킬, MCP, 파일 hook, 채팅 hook이 같은 설정을 읽습니다. `off`는 KSTE 자동 작문 지침과 파일·답변 검사를 끕니다. 사용자가 명시적으로 요청한 MCP 검사는 off에서도 실행됩니다.
+
+답변 검사에는 Codex의 `Stop.last_assistant_message` 필드를 씁니다. T0 오류가 있으면 Codex에 수정 답변을 **한 번** 요청합니다. 원래 답변을 덮어쓰는 API가 아니라 턴을 재개해 수정 답변을 추가하는 방식입니다. 수정 후에도 오류가 남으면 알리고 재개를 반복하지 않습니다. `/kste last`로 마지막 한국어 답변 검사 결과를 봅니다. Stop에서 답변이 없거나 답변이 300 KiB를 넘으면 자동 검사를 건너뜁니다. T1 설정은 파일·MCP 검사에 적용되고, 채팅 답변 검사는 빠른 T0을 사용합니다.
+
+기본 설치 명령이 T1 엔진·모델도 준비합니다. `--no-t1`로 생략했다면 다음 명령으로 준비할 수 있습니다. 새 프로젝트는 T1 on으로 시작하며, 기존 프로젝트에서 꺼 두었다면 `/kste default`로 함께 켭니다. 설정을 켜는 명령은 엔진·모델을 다운로드하지 않습니다.
+
+```bash
+node scripts/install-t1.mjs
+node scripts/install-t1.mjs --check
+```
+
+형태소 분석 엔진은 Kiwi(`kiwi-nlp` + Kiwi 모델)입니다. Codex에서 `/kste default` 또는 `/kste t1 on`으로 켜고, `/kste t1 off`로 끕니다. 명시적으로 끈 설정은 유지하며 default를 다시 실행하면 T1을 켭니다. `/kste t1 status`는 설정 on/off와 엔진·모델의 실제 설치 여부를 함께 보여 줍니다. 메뉴에 없으면 `$kste t1 on`처럼 호출합니다. `npm i -g .` 또는 `npm i -g kste`를 했다면 터미널에서도 `kste set off`, `kste set default`, `kste set strict`, `kste set t1 on`, `kste set t1 status`, `kste set status`로 같은 설정을 제어하고 `kste check 문서.md`로 직접 검사할 수 있습니다.
 
 | 기능 | Claude Code | Codex CLI |
 |---|---|---|
-| 작문 지침 | skill `kste` | `AGENTS.md` 절 + Agent Skill `kste` (`$kste`) |
-| 파일 쓰기 후 자동 검사 | PostToolUse hook (Write, Edit) | PostToolUse hook (`apply_patch`), `--with-hooks`. 실제 Codex로는 검증하지 못함 |
-| 모델이 직접 린터 실행 | `/kste:check` | MCP 도구 `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
-| 슬래시 명령 | `/kste:check`, `/kste:rewrite`, `/kste` | `/prompts:kste-check`만 (prompts는 deprecated) |
-| hook 켜기·끄기·모드 | `/kste on\|off\|80\|strict` | 없음. `.kste/state.json`을 직접 고칩니다 |
-| 채팅 답변 검사·지시문 주입 | mod (`kste-mod.js`) | 없음. AGENTS.md 지시만 있습니다 |
-| 마켓플레이스 설치 | `/plugin install kste@kste` | 없음. `install.mjs` |
-| T1 형태소 검사 | hook 상태 `t1` | MCP 인자 `t1`, CLI `--t1` (모델 설치 필요) |
+| 작문 지침 | skill `kste` | `AGENTS.md` + 새 세션 자동 스킬 적용 + 현재 설정 hook |
+| 파일 쓰기 후 자동 검사 | PostToolUse hook (Write, Edit) | 기본 PostToolUse hook (`apply_patch`) |
+| 모델이 직접 린터 실행 | `/kste:check` | MCP `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
+| 슬래시 명령 | `/kste:check`, `/kste:rewrite`, `/kste` | 스킬 메뉴의 `/kste`(환경에 따라 표시), `$kste`, `/prompts:kste`, `/prompts:kste-check` |
+| hook 켜기·끄기·모드 | `/kste on\|off\|80\|strict` | `kste` 스킬, MCP `kste_state`, CLI `kste set` |
+| 채팅 답변 검사·지시문 주입 | mod (`kste-mod.js`) | 기본 SessionStart/UserPromptSubmit + Stop, 오류 시 1회 수정 요청 |
+| 마켓플레이스 설치 | `/plugin install kste@kste` | `codex plugin marketplace add HHSic/kste` + `codex plugin add kste@kste` |
+| T1 형태소 검사 | hook 상태 `t1` | 기본 설치에서 엔진·모델 준비, 파일 hook·MCP에 공유 설정 적용 |
 
 ## 실무 기준
 

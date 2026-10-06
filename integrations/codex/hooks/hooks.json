@@ -1,0 +1,56 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.sh\" session",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.ps1\" -Kind session",
+            "timeout": 180,
+            "additionalContextLimit": 5000,
+            "statusMessage": "KSTE 스킬과 Kiwi 준비"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.sh\" session",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.ps1\" -Kind session",
+            "timeout": 180,
+            "additionalContextLimit": 5000
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.sh\" chat",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.ps1\" -Kind chat",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.sh\" file",
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}/integrations/codex/hooks/kste-launch.ps1\" -Kind file",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -67,9 +67,9 @@ async function runLint(text, state) {
 }
 
 /** 판정 함수. {code, stderr, stdout} 반환. 테스트와 main 이 같이 쓴다. */
-export async function handle(input, now = Date.now()) {
+export async function handle(input, now = Date.now(), store = { loadState, saveState }) {
   const cwd = input.cwd || process.cwd();
-  const state = loadState(cwd);
+  const state = store.loadState(cwd);
   if (!state.enabled) return { code: 0 };
   const tool = input.tool_name;
   if (tool && !['Write', 'Edit', 'MultiEdit'].includes(tool)) return { code: 0 };
@@ -91,7 +91,7 @@ export async function handle(input, now = Date.now()) {
 
   if (errors.length === 0) {
     delete state.retries[key];
-    saveState(cwd, state);
+    store.saveState(cwd, state);
     if (warns.length === 0) return { code: 0 };
     const msg = `KSTE: ${path.basename(abs)} 경고 ${warns.length}건 (${warns.slice(0, 3).map((f) => f.ruleId).join(', ')}). /kste:check 로 자세히 봅니다.`;
     return { code: 0, stdout: JSON.stringify({ systemMessage: msg }) };
@@ -100,12 +100,12 @@ export async function handle(input, now = Date.now()) {
   const count = (fresh ? 0 : prev.count) + 1;
   if (count > MAX_FIX) {
     delete state.retries[key];
-    saveState(cwd, state);
+    store.saveState(cwd, state);
     const msg = `KSTE: ${MAX_FIX}회 수정 후 남은 위반 ${errors.length}건 (${path.basename(abs)}). 직접 확인하세요.\n${errors.slice(0, 5).map(line).join('\n')}`;
     return { code: 0, stdout: JSON.stringify({ systemMessage: msg }) };
   }
   state.retries[key] = { count, at: now };
-  saveState(cwd, state);
+  store.saveState(cwd, state);
   return { code: 2, stderr: renderFeedback({ file: abs, errors, warns, attempt: count, mode: state.mode }) };
 }
 
