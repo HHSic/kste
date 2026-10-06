@@ -75,8 +75,9 @@ async function t1Status($) {
 }
 
 async function t1Install($) {
-  const hint = `다음 명령을 실행하세요: node "${$.plugin?.root ?? '<플러그인경로>'}/scripts/install-t1.mjs"`;
-  if (!$.process?.run) return hint;
+  let pluginRoot = '<플러그인경로>';
+  try { pluginRoot = $.plugin.root ?? pluginRoot; } catch { /* mod 밖에서는 안내 경로를 쓴다. */ }
+  const hint = `다음 명령을 실행하세요: node "${pluginRoot}/scripts/install-t1.mjs"`;
   $.ui.toast('T1 설치 시작: 모델 약 110MB, 몇 분 걸릴 수 있다');
   const r = await runInstallScript($, [], 600000);
   if (!r) return `T1 설치를 mod 에서 실행하지 못했다. ${hint}`;
