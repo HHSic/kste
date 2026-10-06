@@ -6,7 +6,7 @@
 
 `codex plugin marketplace add HHSic/kste`와 `codex plugin add kste@kste`로 설치하도록 `.agents/plugins/marketplace.json`과 `.codex-plugin/plugin.json`을 추가했습니다. 기존 Claude 등록 파일은 유지하고 Codex manifest에서 전용 스킬·MCP·hooks를 명시합니다. Codex 플러그인 메뉴는 `/plugins`이며 `/plugin install`은 Claude Code 명령입니다.
 
-플러그인 설치 자체는 코드를 실행하지 않습니다. 신뢰한 첫 SessionStart hook이 Kiwi 엔진·모델을 준비하고 스킬 본문을 자동 적용합니다. 이미 준비됐다면 재사용하며 off 또는 t1 off 상태에서는 준비를 생략합니다. 준비 실패를 알리고 `/kste default` 또는 `/kste t1 on`으로 다시 시도할 수 있습니다. 채팅 답변 검사는 T0을 유지합니다. hooks는 설치만으로 신뢰되지 않으며 `/hooks` 검토·신뢰가 필요합니다.
+플러그인 설치 자체는 코드를 실행하지 않습니다. 신뢰한 첫 SessionStart hook이 Kiwi 엔진·모델을 준비하고 스킬 본문을 자동 적용합니다. 이미 준비됐다면 재사용하며 off 또는 t1 off 상태에서는 준비를 생략합니다. 준비 실패를 알리고 `/kste default` 또는 `/kste t1 on`으로 다시 시도할 수 있습니다. 채팅 답변 검사는 T0을 유지합니다. hooks는 설치만으로 신뢰되지 않으며 CLI에서 `/hooks` 검토·신뢰가 필요합니다. 이 명령을 데스크톱 명령으로 안내하지 않습니다.
 
 MCP stdio 서버는 `cwd: "./"`와 상대 args로 설치된 플러그인 루트에서 실행합니다. 일반 compatibility MCP args의 `${CLAUDE_PLUGIN_ROOT}`는 이 Codex 버전에서 치환되지 않았습니다. 도구 인자 `cwd`에는 사용자 프로젝트 경로를 전달합니다. hook 명령은 공식 `PLUGIN_ROOT` 환경변수를 사용합니다. 수동 설치 hooks와 함께 쓰면 중복 검사하므로 수동 설치를 먼저 제거합니다.
 
@@ -15,6 +15,12 @@ Windows 데스크톱에서 `hook exited with code 1`, Node `v24.13.1`이 보고�
 검증: 전체 Node 테스트 551개가 통과했습니다(T1 모델이 있는 환경). Codex CLI `0.159.0-alpha.3`의 임시 CODEX_HOME에서 로컬 marketplace 등록, `codex plugin add kste@kste`, 제거·재설치를 확인했습니다. 설치된 캐시 사본으로 로컬 가짜 Responses 엔드포인트를 호출하여 첫 요청의 Codex 스킬 본문 자동 적용, MCP `kste_check` 도구 등록, Stop 오류 답변 후 수정 답변 1회를 확인했습니다. PowerShell 7.6.6(Linux)에서 한국어 stdin·JSON stdout·Node 부재 안내를 확인했으며 Windows 데스크톱 실기 검증은 남아 있습니다. 일반 설치의 hook trust를 변경하지 않았으며 테스트에서만 검토한 hooks를 우회했습니다.
 
 출처: [플러그인 패키징·마켓플레이스·hooks](https://developers.openai.com/plugins/build/plugins), 현재 CLI `codex plugin add --help` 및 `codex plugin marketplace add --help`.
+
+## 2026-10-07: 데스크톱 스킬 명령 메뉴
+
+[슬래시 명령 공식 문서](https://learn.chatgpt.com/docs/reference/slash-commands)는 활성화된 스킬이 데스크톱 `/` 메뉴에 표시된다고 설명합니다. `kste` 스킬에 `agents/openai.yaml`을 추가하여 표시 이름·설명과 기본 호출을 지정했습니다. Codex app-server `skills/list`에서 플러그인 등록 이름 `kste:kste`, enabled true, 표시 이름 kste를 확인했습니다. 플러그인의 기본 호출은 `$kste:kste`이며 수동 설치는 `$kste`로 바꿉니다. Hook도 namespace를 붙인 명령을 처리합니다. 사용자는 메뉴에서 스킬을 선택하고 on 같은 인자를 덧붙여 호출합니다. `/kste on` 전체를 별도 네이티브 명령으로 등록하거나 on/off 인자 자동완성을 제공하는 API는 확인하지 못했습니다. 상태 변경은 스킬이 MCP를 호출하므로 hook이 없어도 사용할 수 있습니다.
+
+[hooks 공식 문서](https://learn.chatgpt.com/docs/hooks)의 `/hooks` 안내는 CLI용입니다. Windows 데스크톱에서 이 명령이 없다는 보고를 반영하여 설치 안내를 수정했습니다. 사용자 데스크톱의 스킬 메뉴 표시는 아직 직접 확인하지 않았습니다.
 
 ## 2026-10-06: 채팅 답변과 상태 제어 확장
 

@@ -79,6 +79,10 @@ test('채팅: on/off/default/strict가 즉시 적용되며 80 별칭과 예시 �
   assert.equal(loadState(cwd).t1, true, '상태 조회는 설정을 바꾸지 않는다');
   context(cwd, '/kste off extra');
   assert.equal(loadState(cwd).enabled, true, '잘못된 인자는 기존 상태를 보존한다');
+  context(cwd, '/kste:kste off');
+  assert.equal(loadState(cwd).enabled, false, '플러그인 namespace가 붙은 스킬 호출을 처리한다');
+  context(cwd, '$kste:kste on');
+  assert.equal(loadState(cwd).enabled, true);
 });
 
 test('채팅: 영문·코드·누락된 답변은 건너뛰며 Stop 출력은 JSON이다', () => {

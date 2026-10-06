@@ -118,9 +118,9 @@ codex plugin add kste@kste
 
 로컬 수정본을 설치하려면 KSTE 저장소 폴더에서 `codex plugin marketplace add .`를 실행한 뒤 `codex plugin add kste@kste`를 실행합니다. `codex plugin` 명령이 없는 버전은 Codex를 업데이트하거나 아래 수동 설치를 사용합니다. Codex 안의 플러그인 메뉴는 `/plugins`입니다. Claude Code의 `/plugin install` 명령과 다릅니다.
 
-설치 후 새 세션을 시작하고 `/hooks`에서 KSTE hooks를 검토·신뢰합니다. 신뢰한 첫 세션에서 Kiwi 엔진·모델이 없으면 자동으로 준비합니다. 이후 새 세션마다 kste 스킬을 자동 적용합니다. 저장된 off 또는 t1 off 설정은 유지합니다. 엔진 준비가 실패하면 실패를 알리고 채팅 T0 검사는 계속합니다. `/kste default`로 준비를 다시 시도할 수 있습니다.
+설치 후 새 세션을 시작합니다. Hook 검토·신뢰는 Codex CLI를 실행한 뒤 `/hooks`에서 합니다. 데스크톱에 `/hooks`가 있다고 가정하지 않습니다. 신뢰한 첫 세션에서 Kiwi 엔진·모델이 없으면 자동으로 준비합니다. 이후 새 세션마다 kste 스킬을 자동 적용합니다. 저장된 off 또는 t1 off 설정은 유지합니다. 엔진 준비가 실패하면 실패를 알리고 채팅 T0 검사는 계속합니다. `/kste default`로 준비를 다시 시도할 수 있습니다.
 
-Windows hook은 PowerShell 실행기를 사용합니다. Node.js 20 이상을 PATH와 표준 설치 위치에서 찾고, 한국어 stdin을 UTF-8로 전달합니다. macOS·Linux는 PATH 외에 Homebrew·nvm·fnm·Volta 설치 위치도 탐색합니다. 사용자 지정 실행 파일은 `KSTE_NODE_PATH`로 지정합니다. Node.js를 찾지 못하면 KSTE가 실행되지 않았다는 안내를 표시합니다. 초기 모듈 로딩 오류는 플러그인 데이터 폴더의 `hook-errors.log`에 기록하며 안내에 로그 경로를 표시합니다. hook 정의를 변경하면 `/hooks`에서 다시 검토·신뢰합니다.
+Windows hook은 PowerShell 실행기를 사용합니다. Node.js 20 이상을 PATH와 표준 설치 위치에서 찾고, 한국어 stdin을 UTF-8로 전달합니다. macOS·Linux는 PATH 외에 Homebrew·nvm·fnm·Volta 설치 위치도 탐색합니다. 사용자 지정 실행 파일은 `KSTE_NODE_PATH`로 지정합니다. Node.js를 찾지 못하면 KSTE가 실행되지 않았다는 안내를 표시합니다. 초기 모듈 로딩 오류는 플러그인 데이터 폴더의 `hook-errors.log`에 기록하며 안내에 로그 경로를 표시합니다. hook 정의를 변경하면 CLI의 `/hooks`에서 다시 검토·신뢰합니다.
 
 플러그인에는 Codex 전용 스킬·MCP·4종 hooks를 포함합니다. MCP 호출의 `cwd`에는 현재 프로젝트 경로를 줍니다. 플러그인 방식과 수동 설치는 하나를 선택합니다. 수동 hooks를 이미 설치했다면 `npm run install-codex -- --uninstall`로 제거한 뒤 플러그인을 설치하여 같은 답변을 두 번 검사하지 않도록 합니다.
 
@@ -137,7 +137,7 @@ npm install
 npm run install-codex
 ```
 
-설치 후 Codex를 다시 시작하고 CLI의 `/hooks`에서 KSTE hooks를 검토·신뢰합니다. 이후 SessionStart hook이 스킬 본문을 전달하므로 새 세션에서 `/kste`를 따로 호출할 필요가 없습니다. 신뢰 전에는 자동 적용 hook이 실행되지 않습니다. MCP와 hook은 설치 폴더의 절대 경로를 참조하므로 폴더를 유지합니다. Codex 데스크톱에서는 같은 실행 환경에 스크립트와 Node.js가 있어야 합니다. 이 설치가 다른 컴퓨터나 클라우드 환경까지 자동으로 배포하지는 않습니다.
+설치 후 Codex를 다시 시작하고 CLI의 `/hooks`에서 KSTE hooks를 검토·신뢰합니다. 데스크톱의 명령 메뉴에는 `/hooks`가 없을 수 있습니다. 이후 SessionStart hook이 스킬 본문을 전달하므로 새 세션에서 `/kste`를 따로 호출할 필요가 없습니다. 신뢰 전에는 자동 적용 hook이 실행되지 않습니다. MCP와 hook은 설치 폴더의 절대 경로를 참조하므로 폴더를 유지합니다. Codex 데스크톱에서는 같은 실행 환경에 스크립트와 Node.js가 있어야 합니다. 이 설치가 다른 컴퓨터나 클라우드 환경까지 자동으로 배포하지는 않습니다.
 
 설치 계획 확인과 선택 옵션은 다음과 같습니다. `node integrations/codex/install.mjs`도 같은 설치 명령이며, 로컬 소스를 `npm i -g .`로 설치했다면 `kste install codex`를 쓸 수 있습니다.
 
@@ -150,7 +150,7 @@ npm run install-codex -- --uninstall
 
 `--with-hooks`는 이전 설치 명령과의 호환을 위해 계속 지원합니다. `--no-t1`로 설치한 경우 형태소 검사를 쓰려면 나중에 엔진·모델을 준비하거나 `/kste t1 off`로 설정을 끕니다.
 
-데스크톱의 명령 메뉴에 `kste` 스킬이 보이면 `/kste off`, `/kste on`, `/kste strict`, `/kste default`, `/kste status`, `/kste last`로 제어합니다. 표시되지 않는 환경에서는 `$kste off`처럼 스킬을 직접 호출합니다. CLI용 대체 슬래시 호출은 `/prompts:kste off`입니다(prompts는 deprecated). 상태 명령은 문서를 고치지 않고 설정 결과만 알립니다.
+데스크톱 입력창에서 `/`를 입력하고 활성화된 `kste` 스킬을 선택한 뒤 `on`, `off`, `default`, `strict`, `status`, `last` 같은 인자를 붙여 보냅니다. 플러그인 스킬의 등록 이름은 `kste:kste`이므로 `/kste:kste on` 또는 `$kste:kste on` 형태로 호출될 수 있습니다. 수동 설치는 `/kste on` 또는 `$kste on`을 씁니다. `/kste on` 전체를 별도 네이티브 명령으로 등록하거나 on/off 인자를 메뉴에서 자동완성하는 API는 확인하지 못했습니다. 스킬의 `agents/openai.yaml`에 표시 이름 `kste`·설명과 기본 호출을 지정했습니다. 상태 명령은 hook이 없어도 스킬이 MCP `kste_state`로 처리할 수 있습니다. CLI용 대체 슬래시 호출은 `/prompts:kste off`입니다(prompts는 deprecated). 상태 명령은 문서를 고치지 않고 설정 결과만 알립니다.
 
 설정은 프로젝트 Git 루트의 `.kste/state.json`에 저장됩니다. Git 저장소 밖에서는 현재 작업 디렉터리를 기준으로 하며 `KSTE_STATE_DIR`로 바꿀 수 있습니다. 스킬, MCP, 파일 hook, 채팅 hook이 같은 설정을 읽습니다. `off`는 KSTE 자동 작문 지침과 파일·답변 검사를 끕니다. 사용자가 명시적으로 요청한 MCP 검사는 off에서도 실행됩니다.
 

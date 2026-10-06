@@ -87,6 +87,7 @@ test('install.mjs 설치·재설치·제거 (임시 home)', () => {
   assert.match(c1, /\[\[hooks\.PostToolUse\]\]/);
   for (const event of ['SessionStart', 'UserPromptSubmit', 'Stop']) assert.match(c1, new RegExp(`\\[\\[hooks\\.${event}\\]\\]`));
   assert.ok(existsSync(path.join(home, '.agents', 'skills', 'kste', 'SKILL.md')));
+  assert.match(readFileSync(path.join(home, '.agents', 'skills', 'kste', 'agents', 'openai.yaml'), 'utf8'), /default_prompt: "\$kste"/);
   assert.ok(existsSync(path.join(home, '.codex', 'prompts', 'kste-check.md')));
   assert.ok(existsSync(path.join(home, '.codex', 'prompts', 'kste.md')));
   assert.ok(readdirSync(path.join(home, '.codex')).some((n) => n.includes('kste-bak')), '백업 생성');

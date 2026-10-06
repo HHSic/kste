@@ -17,7 +17,7 @@ function skillContext() {
 export function controlArgs(prompt) {
   // 문장 속 명령 예시나 여러 줄 요청을 설정 변경으로 해석하지 않는다.
   if (typeof prompt !== 'string') return null;
-  const m = prompt.trim().match(/^(?:\/kste|\$kste|\/prompts:kste)(?:[ \t]+([^\r\n]*))?$/);
+  const m = prompt.trim().match(/^(?:\/kste(?::kste)?|\$kste(?::kste)?|\/prompts:kste)(?:[ \t]+([^\r\n]*))?$/);
   if (!m) return null;
   const args = m[1]?.trim().split(/[ \t]+/).filter(Boolean) ?? [];
   // $kste README.md 같은 작문 스킬 요청은 상태 명령이 아니다.

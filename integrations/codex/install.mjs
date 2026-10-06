@@ -129,6 +129,9 @@ export function install(opts = {}) {
       mkdirSync(path.join(codex, 'prompts'), { recursive: true });
       for (const name of promptNames) copyFileSync(path.join(HERE, 'prompts', name), path.join(codex, 'prompts', name));
       cpSync(path.join(HERE, 'skills', 'kste'), skillDst, { recursive: true });
+      // 사용자 스킬에는 플러그인 namespace가 붙지 않는다.
+      const ui = path.join(skillDst, 'agents', 'openai.yaml');
+      writeFileSync(ui, readFileSync(ui, 'utf8').replace('default_prompt: "$kste:kste"', 'default_prompt: "$kste"'));
     }
   }
   return log;
@@ -160,7 +163,7 @@ export async function setup(opts = {}, prepare = prepareT1) {
 
 export function completionMessage(opts) {
   if (opts.dryRun || opts.uninstall) return '';
-  return `완료. Codex를 다시 시작하세요.${opts.withHooks !== false ? ' /hooks에서 KSTE hooks를 검토하고 신뢰하면 새 세션마다 kste 스킬이 자동 적용됩니다.' : ' --no-hooks: 자동 답변 검사는 설치하지 않았습니다.'}${opts.withT1 === false ? ' --no-t1: 엔진 준비는 생략했습니다.' : ''}`;
+  return `완료. Codex를 다시 시작하세요.${opts.withHooks !== false ? ' CLI에서 /hooks로 KSTE hooks를 검토·신뢰하면 새 세션마다 스킬이 자동 적용됩니다. 데스크톱의 / 메뉴에서는 kste 스킬을 선택하고 on/off/default 같은 인자를 붙여 호출합니다.' : ' --no-hooks: 자동 답변 검사는 설치하지 않았습니다.'}${opts.withT1 === false ? ' --no-t1: 엔진 준비는 생략했습니다.' : ''}`;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

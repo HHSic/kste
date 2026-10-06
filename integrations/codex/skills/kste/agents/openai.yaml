@@ -1,0 +1,7 @@
+interface:
+  display_name: "kste"
+  short_description: "한국어 작문·검사와 on/off/default/strict 상태 제어"
+  default_prompt: "$kste:kste"
+
+policy:
+  allow_implicit_invocation: true
