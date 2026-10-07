@@ -1,12 +1,12 @@
 # KSTE (Korean Simplified Technical Korean)
 
-KSTE is a Korean controlled-language rule set for technical writing, modeled on ASD-STE100. It ships as a Claude Code plugin whose linter checks Korean Markdown and feeds violations back to the model. The first principle is "leave nothing for the reader to infer." The rules come from measurements of well-written Korean manuals. They also come from 709 sentence pairs corrected by National Institute of Korean Language editors. The detection numbers are modest and are reported below as measured.
+KSTE is a Korean controlled-language rule set for technical writing, modeled on ASD-STE100. It ships as plugins for Codex, Claude Code, and Cursor, sharing one linter, Kiwi morphology engine, and project settings. The first principle is "leave nothing for the reader to infer." The rules come from measurements of well-written Korean manuals. They also come from 709 sentence pairs corrected by National Institute of Korean Language editors. The detection numbers are modest and are reported below as measured.
 
 ---
 
 ## KSTE란 무엇입니까
 
-KSTE는 ASD-STE100의 한국어판 작문 규칙입니다. 한국어 기술문서(매뉴얼, 개발자 문서, 기술 보고서)를 쓰는 사람과 모델을 위한 규칙 47개를 담았습니다. 이 저장소는 규칙 문서와 함께 Claude Code 린터 플러그인을 제공합니다. 플러그인은 한국어 `.md` 파일을 쓰거나 고칠 때 규칙 위반을 찾아 모델에게 돌려줍니다.
+KSTE는 ASD-STE100의 한국어판 작문 규칙입니다. 한국어 기술문서(매뉴얼, 개발자 문서, 기술 보고서)를 쓰는 사람과 모델을 위한 규칙 47개를 담았습니다. 이 저장소는 규칙 문서와 함께 Codex·Claude Code·Cursor용 작문 스킬과 린터 플러그인을 제공합니다. 플러그인은 한국어 `.md` 파일을 쓰거나 고칠 때 규칙 위반을 찾아 모델에게 돌려줍니다.
 
 ## 제1원칙
 
@@ -19,6 +19,25 @@ KSTE는 ASD-STE100의 한국어판 작문 규칙입니다. 한국어 기술문�
 3. 여러 뜻으로 읽히는 표현을 하나로 정합니다.
 
 ## 설치
+
+같은 저장소를 세 도구에서 사용합니다. Node.js 20 이상이 필요하며 Claude Code·Cursor에서는 `node`가 PATH에 있어야 합니다. 기본은 **on / default / T1 on**입니다. 새 세션 hook이 스킬을 자동 적용하고 Kiwi 엔진·모델이 없으면 준비합니다. 저장된 off 또는 t1 off는 유지합니다. 도구마다 hook 허용·신뢰 설정을 적용한 뒤 새 세션을 시작합니다.
+
+현재 범용 구현은 [PR #1](https://github.com/HHSic/kste/pull/1)의 `codex/kste-codex-plugin` 브랜치에 있습니다. main 병합 전에는 다음처럼 체크아웃한 뒤 로컬 플러그인으로 설치합니다.
+
+```bash
+git clone --branch codex/kste-codex-plugin https://github.com/HHSic/kste.git
+cd kste
+# 필요한 도구를 선택합니다.
+claude plugin marketplace add .
+claude plugin install kste@kste
+codex plugin marketplace add .
+codex plugin add kste@kste
+npm run install-cursor
+```
+
+Cursor는 다시 시작하거나 `Developer: Reload Window`를 실행한 뒤 Customize에서 kste를 확인합니다. 이미 마켓플레이스 kste를 설치했다면 그 설치가 local 복사본보다 우선하므로 한 방식으로 사용합니다. 조직에서 Local Plugin Imports를 허용해야 로컬 설치가 발견됩니다.
+
+### Claude Code 플러그인
 
 Claude Code에서 마켓플레이스를 추가하고 플러그인을 설치합니다.
 
@@ -34,17 +53,17 @@ claude plugin marketplace add HHSic/kste
 claude plugin install kste@kste
 ```
 
-Node.js 20 이상이 필요합니다. 설치만 하면 T0(정규식과 사전 검사)가 바로 돌아갑니다. 별도의 `npm install`은 필요 없습니다.
+Node.js 20 이상이 필요합니다. T0의 YAML 의존성을 포함하므로 별도의 `npm install`은 필요 없습니다. 세션 hook은 mod API가 없는 버전에서도 작문 스킬을 자동 적용합니다.
 
-### T1 모델 설치 (선택)
+### Kiwi 형태소 엔진(T1)
 
-T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문법 규칙 16개를 더 검사합니다. Claude Code 안에서 한 번만 실행하면 됩니다.
+T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문법 규칙 16개를 더 검사합니다. 기본 설정에서는 신뢰·허용한 첫 세션 hook이 준비합니다. 수동 준비도 가능합니다.
 
 ```
 /kste t1 install
 ```
 
-`/kste:check`를 처음 실행할 때 T1이 없으면 "받을까요?"라고 먼저 묻습니다. 예라고 답해도 같습니다. hook은 묻지 않고 T0만 돌립니다.
+기본 다운로드는 약 110MB이며 이미 설치된 엔진·모델을 재사용합니다. t1 off이면 다운로드하지 않습니다. 준비 실패를 알리고 채팅 T0 검사는 계속합니다.
 
 - 받는 것: `kiwi-nlp` 패키지와 Kiwi 모델, 합쳐서 약 110MB입니다. 진행률은 stderr에 나옵니다.
 - 저장 위치: `~/.kste/t1/`입니다(Windows는 `%USERPROFILE%\.kste\t1\`). 플러그인 폴더는 업데이트 때 통째로 바뀌므로 버전과 무관한 사용자 폴더에 둡니다. 업데이트해도 다시 받지 않습니다. `KSTE_T1_DIR` 환경변수로 위치를 바꿀 수 있습니다.
@@ -59,8 +78,8 @@ T1은 Kiwi 형태소 분석으로 조사 누락, 피동, 띄어쓰기 같은 문
 |---|---|
 | `/kste:check [파일]` | 문서를 검사하고 리포트를 보여 줍니다. 파일은 고치지 않습니다. |
 | `/kste:rewrite [파일]` | 문서를 KSTE로 다시 씁니다. 원문을 `.orig`로 남기고, 숫자·부정어·고유명사가 사라지지 않았는지 확인합니다. |
-| `/kste on\|off\|80\|strict\|t1 install\|t1 on\|t1 off\|status` | hook 켜기와 끄기, 모드, T1 설치·설정을 바꿉니다. mod가 없는 Claude Code에서는 `/kste:set …`을 씁니다. |
-| `/kste last` | 마지막 답변의 T0 검사 리포트를 전부 보여 줍니다. mod가 있는 Claude Code에서만 됩니다. |
+| `/kste on\|off\|default\|strict\|t1 install\|t1 on\|t1 off\|status` | hook 켜기와 끄기, 모드, T1 설치·설정을 바꿉니다. mod가 없는 Claude Code에서는 `/kste:set …`을 씁니다. |
+| `/kste last` | 마지막 한국어 답변의 T0 검사 리포트를 보여 줍니다. 도구별 호출 형태는 아래 표를 참조하세요. |
 
 `kste` 스킬도 함께 들어 있습니다. 한국어 기술문서를 새로 쓸 때 Claude가 이 스킬로 템플릿과 규칙을 따릅니다.
 
@@ -74,45 +93,45 @@ node bin/kste.js rules
 
 ## hook 동작
 
-Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook이 T0 린터를 돌립니다.
+Claude가 한국어 `.md` 파일을 `Write`, `Edit`, `MultiEdit`로 쓰면 hook이 설정에 따라 T0 또는 T0+T1 린터를 돌립니다.
 
 - error가 있으면 위반 목록을 모델에게 돌려주고 고치게 합니다. 수정 기회는 파일당 3회입니다. 3회가 지나도 남으면 사용자에게 알리고 넘어갑니다.
 - warn만 있으면 사용자에게 한 줄로 알립니다. 모델은 멈추지 않습니다.
-- 한국어 비율이 30% 미만이거나 300KB를 넘는 파일은 검사하지 않습니다.
+- 한국어 비율이 20% 미만이거나 300 KiB를 넘는 파일은 검사하지 않습니다.
 - 상태는 프로젝트의 `.kste/` 폴더에 저장합니다.
 
 ### 모드
 
 | 모드 | 동작 |
 |---|---|
-| 80% (기본) | 정밀한 규칙만 error로 올립니다. 나머지는 warn과 info로 둡니다. |
+| default (기존 80%) | 정밀한 규칙만 error로 올립니다. 나머지는 warn과 info로 둡니다. |
 | strict | 정밀도가 높은 warn 규칙을 error로 올립니다. |
 
-모든 경고를 error로 올리면 오탐이 늘고, 모델이 오탐을 피하려고 정보를 깎습니다. 정보 보존 실험에서 엄격한 지시는 사실을 46.8%나 잃게 했습니다. 그래서 기본값은 80% 모드입니다.
+모든 경고를 error로 올리면 오탐이 늘고, 모델이 오탐을 피하려고 정보를 깎습니다. 정보 보존 실험에서 엄격한 지시는 사실을 46.8%나 잃게 했습니다. 그래서 기본값은 default 모드(기존 80% 규칙)입니다. default 명령은 KSTE와 T1을 함께 켭니다.
 
 ## 채팅 답변 적용
 
 파일을 저장할 때만이 아니라 채팅 답변에도 KSTE를 적용합니다. Claude Code의 mod(`hooks/kste-mod.js`)가 다음 순서로 동작합니다.
 
-1. 프롬프트를 보낼 때 한글 비율(코드와 URL 제외, 한글 대 한글+라틴 글자)이 30% 이상이면 한국어 프롬프트로 기록합니다. 영어 프롬프트에는 아무것도 넣지 않습니다.
+1. 프롬프트를 보낼 때 한글 비율(코드와 URL 제외, 한글 대 한글+라틴 글자)이 20% 이상이면 한국어 프롬프트로 기록합니다. 영어 프롬프트에는 아무것도 넣지 않습니다.
 2. 한국어 프롬프트이고 KSTE가 켜져 있으면, 시스템 프롬프트에 KSTE 지시문 섹션(`kste:directive`)을 넣습니다. 지시문은 `skills/kste/SKILL.md`를 1,200자 안쪽으로 줄인 것입니다. strict 모드에서는 길이 한도와 세미콜론 금지를 오류로 적습니다.
 3. 답변이 끝나면 한국어 답변만 T0 린터로 검사합니다. error가 있을 때만 `KSTE: error N · warn M` 한 줄을 토스트로 보여 줍니다. error가 없으면 아무것도 보여 주지 않습니다. 자세한 내용은 `/kste last`로 봅니다.
-4. 답변이 나오는 동안 스피너에 ` · KSTE[80%]`를 붙입니다. 켜져 있을 때만 붙습니다.
+4. 답변이 나오는 동안 스피너에 ` · KSTE[default]`를 붙입니다. 켜져 있을 때만 붙습니다.
 
 답변을 다시 쓰지는 않습니다. 다시 쓰면 토큰이 두 배로 들기 때문입니다. 검사에는 T1을 쓰지 않습니다(로딩이 느립니다). 모델이 지시문을 따르는지는 검사 토스트로 확인합니다.
 
 `/kste on|off|80|strict|t1`은 hook과 같은 상태 파일(`.kste/state.json`)을 씁니다. 어느 쪽에서 바꿔도 양쪽에 적용됩니다. mod는 상태를 Claude Code의 store에도 저장합니다.
 
-**최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때는 파일 저장 hook과 `/kste:set` 명령(`commands/set.md`)만 동작하고 채팅 답변 적용은 없습니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
+**최소 버전.** mod 기능은 Claude Code 2.1.286에서 확인했습니다(함수 hook API, `hooks/hooks.json`의 `modules`). 이 API는 초기 공개 단계라 버전에 따라 바뀔 수 있습니다. 그보다 오래된 버전(2.1.175에서 확인)은 `modules`를 무시하므로 플러그인이 깨지지 않습니다. 이때도 세션 hook으로 작문 스킬을 자동 적용하고 파일 저장 hook·MCP·`/kste:set`을 사용할 수 있습니다. 답변 토스트·스피너·검사 리포트는 mod API가 있어야 동작합니다. 규칙 YAML을 고치면 mod가 읽는 `lib/rules/bundle.js`를 `npm run build-mod-rules`로 다시 만듭니다(테스트가 두 파일이 같은지 확인합니다).
 
-## Codex CLI에서 쓰기
+## Codex에서 쓰기
 
 ### 플러그인 설치
 
-Codex의 터미널 명령으로 마켓플레이스를 등록하고 플러그인을 설치합니다.
+Codex의 터미널 명령으로 현재 개발 브랜치 마켓플레이스를 등록하고 플러그인을 설치합니다.
 
 ```bash
-codex plugin marketplace add HHSic/kste
+codex plugin marketplace add HHSic/kste --ref codex/kste-codex-plugin
 codex plugin add kste@kste
 ```
 
@@ -165,16 +184,48 @@ node scripts/install-t1.mjs --check
 
 형태소 분석 엔진은 Kiwi(`kiwi-nlp` + Kiwi 모델)입니다. Codex에서 `/kste default` 또는 `/kste t1 on`으로 켜고, `/kste t1 off`로 끕니다. 명시적으로 끈 설정은 유지하며 default를 다시 실행하면 T1을 켭니다. `/kste t1 status`는 설정 on/off와 엔진·모델의 실제 설치 여부를 함께 보여 줍니다. 메뉴에 없으면 `$kste t1 on`처럼 호출합니다. `npm i -g .` 또는 `npm i -g kste`를 했다면 터미널에서도 `kste set off`, `kste set default`, `kste set strict`, `kste set t1 on`, `kste set t1 status`, `kste set status`로 같은 설정을 제어하고 `kste check 문서.md`로 직접 검사할 수 있습니다.
 
-| 기능 | Claude Code | Codex CLI |
-|---|---|---|
-| 작문 지침 | skill `kste` | `AGENTS.md` + 새 세션 자동 스킬 적용 + 현재 설정 hook |
-| 파일 쓰기 후 자동 검사 | PostToolUse hook (Write, Edit) | 기본 PostToolUse hook (`apply_patch`) |
-| 모델이 직접 린터 실행 | `/kste:check` | MCP `kste_check`, `kste_diff`, `kste_rules` 또는 `npx kste check` |
-| 슬래시 명령 | `/kste:check`, `/kste:rewrite`, `/kste` | 스킬 메뉴의 `/kste`(환경에 따라 표시), `$kste`, `/prompts:kste`, `/prompts:kste-check` |
-| hook 켜기·끄기·모드 | `/kste on\|off\|80\|strict` | `kste` 스킬, MCP `kste_state`, CLI `kste set` |
-| 채팅 답변 검사·지시문 주입 | mod (`kste-mod.js`) | 기본 SessionStart/UserPromptSubmit + Stop, 오류 시 1회 수정 요청 |
-| 마켓플레이스 설치 | `/plugin install kste@kste` | `codex plugin marketplace add HHSic/kste` + `codex plugin add kste@kste` |
-| T1 형태소 검사 | hook 상태 `t1` | 기본 설치에서 엔진·모델 준비, 파일 hook·MCP에 공유 설정 적용 |
+## Cursor에서 쓰기
+
+`.cursor-plugin/plugin.json`과 `.cursor-plugin/marketplace.json`을 제공합니다. Customize의 **From GitHub Repository**로 저장소의 마켓플레이스를 가져와 kste를 설치할 수 있습니다. 범용 구현이 main에 병합되기 전에는 위 로컬 설치를 사용합니다. 공식 마켓플레이스에 게시하는 작업은 별도입니다.
+
+로컬 설치는 `npm run install-cursor` 또는 `kste install cursor`이며 `~/.cursor/plugins/local/kste`에 소스와 의존성을 복사합니다. `--dry-run`, `--home <경로>`, `--uninstall`을 지원합니다. Windows는 사용자 홈의 `.cursor\plugins\local\kste`를 사용합니다. 설치는 원본 저장소를 가리키는 symlink를 만들지 않습니다.
+
+새 세션 hook과 Always 규칙이 스킬을 적용합니다. `/` 메뉴의 kste를 선택한 뒤 `on`, `off`, `default`, `strict`, `status`, `last` 또는 `t1 on/off/status`를 붙입니다. 상태 명령은 스킬이 MCP `kste_state`로 실행합니다. Cursor의 `beforeSubmitPrompt`는 추가 컨텍스트 출력을 지원하지 않으므로 이 hook에서 설정 결과를 주입하지 않습니다.
+
+`afterFileEdit`가 한국어 Markdown을, `afterAgentResponse`가 한국어 답변을 검사합니다. 이 이벤트는 모델 피드백 출력 필드가 없으므로 오류를 세션·턴별로 모아 `stop.followup_message`로 수정 요청을 한 번 보냅니다. clean/off/중단·오류 턴에서는 재개하지 않습니다. 원래 답변을 덮어쓰는 방식은 아닙니다. Cursor `sessionStart`는 비동기이므로 첫 응답 시점에 T1 준비가 끝나지 않을 수 있습니다. 엔진 상태는 `t1 status`로 확인합니다. 파일 경고만 있으면 자동 수정하지 않으며 자세한 리포트는 MCP 검사로 확인합니다.
+
+## 공통 설정과 업데이트
+
+같은 Git 작업 트리에서 세 도구의 설정은 Git 루트 `.kste/state.json`을 공유합니다. 한 도구에서 off로 바꾸면 다른 도구도 다음 턴·검사에서 off를 읽습니다. Git 저장소 밖에서는 프로젝트 작업 디렉터리를 사용하며 `KSTE_STATE_DIR`로 지정할 수 있습니다. Claude mod는 호스트가 전달하는 프로젝트 루트를 기준으로 하므로 같은 Git 루트를 열어 사용합니다. 서로 다른 체크아웃이나 원격 컴퓨터는 상태 파일을 자동 동기화하지 않습니다.
+
+| 기능 | Codex | Claude Code | Cursor |
+|---|---|---|---|
+| 스킬·규칙·Kiwi | 공통 엔진 | 공통 엔진 | 공통 엔진 |
+| 세션 자동 적용 | SessionStart hook | SessionStart hook, mod 지시문 | sessionStart hook + Always 규칙 |
+| 상태 제어 | `/kste:kste default`, 수동 설치 `$kste default` | `/kste default`, 구버전 `/kste:set default` | `/kste default` 스킬 + MCP |
+| 파일 자동 검사 | PostToolUse `apply_patch` | PostToolUse `Write/Edit/MultiEdit` | afterFileEdit → stop 피드백 |
+| 답변 검사 | Stop, 수정 요청 1회 | mod, 오류 토스트·last | afterAgentResponse → stop, 수정 요청 1회 |
+| 명시적 검사 | MCP 4종 | MCP 4종·기존 check/rewrite 명령 | MCP 4종 |
+| 사용 중 표시 | 스킬 메뉴·hook 안내 | mod 스피너 `KSTE` | Customize의 스킬·Always 규칙 |
+
+세 도구의 UI·명령 목록은 다릅니다. `/kste on` 전체를 하나의 네이티브 메뉴 명령으로 등록하거나 인자별 자동완성까지 보장하지는 않습니다.
+
+설치 방식을 유지하며 업데이트할 수 있습니다.
+
+```bash
+# Git 마켓플레이스로 설치한 Codex: 카탈로그와 설치된 캐시 갱신
+codex plugin marketplace upgrade kste
+# Claude Code: 마켓플레이스 갱신 후 플러그인 갱신
+claude plugin marketplace update kste
+claude plugin update kste@kste
+# Cursor 로컬 설치: 원본 저장소 갱신 후 복사본 교체(기존 복사본 백업)
+git pull --ff-only
+npm run install-cursor
+```
+
+Cursor GitHub/팀 마켓플레이스는 Refresh 또는 Enable Auto Refresh로 추적 브랜치를 갱신합니다. 업데이트 후 새 세션을 시작하고 필요하면 앱을 재시작합니다. Kiwi 엔진·모델과 프로젝트 상태는 플러그인 캐시 밖에 있으므로 유지됩니다. 로컬 경로로 등록한 Codex·Claude 마켓플레이스는 먼저 해당 저장소에서 `git pull --ff-only`를 실행합니다.
+
+지원 규격·확인 범위는 [범용 통합 노트](docs/universal-integration-notes.md)에 기록했습니다.
 
 ## 실무 기준
 
@@ -210,7 +261,7 @@ error와 warn으로 잡는 것은 틀린 것입니다. 이중피동, 서술어 �
 ## 제한
 
 - T1은 메모리를 많이 씁니다. 모델 로딩 직후 약 850MB, 피크 약 1GB입니다. 로딩에 5~8초가 걸립니다.
-- hook은 T0만 돌립니다. 로딩이 느려서 매 쓰기마다 T1을 돌리기 어렵습니다. `/kste t1 on`으로 켤 수 있지만 쓰기마다 5초 이상 걸립니다.
+- 파일 hook은 기본 T1 on이면 형태소 엔진을 사용합니다. 쓰기마다 로딩 시간이 들며 `/kste t1 off`로 빠른 T0만 사용할 수 있습니다. 채팅 답변 검사는 T0입니다.
 - end-to-end 검증을 하지 않았습니다. 린터 단위 평가는 했지만, "이 플러그인을 쓰면 모델이 쓴 문서가 실제로 좋아진다"는 것은 아직 확인하지 못했습니다.
 - 린터가 못 잡는 규칙이 있습니다. 용어 변이형 통일, 지시어 대상, 주어 복원, 단락 주제 같은 것은 사람이 확인합니다. 리포트 끝에 이 목록이 항상 나옵니다.
 - 규칙 사전의 일부 `source` 필드가 연구 자료 경로를 가리킵니다. 연구 자료(코퍼스, 측정 스크립트, 평가 결과)는 별도 비공개 저장소에 있고, 이 저장소에는 없습니다.

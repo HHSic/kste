@@ -6,6 +6,10 @@ description: 한국어 기술문서(매뉴얼, 개발자 문서, 보고서, READ
 
 # KSTE 한국어 기술문서 작문
 
+<!-- claude:control:begin -->
+상태 명령 `on/off/default/strict/status/last`, `t1 on/off/status`는 MCP `kste_state`에 인자 배열과 프로젝트 `cwd`를 전달합니다. hook에서 처리한 명령은 다시 실행하지 않습니다. 기본은 on/default/T1 on이며 default(별칭 80)는 KSTE와 T1을 켭니다. off이면 자동 작문 지침을 끕니다.
+<!-- claude:control:end -->
+
 제1원칙: 독자가 추론할 것을 남기지 않습니다. 조사와 서술어를 채우고, 어려운 말을 풀고, 한 문장에 한 뜻만 담습니다. 짧게 쓰는 것이 목적이 아닙니다.
 
 ## 등급

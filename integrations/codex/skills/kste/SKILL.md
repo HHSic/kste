@@ -6,9 +6,9 @@ description: KSTE 한국어 작문 지침과 상태 제어. 한국어 문서·�
 # KSTE 한국어 기술문서 작문
 
 <!-- codex:control:begin -->
-## Codex 상태 명령
+## KSTE 상태 명령
 
-- 플러그인에서는 스킬 이름이 `kste:kste`로 등록됩니다. `/kste:kste on`, `$kste:kste off`처럼 호출한 요청도 아래 상태 명령과 같습니다. 수동 설치의 스킬 이름은 `kste`입니다. 스킬 메뉴에서 선택한 뒤 입력한 on/off/default/strict 인자도 상태 명령으로 처리합니다.
+- Codex 플러그인에서는 스킬 이름이 `kste:kste`로 등록됩니다. `/kste:kste on`, `$kste:kste off`처럼 호출한 요청도 아래 상태 명령과 같습니다. Codex 수동 설치와 Cursor의 스킬 이름은 `kste`입니다. 스킬 메뉴에서 선택한 뒤 입력한 on/off/default/strict 인자도 상태 명령으로 처리합니다.
 - `/kste on|off|default|strict|status|last`, `$kste on|off|default|strict|status|last`, `t1 on|off|status` 요청이면 MCP `kste_state`를 호출합니다. `args`는 인자를 나눈 문자열 배열, `cwd`는 현재 프로젝트 작업 디렉터리입니다. 인자가 없으면 상태를 조회합니다. 80은 default의 별칭입니다. T1 엔진은 Kiwi입니다. 플러그인 설치에서는 신뢰한 첫 세션 hook이 엔진·모델을 준비합니다. 수동 준비는 KSTE 저장소의 `node scripts/install-t1.mjs`로 합니다. 설치와 on/off 설정은 별개입니다.
 - hook에서 처리한 명령은 다시 실행하지 않습니다. 상태 명령은 결과만 알리고 문서를 고치지 않습니다. `/kste`가 명령 메뉴에 없으면 `$kste` 또는 `/prompts:kste`로 호출합니다.
 - 문서를 쓸 때 먼저 상태를 조회합니다. 기본은 KSTE on, default 모드, T1 on입니다. default(별칭 80) 명령은 KSTE와 T1을 함께 켭니다. off이면 아래 KSTE 자동 작문 지침을 적용하지 않습니다. 명시적 검사·교정 요청은 수행합니다. strict이면 엄격 모드를 적용하고, MCP 검사 `t1`은 현재 설정의 on/off에 맞춥니다. 별도로 설정한 t1 off는 default를 다시 실행하기 전까지 유지합니다.

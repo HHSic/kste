@@ -1,0 +1,13 @@
+{
+  "name": "kste",
+  "owner": {
+    "name": "HHSic"
+  },
+  "plugins": [
+    {
+      "name": "kste",
+      "source": ".",
+      "description": "KSTE 한국어 작문·검사 플러그인"
+    }
+  ]
+}

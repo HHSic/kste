@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" sessionStart",
+        "timeout": 180
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" beforeSubmitPrompt",
+        "timeout": 20
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" afterFileEdit",
+        "timeout": 20
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" afterAgentResponse",
+        "timeout": 20
+      }
+    ],
+    "stop": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" stop",
+        "timeout": 20,
+        "loop_limit": 1
+      }
+    ],
+    "sessionEnd": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/integrations/cursor/hooks/kste-cursor-hook.mjs\" sessionEnd",
+        "timeout": 20
+      }
+    ]
+  }
+}

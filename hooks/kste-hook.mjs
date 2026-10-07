@@ -4,11 +4,12 @@
 //   상태 모드:                              node kste-hook.mjs set <on|off|80|strict|t1 on|t1 off|t1 install|status>
 // 종료 코드: 0 통과(경고만 있으면 stdout JSON systemMessage 로 사용자에게만 알림), 2 오류 있음(stderr 가 모델에게 전달됨).
 // hook 은 T0 만 돌린다(빠름). T1 은 상태 파일의 t1:true 일 때만 켠다(로딩 5~8초, 메모리 ~1GB).
-import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { koreanRatio, applyMode, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
+import { loadState, saveState, statePath, setState } from '../integrations/shared/state.mjs';
 import { checkReport } from '../scripts/install-t1.mjs';
 
 export { koreanRatio, applyMode };
@@ -16,32 +17,15 @@ export { koreanRatio, applyMode };
 export const MAX_FIX = 3; // 모델에게 수정 기회를 주는 횟수. 이를 넘으면 통과시킨다.
 const STALE_MS = 30 * 60 * 1000; // 마지막 시도가 30분 지났으면 재시도 횟수를 새로 센다.
 const MAX_BYTES = 300 * 1024;
-const DEFAULT_STATE = { enabled: true, mode: '80', t1: false, retries: {} };
-
-export function stateDir(cwd) {
-  return process.env.KSTE_STATE_DIR || path.join(process.env.CLAUDE_PROJECT_DIR || cwd || process.cwd(), '.kste');
-}
-export function statePath(cwd) {
-  return path.join(stateDir(cwd), 'state.json');
-}
-export function loadState(cwd) {
-  try {
-    const s = JSON.parse(readFileSync(statePath(cwd), 'utf8'));
-    return { ...DEFAULT_STATE, ...s, retries: s.retries ?? {} };
-  } catch {
-    return { ...DEFAULT_STATE, retries: {} };
-  }
-}
-export function saveState(cwd, state) {
-  mkdirSync(stateDir(cwd), { recursive: true });
-  writeFileSync(statePath(cwd), JSON.stringify(state, null, 2) + '\n');
-}
+// 동일 프로젝트에서는 세 도구 모두 Git 루트의 상태 파일을 읽는다.
+export { loadState, saveState, statePath };
+export function stateDir(cwd) { return path.dirname(statePath(cwd)); }
 
 const line = (f) => `${f.severity.padEnd(5)} ${f.ruleId} L${f.line ?? '-'}${f.col != null ? ':' + f.col : ''} "${f.match}" -> ${f.suggest}`;
 
 export function renderFeedback({ file, errors, warns, attempt, mode }) {
   const out = [];
-  out.push(`[KSTE] ${path.basename(file)}: error ${errors.length}건, warn ${warns.length}건 (${mode === 'strict' ? '엄격' : '80%'} 모드, 수정 ${attempt}/${MAX_FIX}회차)`);
+  out.push(`[KSTE] ${path.basename(file)}: error ${errors.length}건, warn ${warns.length}건 (${mode === 'strict' ? '엄격' : 'default'} 모드, 수정 ${attempt}/${MAX_FIX}회차)`);
   for (const f of errors) out.push(line(f));
   const rep = warns.slice(0, 3);
   for (const f of rep) out.push(line(f));
@@ -112,12 +96,13 @@ export async function handle(input, now = Date.now(), store = { loadState, saveS
 const INSTALL_T1 = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'install-t1.mjs');
 
 export function setCommand(args, cwd = process.cwd()) {
+  if (args[0]?.toLowerCase() === 'last') return { ok: true, text: setState(args, cwd).text };
   const r = applyStateArgs(loadState(cwd), args);
   if (!r.ok) return { ok: false, text: r.error };
   if (r.changed) saveState(cwd, r.state);
   const text = statusLine(r.state, statePath(cwd));
   if (r.action === 't1-install') return { ok: true, action: r.action, text: `T1 설치: node "${INSTALL_T1}"` };
-  const status = !args.length || String(args[0]).toLowerCase() === 'status';
+  const status = !args.length || String(args[0]).toLowerCase() === 'status' || args[0]?.toLowerCase() === 't1' && args[1]?.toLowerCase() === 'status';
   return { ok: true, text: status ? `${text}\n${t1StatusLine(checkReport())}` : text };
 }
 

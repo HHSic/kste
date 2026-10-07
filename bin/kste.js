@@ -5,7 +5,7 @@ import { lintText } from '../lib/engine/tier0.js';
 import { comparePreservation } from '../lib/engine/preserve.js';
 import { lintTextT1, compareT1, resolveT1Mode, closeT1 } from '../lib/t1/engine.js';
 import { buildReport, renderMarkdown, renderJson, shouldFail, filterFindings } from '../lib/engine/report.js';
-import { setState } from '../integrations/codex/state.mjs';
+import { setState } from '../integrations/shared/state.mjs';
 import { setup, parseArgs as parseInstallArgs, completionMessage } from '../integrations/codex/install.mjs';
 
 const USAGE = `사용법:
@@ -14,6 +14,7 @@ const USAGE = `사용법:
   kste rules
   kste set [on|off|default|strict|t1 on|t1 off|t1 status|status|last]
   kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]
+  kste install cursor [--dry-run] [--home 경로] [--uninstall]
 종료 코드: 0 정상, 1 fail-on 이상 위반 있음, 2 사용법 오류`;
 
 function parseArgs(argv) {
@@ -53,6 +54,11 @@ function out(s) {
 async function main() {
   const [cmd, ...rest] = process.argv.slice(2);
   if (cmd === 'install') {
+    if (rest[0] === 'cursor') {
+      const { install, parseArgs } = await import('../integrations/cursor/install.mjs');
+      out(install(parseArgs(rest.slice(1))).join('\n') + '\n');
+      return 0;
+    }
     if (rest[0] !== 'codex') throw new Error('사용: kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]');
     const opts = parseInstallArgs(rest.slice(1));
     out((await setup(opts)).join('\n') + '\n');

@@ -2,6 +2,10 @@
 
 조사일 2026-10-04. 공식 문서는 `developers.openai.com/codex/*` 에서 `learn.chatgpt.com/docs/*` 로 308 리다이렉트된다. 아래 URL은 리다이렉트 도착지다. 구버전 경로(예: `~/.codex/skills`)는 문서에서 확인되지 않았다.
 
+## 2026-10-08: 범용 구현 공유
+
+상태·MCP·세션·답변 검사 구현을 `integrations/shared/`로 옮겼습니다. 기존 Codex 경로는 호환 진입점을 유지합니다. Claude Code와 Cursor도 동일 상태 파일·MCP·Kiwi를 사용합니다. Cursor 규격과 검증 범위는 [범용 통합 노트](universal-integration-notes.md)에 기록했습니다. 범용 변경 후 Node 테스트 556개가 통과했고, default 표시 변경 후 관련 49개를 다시 통과했습니다. Codex CLI의 임시 플러그인을 1.3.0으로 재설치해 로컬 가짜 Responses 서버에서 스킬 자동 적용, MCP 등록, Stop 1회 재개를 재검증했습니다.
+
 ## 2026-10-06: Codex 네이티브 플러그인 설치
 
 `codex plugin marketplace add HHSic/kste`와 `codex plugin add kste@kste`로 설치하도록 `.agents/plugins/marketplace.json`과 `.codex-plugin/plugin.json`을 추가했습니다. 기존 Claude 등록 파일은 유지하고 Codex manifest에서 전용 스킬·MCP·hooks를 명시합니다. Codex 플러그인 메뉴는 `/plugins`이며 `/plugin install`은 Claude Code 명령입니다.
@@ -68,7 +72,7 @@ Windows 데스크톱에서 `hook exited with code 1`, Node `v24.13.1`이 보고�
 | `integrations/codex/hooks/kste-codex-hook.mjs` | PostToolUse(apply_patch) hook. 패치에서 `.md` 경로를 뽑아 기존 `hooks/kste-hook.mjs`의 `handle`을 재사용한다. |
 | `integrations/codex/prompts/kste-check.md` | `/prompts:kste-check FILE=...` (deprecated 기능이라 선택 사항) |
 | `integrations/codex/install.mjs` | 엔진·모델 준비와 설치·제거 스크립트(기본 hooks 포함) |
-| `integrations/codex/state.mjs` | Codex 프로젝트 루트와 공유 상태 관리 |
+| `integrations/codex/state.mjs` | 범용 공유 상태 관리의 호환 진입점 |
 | `integrations/codex/hooks/kste-chat-hook.mjs` | 설정 주입·상태 명령 처리·Stop 답변 검사 |
 | `integrations/codex/prompts/kste.md` | `/prompts:kste` 상태 제어 대안 |
 

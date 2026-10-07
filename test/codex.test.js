@@ -144,7 +144,7 @@ test('Codex AGENTS.md: 1,500자 이내, 린터 사용법 포함', () => {
 
 test('Codex 스킬: 상태 제어 외 작문 지침은 원본 skills/kste 와 동기화', () => {
   // Claude Code 전용 frontmatter 키(user-invocable)는 Codex 사본에 없다.
-  const src = rd('skills', 'kste', 'SKILL.md').split('\n').filter((l) => !/^user-invocable:/.test(l));
+  const src = rd('skills', 'kste', 'SKILL.md').replace(/\n<!-- claude:control:begin -->[\s\S]*?<!-- claude:control:end -->\n/, '').split('\n').filter((l) => !/^user-invocable:/.test(l));
   const dst = rd('integrations', 'codex', 'skills', 'kste', 'SKILL.md')
     .replace(/\n<!-- codex:control:begin -->[\s\S]*?<!-- codex:control:end -->\n/, '').split('\n');
   assert.equal(src.length, dst.length);
