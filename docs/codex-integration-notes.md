@@ -2,6 +2,14 @@
 
 조사일 2026-10-04. 공식 문서는 `developers.openai.com/codex/*` 에서 `learn.chatgpt.com/docs/*` 로 308 리다이렉트된다. 아래 URL은 리다이렉트 도착지다. 구버전 경로(예: `~/.codex/skills`)는 문서에서 확인되지 않았다.
 
+## 2026-10-08: Windows PowerShell 실행기 1.3.1
+
+사용자 화면에는 모든 실패가 `hook exited with code 1`로만 표시됐습니다. 사용자 원인은 아직 확정하지 않았습니다. 별도로 PowerShell 7.6.6의 `PSNativeCommandArgumentPassing=Legacy`에서 기존 Node probe의 `split(".")`가 `split(.)`로 전달돼 SyntaxError로 끝나는 문제를 재현했습니다. quote-free probe로 고쳤으며, stdin은 .NET Process의 입력 스트림에 UTF-8 바이트로 전달합니다. stdout/stderr를 동시에 읽고 따로 출력해 PS 5.1의 native stderr 처리와 큰 pipe 출력의 영향을 피합니다. 종료 코드 2는 규칙 검사 피드백으로 유지합니다.
+
+실행기 자체도 try/catch와 단계별 로그를 제공하며, 예상하지 않은 Node 종료는 실행하지 못했다는 안내를 남깁니다. 내용·리포트는 기록하지 않습니다. `scripts/diagnose-codex.ps1`은 합성 status 입력으로 설치된 실행기를 직접 호출합니다. 설치·프로젝트 상태를 수정하거나 모델을 다운로드하지 않습니다. Windows 5.1 실기 원인을 이 재현 결과와 동일하다고 단정하지 않습니다.
+
+Git ref가 다른 같은 이름의 마켓플레이스를 다시 add하면 CLI가 거절할 수 있습니다. 임시 홈에서 main 1.2.2 설치 후 marketplace remove/add(--ref codex/kste-codex-plugin)/upgrade로 플러그인을 삭제하지 않고 1.3.0으로 갱신되는 것을 확인했습니다. 원본 플러그인 enabled 설정은 유지됐습니다. 이후 same-ref upgrade는 그대로 사용할 수 있습니다.
+
 ## 2026-10-08: 범용 구현 공유
 
 상태·MCP·세션·답변 검사 구현을 `integrations/shared/`로 옮겼습니다. 기존 Codex 경로는 호환 진입점을 유지합니다. Claude Code와 Cursor도 동일 상태 파일·MCP·Kiwi를 사용합니다. Cursor 규격과 검증 범위는 [범용 통합 노트](universal-integration-notes.md)에 기록했습니다. 범용 변경 후 Node 테스트 556개가 통과했고, default 표시 변경 후 관련 49개를 다시 통과했습니다. Codex CLI의 임시 플러그인을 1.3.0으로 재설치해 로컬 가짜 Responses 서버에서 스킬 자동 적용, MCP 등록, Stop 1회 재개를 재검증했습니다.

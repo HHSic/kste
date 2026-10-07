@@ -12,7 +12,7 @@ import { buildReport, renderMarkdown, renderJson } from '../../lib/engine/report
 import { applyMode } from '../../lib/engine/mode.js';
 import { loadState, setState, statePath, stateContext, modeName } from './state.mjs';
 
-const SERVER_INFO = { name: 'kste', version: '1.3.0' };
+const SERVER_INFO = { name: 'kste', version: '1.3.1' };
 const SUPPORTED = ['2025-06-18', '2025-03-26', '2024-11-05'];
 const MAX_BYTES = 2 * 1024 * 1024;
 

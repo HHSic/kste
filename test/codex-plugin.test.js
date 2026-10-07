@@ -10,6 +10,7 @@ import { run as dispatch, failure } from '../integrations/codex/hooks/kste-run-h
 import { saveState } from '../integrations/codex/state.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
+const POWERSHELL = process.env.KSTE_PWSH_PATH || (process.platform === 'win32' ? 'powershell.exe' : null);
 const fixture = (t) => {
   const cwd = mkdtempSync(path.join(tmpdir(), 'kste-plugin-'));
   t.after(() => rmSync(cwd, { recursive: true, force: true }));
@@ -85,6 +86,65 @@ test('POSIX 실행기: 명시적인 Node 경로로 한국어 hook JSON을 전달
   });
   assert.equal(result.status, 0, result.stderr);
   assert.match(JSON.parse(result.stdout).hookSpecificOutput.additionalContext, /현재 설정: off/);
+});
+
+function runPowerShell(cwd, script, kind, input) {
+  const wrapper = path.join(cwd, 'legacy.ps1');
+  const literal = script.replace(/'/g, "''");
+  writeFileSync(wrapper, `$PSNativeCommandArgumentPassing = 'Legacy'\n& '${literal}' -Kind ${kind}\nexit $LASTEXITCODE\n`);
+  return spawnSync(POWERSHELL, ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', wrapper], {
+    input: JSON.stringify(input), encoding: 'utf8', timeout: 20_000,
+    env: { ...process.env, KSTE_NODE_PATH: process.execPath, PLUGIN_DATA: path.join(cwd, 'logs'),
+      XDG_CACHE_HOME: path.join(cwd, 'cache'), XDG_CONFIG_HOME: path.join(cwd, 'config'), XDG_DATA_HOME: path.join(cwd, 'data') },
+  });
+}
+
+test('PowerShell legacy: Node를 발견하고 한국어 JSON을 왕복 전달한다', { skip: !POWERSHELL }, (t) => {
+  const cwd = fixture(t);
+  const result = runPowerShell(cwd, path.join(ROOT, 'integrations/codex/hooks/kste-launch.ps1'), 'chat', {
+    cwd, hook_event_name: 'UserPromptSubmit', prompt: '/kste off', extra: '한글 입력',
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(JSON.parse(result.stdout).hookSpecificOutput.additionalContext, /현재 설정: off/);
+});
+
+test('PowerShell legacy: 공백 경로·UTF-8 stdin과 큰 stderr의 종료 코드 2를 보존한다', { skip: !POWERSHELL }, (t) => {
+  const cwd = fixture(t);
+  const plugin = path.join(cwd, 'plugin with spaces');
+  mkdirSync(plugin);
+  const script = path.join(plugin, 'kste-launch.ps1');
+  cpSync(path.join(ROOT, 'integrations/codex/hooks/kste-launch.ps1'), script);
+  writeFileSync(path.join(plugin, 'kste-run-hook.mjs'), `import { readFileSync } from 'node:fs';\nconst input = JSON.parse(readFileSync(0, 'utf8'));\nprocess.stdout.write(JSON.stringify({ received: input.text }) + '\\n');\nprocess.stderr.write('KSTE 수정 지적: ' + 'x'.repeat(128 * 1024));\nprocess.exitCode = 2;\n`);
+  const result = runPowerShell(cwd, script, 'file', { text: '한국어와 😀 입력' });
+  assert.equal(result.status, 2, result.stderr.slice(0, 300));
+  assert.equal(JSON.parse(result.stdout).received, '한국어와 😀 입력');
+  assert.match(result.stderr, /^KSTE 수정 지적:/);
+  assert.ok(result.stderr.length > 128 * 1024, '동시 읽기로 pipe 정체를 방지한다');
+  assert.equal(existsSync(path.join(cwd, 'logs/hook-errors.log')), false, '규칙 지적을 실행 오류 로그에 저장하지 않는다');
+});
+
+test('PowerShell: Node 시작 전 실패도 단계·로그를 알리고 입력은 기록하지 않는다', { skip: !POWERSHELL }, (t) => {
+  const cwd = fixture(t);
+  const script = path.join(cwd, 'broken-launch.ps1');
+  const source = readFileSync(path.join(ROOT, 'integrations/codex/hooks/kste-launch.ps1'), 'utf8');
+  writeFileSync(script, source.replace("$stage = 'stdin'", "throw 'simulated initialization failure'\n    $stage = 'stdin'"));
+  const result = runPowerShell(cwd, script, 'chat', { private: 'PRIVATE_BODY' });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(JSON.parse(result.stdout).systemMessage, /KSTE did not run \(encoding\).*simulated initialization failure.*Log:/);
+  const log = readFileSync(path.join(cwd, 'logs/hook-errors.log'), 'utf8');
+  assert.match(log, /stage=encoding kind=chat/);
+  assert.doesNotMatch(log, /PRIVATE_BODY/);
+});
+
+test('PowerShell: Node의 예기치 않은 종료 코드 1을 실행 실패로 알린다', { skip: !POWERSHELL }, (t) => {
+  const cwd = fixture(t);
+  const script = path.join(cwd, 'kste-launch.ps1');
+  cpSync(path.join(ROOT, 'integrations/codex/hooks/kste-launch.ps1'), script);
+  writeFileSync(path.join(cwd, 'kste-run-hook.mjs'), 'process.exitCode = 1;\n');
+  const result = runPowerShell(cwd, script, 'chat', {});
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(JSON.parse(result.stdout).systemMessage, /node-exit.*exited with code 1/);
+  assert.match(readFileSync(path.join(cwd, 'logs/hook-errors.log'), 'utf8'), /stage=node-exit/);
 });
 
 test('플러그인 첫 세션: 엔진이 없으면 준비하고 스킬 본문을 자동 적용한다', async (t) => {

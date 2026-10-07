@@ -184,6 +184,29 @@ node scripts/install-t1.mjs --check
 
 형태소 분석 엔진은 Kiwi(`kiwi-nlp` + Kiwi 모델)입니다. Codex에서 `/kste default` 또는 `/kste t1 on`으로 켜고, `/kste t1 off`로 끕니다. 명시적으로 끈 설정은 유지하며 default를 다시 실행하면 T1을 켭니다. `/kste t1 status`는 설정 on/off와 엔진·모델의 실제 설치 여부를 함께 보여 줍니다. 메뉴에 없으면 `$kste t1 on`처럼 호출합니다. `npm i -g .` 또는 `npm i -g kste`를 했다면 터미널에서도 `kste set off`, `kste set default`, `kste set strict`, `kste set t1 on`, `kste set t1 status`, `kste set status`로 같은 설정을 제어하고 `kste check 문서.md`로 직접 검사할 수 있습니다.
 
+### Windows에서 `hook exited with code 1`만 보일 때
+
+통계 화면의 종료 코드만으로는 실행 명령·실패 지점을 알 수 없습니다. 1.3.1은 Windows PowerShell의 legacy 인자 전달에서 Node 검사 코드의 따옴표가 제거되는 문제를 수정했습니다. UTF-8 입력을 Node 프로세스에 직접 쓰고 stdout/stderr를 분리해 읽어, 파일 검사 피드백의 종료 코드 2를 PowerShell 오류로 바꾸지 않습니다.
+
+실행기 시작 단계와 예기치 않은 Node 종료는 `KSTE did not run` 안내와 단계별 로그를 남깁니다. 로그는 `PLUGIN_DATA/hook-errors.log`를 사용하며, 실행기에서 해당 환경변수가 없으면 `%LOCALAPPDATA%\KSTE\hook-errors.log`를 사용합니다. 입력·답변 본문·문서 검사 지적은 실행기 로그에 저장하지 않습니다.
+
+수정 브랜치로 등록한 마켓플레이스에서 `codex plugin marketplace upgrade kste` 후 `codex plugin list`로 1.3.1을 확인하고 Codex를 완전히 종료한 뒤 새 채팅을 시작합니다. main을 추적하면 아직 이 수정본이 없습니다. 기존 Git 등록 소스의 ref를 바꾸려면 다음 순서로 마켓플레이스 등록만 교체합니다. 플러그인 활성화 설정·프로젝트 상태·Kiwi 모델은 유지합니다.
+
+```cmd
+codex plugin marketplace remove kste
+codex plugin marketplace add HHSic/kste --ref codex/kste-codex-plugin
+codex plugin marketplace upgrade kste
+codex plugin list
+```
+
+1.3.1에서도 종료 코드만 보이면 다음 읽기 전용 진단을 CMD에서 실행합니다. PowerShell 버전·설치 캐시 경로·추적 ref를 표시하고, 합성 status 프롬프트로 실행기를 직접 호출합니다. 대화 본문을 읽거나 설정을 바꾸지 않으며 Kiwi 다운로드도 실행하지 않습니다.
+
+```cmd
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.codex\plugins\cache\kste\kste\1.3.1\scripts\diagnose-codex.ps1"
+```
+
+`CODEX_HOME`을 별도로 지정했다면 위 스크립트 파일 경로도 해당 홈에 맞춥니다. 진단이 선택한 캐시가 앱에서 실제 사용 중인 버전인지는 앱 재시작과 `codex plugin list` 결과를 함께 확인합니다. 이 변경은 PowerShell 7의 legacy 인자 전달 모드로 검증했으며 Windows PowerShell 5.1 실기 확인은 남아 있습니다.
+
 ## Cursor에서 쓰기
 
 `.cursor-plugin/plugin.json`과 `.cursor-plugin/marketplace.json`을 제공합니다. Customize의 **From GitHub Repository**로 저장소의 마켓플레이스를 가져와 kste를 설치할 수 있습니다. 범용 구현이 main에 병합되기 전에는 위 로컬 설치를 사용합니다. 공식 마켓플레이스에 게시하는 작업은 별도입니다.
