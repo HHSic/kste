@@ -2,6 +2,10 @@
 
 조사일 2026-10-04. 공식 문서는 `developers.openai.com/codex/*` 에서 `learn.chatgpt.com/docs/*` 로 308 리다이렉트된다. 아래 URL은 리다이렉트 도착지다. 구버전 경로(예: `~/.codex/skills`)는 문서에서 확인되지 않았다.
 
+## 2026-10-08: Hook 판정 기록 1.3.2
+
+Node hooks의 시작·진행·판정·종료를 프로젝트 `.kste/hook-events.jsonl`에 기록한다. 실제 도구 결과 피드백(exit 2)과 Stop 수정 요청(exit 0 + block), 런타임 오류(fail-open)를 구분한다. Cursor의 검사 결과 저장과 실제 stop 재개를 별도 기록한다. `/kste logs`·MCP 상태 조회·CLI·Windows `-LogsOnly`로 읽는다. 본문·일치 문구·예외 메시지와 stack을 저장하지 않으며 회전과 기록 실패 시 통과를 지원한다. 강제 종료는 start만 남을 수 있고 실행기 이전 실패는 소급 기록할 수 없다.
+
 ## 2026-10-08: Windows PowerShell 실행기 1.3.1
 
 사용자 화면에는 모든 실패가 `hook exited with code 1`로만 표시됐습니다. 사용자 원인은 아직 확정하지 않았습니다. 별도로 PowerShell 7.6.6의 `PSNativeCommandArgumentPassing=Legacy`에서 기존 Node probe의 `split(".")`가 `split(.)`로 전달돼 SyntaxError로 끝나는 문제를 재현했습니다. quote-free probe로 고쳤으며, stdin은 .NET Process의 입력 스트림에 UTF-8 바이트로 전달합니다. stdout/stderr를 동시에 읽고 따로 출력해 PS 5.1의 native stderr 처리와 큰 pipe 출력의 영향을 피합니다. 종료 코드 2는 규칙 검사 피드백으로 유지합니다.

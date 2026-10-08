@@ -3,19 +3,24 @@
 import { readFileSync, appendFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { withHookLog, hookPhase, errorMetadata, parseHookInput } from '../../shared/hook-log.mjs';
 
 const ENTRIES = { session: './kste-plugin-hook.mjs', chat: './kste-chat-hook.mjs', file: './kste-codex-hook.mjs' };
 
 export async function run(input, kind, importer = (url) => import(url)) {
-  if (!ENTRIES[kind]) throw new Error(`KSTE hook 종류 오류: ${kind}`);
-  const hook = await importer(new URL(ENTRIES[kind], import.meta.url));
-  const output = await hook.run(input);
-  if (kind === 'file') return output;
-  return { code: 0, ...(output ? { stdout: JSON.stringify(output) } : {}) };
+  return withHookLog(input, { host: 'codex', kind: ENTRIES[kind] ? kind : 'unknown' }, async () => {
+    if (!ENTRIES[kind]) throw new Error('KSTE hook 종류 오류');
+    hookPhase('module_load');
+    const hook = await importer(new URL(ENTRIES[kind], import.meta.url));
+    hookPhase('run');
+    const output = await hook.run(input);
+    if (kind === 'file') return output;
+    return { code: 0, ...(output ? { stdout: JSON.stringify(output) } : {}) };
+  });
 }
 
 export function failure(error, env = process.env) {
-  const detail = String(error?.stack || error);
+  const detail = JSON.stringify(errorMetadata(error));
   let log = '';
   if (env.PLUGIN_DATA) {
     try {
@@ -30,7 +35,7 @@ export function failure(error, env = process.env) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   let result;
   try {
-    result = await run(JSON.parse(readFileSync(0, 'utf8') || '{}'), process.argv[2]);
+    result = await run(parseHookInput(readFileSync(0, 'utf8'), { host: 'codex', kind: process.argv[2] }), process.argv[2]);
   } catch (error) {
     result = failure(error);
   }

@@ -4,6 +4,7 @@ import path from 'node:path';
 import { applyStateArgs, statusLine } from '../../lib/engine/mode.js';
 import { directiveOf, reportOf } from '../../lib/engine/chat.js';
 import { checkReport } from '../../scripts/install-t1.mjs';
+import { formatHookLogs } from './hook-log.mjs';
 
 export const modeName = (mode) => mode === 'strict' ? 'strict' : 'default';
 export const answerReport = (report) => reportOf(report).replace('80% 모드', 'default 모드');
@@ -49,15 +50,16 @@ export function stateContext(state) {
   return `${status}\n${directiveOf(state.mode)}\n문서 검사 시 kste_check의 t1은 "${state.t1 ? 'on' : 'off'}"으로 설정합니다.`;
 }
 
-export const CONTROL_USAGE = '사용: on | off | default | strict | t1 on | t1 off | t1 status | status | last (80은 default의 별칭)';
+export const CONTROL_USAGE = '사용: on | off | default | strict | t1 on | t1 off | t1 status | status | last | logs (80은 default의 별칭)';
 
 export function setState(args = [], cwd = process.cwd()) {
   if (!Array.isArray(args) || args.some((a) => typeof a !== 'string')) throw new Error(CONTROL_USAGE);
   const lower = args.map((a) => a.toLowerCase());
-  const valid = !lower.length || (lower.length === 1 && ['on', 'off', 'default', '80', '80%', 'strict', 'status', 'last'].includes(lower[0]))
+  const valid = !lower.length || (lower.length === 1 && ['on', 'off', 'default', '80', '80%', 'strict', 'status', 'last', 'logs'].includes(lower[0]))
     || (lower.length === 2 && lower[0] === 't1' && ['on', 'off', 'status'].includes(lower[1]));
   if (!valid) throw new Error(CONTROL_USAGE);
   const state = loadState(cwd);
+  if (lower[0] === 'logs') return { state, text: formatHookLogs(cwd), changed: false };
   if (lower[0] === 'last') return { state, text: answerReport(state.chatLast ?? null), changed: false };
   if (lower[0] === 't1' && lower[1] === 'status') return { state, text: engineStatus(state), changed: false };
   const useDefault = ['default', '80', '80%'].includes(lower[0]);

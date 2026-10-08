@@ -12,7 +12,7 @@ import { buildReport, renderMarkdown, renderJson } from '../../lib/engine/report
 import { applyMode } from '../../lib/engine/mode.js';
 import { loadState, setState, statePath, stateContext, modeName } from './state.mjs';
 
-const SERVER_INFO = { name: 'kste', version: '1.3.1' };
+const SERVER_INFO = { name: 'kste', version: '1.3.2' };
 const SUPPORTED = ['2025-06-18', '2025-03-26', '2024-11-05'];
 const MAX_BYTES = 2 * 1024 * 1024;
 
@@ -52,7 +52,7 @@ const TOOLS = [
   },
   {
     name: 'kste_state',
-    description: '프로젝트 KSTE 설정 조회·변경. args: on, off, default, strict, t1 on/off/status, status, last. 80은 default의 별칭. 빈 배열은 조회. cwd에 현재 프로젝트 작업 디렉터리를 준다.',
+    description: '프로젝트 KSTE 설정 조회·변경. args: on, off, default, strict, t1 on/off/status, status, last, logs. 80은 default의 별칭. 빈 배열은 조회. cwd에 현재 프로젝트 작업 디렉터리를 준다.',
     inputSchema: {
       type: 'object', properties: {
         args: { type: 'array', items: { type: 'string' }, description: '예: ["off"], ["strict"], ["t1", "on"], []' },
@@ -100,7 +100,7 @@ export async function callTool(name, args = {}) {
   if (name === 'kste_state') {
     const r = setState(args.args ?? [], cwd);
     const { enabled, mode, t1 } = r.state;
-    const text = args.args?.[0]?.toLowerCase() === 'last' ? `\`\`\`text\n${r.text}\n\`\`\`` : r.text;
+    const text = ['last', 'logs'].includes(args.args?.[0]?.toLowerCase()) ? `\`\`\`text\n${r.text}\n\`\`\`` : r.text;
     return result(text, JSON.stringify({ enabled, mode: modeName(mode), t1, changed: r.changed, path: statePath(cwd), context: stateContext(r.state) }));
   }
   if (name === 'kste_check') {

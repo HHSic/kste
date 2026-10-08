@@ -11,6 +11,7 @@ import { spawnSync } from 'node:child_process';
 import { koreanRatio, applyMode, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
 import { loadState, saveState, statePath, setState } from '../integrations/shared/state.mjs';
 import { checkReport } from '../scripts/install-t1.mjs';
+import { withHookLog, hookDecision, hookPhase, parseHookInput } from '../integrations/shared/hook-log.mjs';
 
 export { koreanRatio, applyMode };
 
@@ -51,24 +52,33 @@ async function runLint(text, state) {
 }
 
 /** 판정 함수. {code, stderr, stdout} 반환. 테스트와 main 이 같이 쓴다. */
-export async function handle(input, now = Date.now(), store = { loadState, saveState }) {
-  const cwd = input.cwd || process.cwd();
-  const state = store.loadState(cwd);
-  if (!state.enabled) return { code: 0 };
-  const tool = input.tool_name;
-  if (tool && !['Write', 'Edit', 'MultiEdit'].includes(tool)) return { code: 0 };
-  const file = input.tool_input?.file_path;
-  if (!file || !/\.md$/i.test(file)) return { code: 0 };
-  const abs = path.resolve(cwd, file);
-  if (/[\\/](node_modules|\.kste|\.git)[\\/]/.test(abs)) return { code: 0 };
-  if (!existsSync(abs) || statSync(abs).size > MAX_BYTES) return { code: 0 };
-  const text = readFileSync(abs, 'utf8');
-  if (koreanRatio(text) < MIN_KO_RATIO) return { code: 0 };
+export function handle(input, now = Date.now(), store = { loadState, saveState }) {
+  return withHookLog(input, { host: 'claude', kind: 'file' }, () => handleImpl(input, now, store));
+}
 
+async function handleImpl(input, now, store) {
+  const skip = (reason) => { hookDecision(reason); return { code: 0 }; };
+  const cwd = input.cwd || process.cwd();
+  hookPhase('state_load');
+  const state = store.loadState(cwd);
+  if (!state.enabled) return skip('disabled');
+  const tool = input.tool_name;
+  if (tool && !['Write', 'Edit', 'MultiEdit'].includes(tool)) return skip('unsupported_tool');
+  const file = input.tool_input?.file_path;
+  if (!file || !/\.md$/i.test(file)) return skip('not_markdown');
+  const abs = path.resolve(cwd, file);
+  if (/[\\/](node_modules|\.kste|\.git)[\\/]/.test(abs)) return skip('excluded_directory');
+  if (!existsSync(abs)) return skip('file_missing');
+  if (statSync(abs).size > MAX_BYTES) return skip('size_limit');
+  const text = readFileSync(abs, 'utf8');
+  if (koreanRatio(text) < MIN_KO_RATIO) return skip('non_korean_or_empty');
+
+  hookPhase('file_lint');
   const result = await runLint(text, state);
   const findings = applyMode(result.findings.filter((f) => f.show !== false), state.mode);
   const errors = findings.filter((f) => f.severity === 'error');
   const warns = findings.filter((f) => f.severity === 'warn');
+  const metadata = { errors: errors.length, warns: warns.length, ruleIds: findings.map((f) => f.ruleId), mode: state.mode, t1: state.t1, tier: result.meta.tier };
   const key = abs;
   const prev = state.retries[key];
   const fresh = !prev || now - prev.at > STALE_MS;
@@ -76,6 +86,7 @@ export async function handle(input, now = Date.now(), store = { loadState, saveS
   if (errors.length === 0) {
     delete state.retries[key];
     store.saveState(cwd, state);
+    hookDecision(warns.length ? 'warnings_only' : 'clean', metadata);
     if (warns.length === 0) return { code: 0 };
     const msg = `KSTE: ${path.basename(abs)} 경고 ${warns.length}건 (${warns.slice(0, 3).map((f) => f.ruleId).join(', ')}). /kste:check 로 자세히 봅니다.`;
     return { code: 0, stdout: JSON.stringify({ systemMessage: msg }) };
@@ -83,6 +94,7 @@ export async function handle(input, now = Date.now(), store = { loadState, saveS
 
   const count = (fresh ? 0 : prev.count) + 1;
   if (count > MAX_FIX) {
+    hookDecision('retry_limit', { ...metadata, attempt: count });
     delete state.retries[key];
     store.saveState(cwd, state);
     const msg = `KSTE: ${MAX_FIX}회 수정 후 남은 위반 ${errors.length}건 (${path.basename(abs)}). 직접 확인하세요.\n${errors.slice(0, 5).map(line).join('\n')}`;
@@ -90,6 +102,7 @@ export async function handle(input, now = Date.now(), store = { loadState, saveS
   }
   state.retries[key] = { count, at: now };
   store.saveState(cwd, state);
+  hookDecision('file_feedback', { ...metadata, attempt: count });
   return { code: 2, stderr: renderFeedback({ file: abs, errors, warns, attempt: count, mode: state.mode }) };
 }
 
@@ -116,7 +129,7 @@ async function main() {
   }
   let input = {};
   try {
-    input = JSON.parse(readFileSync(0, 'utf8') || '{}');
+    input = parseHookInput(readFileSync(0, 'utf8'), { host: 'claude', kind: 'file' });
   } catch {
     return 0;
   }

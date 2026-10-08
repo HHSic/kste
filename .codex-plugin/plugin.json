@@ -1,6 +1,6 @@
 {
   "name": "kste",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "한국어 작문 스킬, 채팅·문서 린터와 Kiwi 형태소 검사. 새 세션에 자동 적용합니다.",
   "author": { "name": "HHSic" },
   "homepage": "https://github.com/HHSic/kste",

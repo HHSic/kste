@@ -8,6 +8,7 @@ import { run as chat } from '../../shared/chat-hook.mjs';
 import { run as session } from '../../shared/session-hook.mjs';
 import { loadState, saveState, statePath, answerReport } from '../../shared/state.mjs';
 import { handle as fileHook } from '../../../hooks/kste-hook.mjs';
+import { withHookLog, hookDecision, parseHookInput } from '../../shared/hook-log.mjs';
 
 function pendingFile(input, cwd) {
   if (!input.conversation_id && !input.session_id) return null;
@@ -29,7 +30,12 @@ function updatePending(file, generation, patch) {
   writeFileSync(file, JSON.stringify({ ...saved, ...patch, generation }) + '\n');
 }
 
-export async function run(input, options = {}) {
+export function run(input, options = {}) {
+  const cwd = input.cwd || process.env.CURSOR_PROJECT_DIR || input.workspace_roots?.[0] || process.cwd();
+  return withHookLog({ ...input, cwd }, { host: 'cursor', kind: 'cursor' }, () => runImpl(input, { ...options, host: 'cursor' }));
+}
+
+async function runImpl(input, options) {
   const cwd = input.cwd || process.env.CURSOR_PROJECT_DIR || input.workspace_roots?.[0] || process.cwd();
   const event = input.hook_event_name;
   const pending = pendingFile(input, cwd);
@@ -39,6 +45,7 @@ export async function run(input, options = {}) {
     return { additional_context: out.hookSpecificOutput.additionalContext + (out.systemMessage ? `\n${out.systemMessage}` : '') };
   }
   if (event === 'beforeSubmitPrompt') {
+    hookDecision('pending_cleared');
     if (pending) rmSync(pending, { force: true });
     // 이 이벤트는 additional_context를 지원하지 않는다. 상태 명령은 스킬·MCP로 처리한다.
     return { continue: true };
@@ -46,8 +53,11 @@ export async function run(input, options = {}) {
   if (event === 'stop') {
     const saved = pending ? readPending(pending, generation) : {};
     if (pending) rmSync(pending, { force: true });
-    if (!loadState(cwd).enabled || input.status !== 'completed' || (input.loop_count ?? 0) > 0) return {};
+    if (!loadState(cwd).enabled) { hookDecision('disabled'); return {}; }
+    if (input.status !== 'completed') { hookDecision('turn_not_completed'); return {}; }
+    if ((input.loop_count ?? 0) > 0) { hookDecision('retry_limit'); return {}; }
     const reasons = [...Object.values(saved.files || {}), saved.answer].filter(Boolean);
+    hookDecision(reasons.length ? 'cursor_followup' : 'clean');
     return reasons.length ? { followup_message: `KSTE 검사에서 오류가 발견됐습니다. 아래 지적을 한 번 수정하세요. 숫자·단위·부정어·고유명사·코드·URL과 사실을 보존하세요. 검사 보고서를 답변에 붙이지 마세요.\n${reasons.join('\n\n')}` } : {};
   }
   if (event === 'afterAgentResponse') {
@@ -67,6 +77,7 @@ export async function run(input, options = {}) {
     return {};
   }
   if (event === 'sessionEnd') {
+    hookDecision('pending_cleared');
     if (pending) rmSync(pending, { force: true });
   }
   return {};
@@ -74,7 +85,7 @@ export async function run(input, options = {}) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
-    const input = JSON.parse(readFileSync(0, 'utf8') || '{}');
+    const input = parseHookInput(readFileSync(0, 'utf8'), { host: 'cursor', kind: 'cursor' });
     if (!input.hook_event_name) input.hook_event_name = process.argv[2];
     process.stdout.write(JSON.stringify(await run(input)) + '\n');
   } catch (e) {

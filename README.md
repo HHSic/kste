@@ -190,22 +190,53 @@ node scripts/install-t1.mjs --check
 
 실행기 시작 단계와 예기치 않은 Node 종료는 `KSTE did not run` 안내와 단계별 로그를 남깁니다. 로그는 `PLUGIN_DATA/hook-errors.log`를 사용하며, 실행기에서 해당 환경변수가 없으면 `%LOCALAPPDATA%\KSTE\hook-errors.log`를 사용합니다. 입력·답변 본문·문서 검사 지적은 실행기 로그에 저장하지 않습니다.
 
-수정 브랜치로 등록한 마켓플레이스에서 `codex plugin marketplace upgrade kste` 후 `codex plugin list`로 1.3.1을 확인하고 Codex를 완전히 종료한 뒤 새 채팅을 시작합니다. main을 추적하면 아직 이 수정본이 없습니다. 기존 Git 등록 소스의 ref를 바꾸려면 다음 순서로 마켓플레이스 등록만 교체합니다. 플러그인 활성화 설정·프로젝트 상태·Kiwi 모델은 유지합니다.
+수정 브랜치로 등록한 마켓플레이스에서 `codex plugin marketplace upgrade kste` 후 `codex plugin list`로 1.3.2를 확인하고 Codex를 완전히 종료한 뒤 새 채팅을 시작합니다. main을 추적하면 아직 이 수정본이 없습니다. 기존 Git 등록 소스의 ref를 바꾸려면 다음 순서로 마켓플레이스 등록만 교체합니다. 플러그인 활성화 설정·프로젝트 상태·Kiwi 모델은 유지합니다.
 
 ```cmd
 codex plugin marketplace remove kste
 codex plugin marketplace add HHSic/kste --ref codex/kste-codex-plugin
 codex plugin marketplace upgrade kste
-codex plugin list
+codex plugin list --marketplace kste
 ```
 
-1.3.1에서도 종료 코드만 보이면 다음 읽기 전용 진단을 CMD에서 실행합니다. PowerShell 버전·설치 캐시 경로·추적 ref를 표시하고, 합성 status 프롬프트로 실행기를 직접 호출합니다. 대화 본문을 읽거나 설정을 바꾸지 않으며 Kiwi 다운로드도 실행하지 않습니다.
+1.3.2에서도 종료 코드만 보이면 다음 읽기 전용 진단을 CMD에서 실행합니다. PowerShell 버전·설치 캐시 경로·추적 ref를 표시하고, 합성 status 프롬프트로 실행기를 직접 호출합니다. 대화 본문을 읽거나 설정을 바꾸지 않으며 Kiwi 다운로드도 실행하지 않습니다.
 
 ```cmd
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.codex\plugins\cache\kste\kste\1.3.1\scripts\diagnose-codex.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.codex\plugins\cache\kste\kste\1.3.2\scripts\diagnose-codex.ps1"
 ```
 
 `CODEX_HOME`을 별도로 지정했다면 위 스크립트 파일 경로도 해당 홈에 맞춥니다. 진단이 선택한 캐시가 앱에서 실제 사용 중인 버전인지는 앱 재시작과 `codex plugin list` 결과를 함께 확인합니다. 이 변경은 PowerShell 7의 legacy 인자 전달 모드로 검증했으며 Windows PowerShell 5.1 실기 확인은 남아 있습니다.
+
+### Hook 판정 로그 (1.3.2)
+
+Node command hook은 프로젝트 Git 루트의 `.kste/hook-events.jsonl`에 시작, 진행 단계, 판정, 종료를 기록합니다. Git 저장소 밖에서는 hook의 cwd를 기준으로 하며 `KSTE_STATE_DIR` 또는 `KSTE_LOG_DIR`로 위치를 지정할 수 있습니다. 기록 실패 시 Codex `PLUGIN_DATA`에 같은 파일명으로 한 번 더 시도합니다. 로그 쓰기 실패가 검사 결과를 바꾸지는 않습니다.
+
+| 로그 | 의미 |
+|---|---|
+| `reason=answer_retry`, `exit_code=0`, `effect=turn_retry_requested` | Stop의 `decision:block`으로 KSTE가 답변 수정을 요청함 |
+| `reason=file_feedback`, `exit_code=2`, `effect=tool_result_feedback` | 이미 실행한 도구의 결과 대신 KSTE 피드백을 모델에게 전달함 |
+| `reason=runtime_error`, `fail_open=true` | hook 실행 오류를 처리하고 작업을 계속함. 오류 종류·코드·실패 단계를 기록함 |
+| `reason=retry_limit`, `effect=none` | 수정 횟수 제한에 도달해 추가 수정을 요청하지 않음 |
+| `reason=disabled/clean/non_korean_or_empty`, `effect=none` | 꺼짐·정상·검사 대상 제외로 KSTE 수정 요청 없이 종료함 |
+| 같은 `run_id`의 `start` 뒤 `end`가 없음 | 실행 중이거나 강제 중단·시간 초과 가능성이 있음. 이것만으로 중단 원인을 확정하지 않음 |
+
+Cursor는 검사 시점과 `stop` 후속 요청을 구분하여, 실제 `followup_message`를 반환할 때만 `kste_intervened=true`를 기록합니다. Claude의 Node command hooks도 이 로그를 사용합니다. Claude mod의 호스트 내부 실행에는 이 Node 로그를 적용하지 않습니다. MCP로 명시적으로 실행한 문서 검사는 hook 실행으로 기록하지 않습니다.
+
+Codex 채팅에서 `/kste logs` 또는 `$kste logs`로 최근 기록을 조회합니다. 이는 프롬프트/MCP로 처리하는 호출이며 독립 네이티브 메뉴 명령 등록을 의미하지 않습니다. 세 도구의 MCP `kste_state`에서도 `args: ["logs"]`로 읽습니다. CLI는 다음과 같습니다.
+
+```bash
+kste logs
+node bin/kste.js logs --cwd /path/to/project --limit 30
+node bin/kste.js logs --json
+```
+
+Windows CMD에서 **문제가 난 프로젝트 디렉터리**로 이동한 뒤, hook 없이 로그만 읽으려면 다음을 실행합니다. 다른 디렉터리에서는 `-ProjectPath "C:\path\to\project"`를 붙입니다.
+
+```cmd
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.codex\plugins\cache\kste\kste\1.3.2\scripts\diagnose-codex.ps1" -LogsOnly
+```
+
+버전·시각·도구·이벤트·실행 ID·판정 이유·규칙 ID·오류/경고 수·종료 코드·개입 여부를 기록합니다. 채팅/문서 본문, stdin, 일치한 문구, 검사 피드백, 예외 메시지/stack은 판정 로그에 저장하지 않습니다. Node 실행 오류 로그도 예외 종류/코드만 기록합니다. 약 1 MiB를 넘으면 이전 로그 한 파일(`.1`)로 회전합니다. Node가 시작하기 전의 Windows 실패는 위 `hook-errors.log`에서 확인합니다. 실행기 자체가 시작하지 못한 실패와 이전 버전의 실패는 새 로그로 복구할 수 없습니다.
 
 ## Cursor에서 쓰기
 

@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handle } from '../../../hooks/kste-hook.mjs';
 import * as store from '../state.mjs';
+import { withHookLog, hookDecision, parseHookInput } from '../../shared/hook-log.mjs';
 
 /** apply_patch 본문에서 추가·수정된 파일 경로를 뽑는다. */
 export function patchFiles(patch) {
@@ -15,10 +16,15 @@ export function patchFiles(patch) {
   return [...new Set(files)];
 }
 
-export async function run(input) {
+export function run(input) {
+  return withHookLog(input, { host: 'codex', kind: 'file' }, () => runImpl(input));
+}
+
+async function runImpl(input) {
   // apply_patch의 문자열 입력과 command/patch 객체 입력을 모두 받는다.
   const patch = typeof input.tool_input === 'string' ? input.tool_input : input.tool_input?.command ?? input.tool_input?.patch;
   const files = patchFiles(patch).filter((f) => /\.md$/i.test(f));
+  if (!files.length) hookDecision('no_markdown_changes');
   const errs = [];
   const notices = [];
   for (const file of files) {
@@ -26,6 +32,7 @@ export async function run(input) {
     if (r.code === 2 && r.stderr) errs.push(r.stderr);
     if (r.stdout) notices.push(JSON.parse(r.stdout).systemMessage);
   }
+  if (errs.length) hookDecision('file_feedback');
   return errs.length ? { code: 2, stderr: errs.join('\n') }
     : { code: 0, ...(notices.length ? { stdout: JSON.stringify({ systemMessage: notices.join('\n') }) } : {}) };
 }
@@ -33,7 +40,7 @@ export async function run(input) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   let input = null;
   try {
-    input = JSON.parse(readFileSync(0, 'utf8') || '{}');
+    input = parseHookInput(readFileSync(0, 'utf8'), { host: 'codex', kind: 'file' });
   } catch {
     input = null;
   }

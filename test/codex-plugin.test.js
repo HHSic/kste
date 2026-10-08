@@ -40,14 +40,14 @@ test('Codex 플러그인: marketplace·스킬·MCP·hooks 경로가 패키지 �
 
 test('hook 실행기: 초기 import 오류를 기록하며 입력 본문은 로그에 남기지 않는다', async (t) => {
   const cwd = fixture(t);
-  const input = { hook_event_name: 'SessionStart', prompt: 'private-input' };
+  const input = { cwd, hook_event_name: 'SessionStart', prompt: 'private-input' };
   const importFailure = () => { throw new Error('missing hook dependency'); };
   await assert.rejects(dispatch(input, 'session', importFailure), /missing hook dependency/);
   const report = failure(new Error('missing hook dependency'), { PLUGIN_DATA: cwd });
   assert.equal(report.code, 0);
   assert.match(JSON.parse(report.stdout).systemMessage, /실행되지 않았습니다/);
   const log = readFileSync(path.join(cwd, 'hook-errors.log'), 'utf8');
-  assert.match(log, /missing hook dependency/);
+  assert.match(log, /error_type.*Error/);
   assert.doesNotMatch(log, /private-input/);
   const blocked = await dispatch(input, 'file', async () => ({ run: async () => ({ code: 2, stderr: 'rule feedback' }) }));
   assert.equal(blocked.code, 2, '규칙 위반 피드백은 실행 오류와 구분한다');
@@ -61,6 +61,9 @@ test('POSIX 실행기: GUI PATH에 Node가 없어도 nvm 설치 경로와 공백
   symlinkSync(process.execPath, path.join(nodeDir, 'node'));
   const root = path.join(cwd, 'plugin with spaces');
   cpSync(path.join(ROOT, 'integrations/codex/hooks'), path.join(root, 'integrations/codex/hooks'), { recursive: true });
+  mkdirSync(path.join(root, 'integrations/shared'), { recursive: true });
+  cpSync(path.join(ROOT, 'integrations/shared/hook-log.mjs'), path.join(root, 'integrations/shared/hook-log.mjs'));
+  cpSync(path.join(ROOT, 'package.json'), path.join(root, 'package.json'));
   // 탐색 순서에 시스템 Node가 없는 환경에서도 nvm 후보를 검증한다.
   const script = path.join(root, 'integrations/codex/hooks/kste-launch.sh');
   const original = readFileSync(script, 'utf8');

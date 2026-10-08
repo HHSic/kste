@@ -4,7 +4,7 @@
 한국어 채팅 답변과 기술문서를 쓰거나 고칠 때 적용합니다. 기본은 on, default 모드, T1 on입니다. default 명령은 KSTE와 T1을 함께 켭니다. 사용자가 따로 t1 off를 설정하면 그 설정을 따릅니다.
 세션 시작 시 kste 스킬을 자동 적용합니다. SessionStart hook이 스킬 본문을 전달했다면 그대로 사용합니다. hook이 없으면 한국어 작업을 시작할 때 설치된 kste 스킬을 한 번 읽고 적용합니다. off이면 자동 활성화하지 않습니다.
 매 턴 현재 프로젝트의 KSTE 상태를 확인합니다(MCP `kste_state`, `args: []`, `cwd`: 현재 작업 디렉터리). hook이 현재 설정을 전달했다면 그 설정을 씁니다. off이면 KSTE 자동 적용을 중단합니다. strict이면 경고 중 엄격 모드 항목을 오류로 취급합니다.
-`/kste` 또는 `$kste` 뒤의 on, off, default, strict, t1 on/off/status, status, last는 상태 명령입니다(80은 default의 별칭). MCP `kste_state`로 실행하고 결과만 알립니다. hook에서 처리한 명령은 다시 실행하지 않습니다. 명령 메뉴에서 `/kste`가 없으면 `$kste` 또는 `/prompts:kste`를 씁니다.
+`/kste` 또는 `$kste` 뒤의 on, off, default, strict, t1 on/off/status, status, last, logs는 상태 명령입니다(80은 default의 별칭). MCP `kste_state`로 실행하고 결과만 알립니다. hook에서 처리한 명령은 다시 실행하지 않습니다. 명령 메뉴에서 `/kste`가 없으면 `$kste` 또는 `/prompts:kste`를 씁니다.
 
 - 제1원칙: 독자가 추론할 것을 남기지 않습니다. 조사와 서술어를 채우고, 한 문장에 한 뜻만 담습니다.
 - 절차문은 `[조건]? [대상]을 [방법]어 [동작]세요.` 로 씁니다. 조건은 앞, 지시는 뒤. 항목당 동작 2개 이하.
