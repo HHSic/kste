@@ -1,5 +1,5 @@
 {
-  "description": "KSTE: 한국어 Markdown 문서를 쓰거나 고치면 린터(T0)를 돌려 오류를 모델에게 돌려줍니다. Runs the KSTE linter after Write/Edit of Korean .md files and feeds errors back to the model.",
+  "description": "KSTE: 세션 자동 스킬 적용·Kiwi 준비와 한국어 Markdown 검사",
   "hooks": {
     "PostToolUse": [
       {
@@ -9,6 +9,28 @@
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/kste-hook.mjs\"",
             "timeout": 20
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/integrations/claude/session-hook.mjs\"",
+            "timeout": 180
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/integrations/claude/session-hook.mjs\"",
+            "timeout": 180
           }
         ]
       }

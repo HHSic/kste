@@ -1,6 +1,6 @@
 ---
-description: KSTE hook 켜기/끄기, 모드(80%/strict), T1 설정. Toggle the KSTE hook, mode and T1.
-argument-hint: on | off | 80 | strict | t1 on | t1 off | t1 install | status
+description: KSTE hook 켜기/끄기, 모드(default/strict), T1 설정. Toggle the KSTE hook, mode and T1.
+argument-hint: on | off | default | strict | t1 on | t1 off | t1 install | status
 allowed-tools: Bash(node:*)
 ---
 
@@ -18,10 +18,10 @@ node "${CLAUDE_PLUGIN_ROOT}/hooks/kste-hook.mjs" set $ARGUMENTS
 node "${CLAUDE_PLUGIN_ROOT}/scripts/install-t1.mjs"
 ```
 
-사용자가 `t1 install`을 직접 요청했을 때만 실행합니다(이 명령 자체가 승인입니다). 상태 파일은 프로젝트의 `.kste/state.json`입니다.
+사용자가 `t1 install`을 직접 요청했을 때만 실행합니다(이 명령 자체가 승인입니다). 첫 세션 hook도 on/T1 on이면 엔진·모델을 자동 준비합니다. 상태 파일은 프로젝트 Git 루트의 `.kste/state.json`입니다.
 
 - `on` / `off`: hook 켜기 / 끄기 (끄면 hook이 즉시 통과)
-- `80`: 기본 모드. 정밀한 규칙만 오류로 막습니다.
+- `default` (별칭 `80`): KSTE와 T1을 함께 켭니다. 기본 규칙의 정밀한 항목만 오류로 막습니다.
 - `strict`: 엄격 모드. 규칙 문서 §10에서 엄격 시 오류인 항목(K1.5, K1.6, K2.4, K2.7, K3.3, K3.4, K4.1, K6.3, 강한 길이 경고)을 오류로 올립니다.
 - `t1 install`: T1 모델과 kiwi-nlp 설치(`~/.kste/t1/`, 플러그인을 업데이트해도 유지됩니다).
-- `t1 on` / `t1 off`: hook에서도 형태소 분석(T1)을 씁니다. 로딩 5~8초, 메모리 약 1GB가 들어 기본은 off입니다.
+- `t1 on` / `t1 off`: hook에서도 형태소 분석(T1)을 씁니다. 기본은 on입니다. 로딩 5~8초, 메모리 약 1GB가 듭니다.

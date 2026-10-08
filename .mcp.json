@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kste": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/integrations/shared/kste-mcp.mjs"
+      ]
+    }
+  }
+}

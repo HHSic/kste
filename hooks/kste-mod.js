@@ -6,12 +6,12 @@
 import { koreanRatio, applyStateArgs, statusLine, t1StatusLine, MIN_KO_RATIO } from '../lib/engine/mode.js';
 import { directiveOf, lintAnswer, reportOf, toastOf } from '../lib/engine/chat.js';
 
-const DEFAULT_STATE = { enabled: true, mode: '80', t1: false };
+const DEFAULT_STATE = { enabled: true, mode: '80', t1: true };
 
 const pick = (s) => ({
   enabled: s?.enabled !== false,
   mode: s?.mode === 'strict' ? 'strict' : '80',
-  t1: s?.t1 === true,
+  t1: s?.t1 !== false,
 });
 
 let current = { ...DEFAULT_STATE };
@@ -75,8 +75,9 @@ async function t1Status($) {
 }
 
 async function t1Install($) {
-  const hint = `다음 명령을 실행하세요: node "${$.plugin?.root ?? '<플러그인경로>'}/scripts/install-t1.mjs"`;
-  if (!$.process?.run) return hint;
+  let pluginRoot = '<플러그인경로>';
+  try { pluginRoot = $.plugin.root ?? pluginRoot; } catch { /* mod 밖에서는 안내 경로를 쓴다. */ }
+  const hint = `다음 명령을 실행하세요: node "${pluginRoot}/scripts/install-t1.mjs"`;
   $.ui.toast('T1 설치 시작: 모델 약 110MB, 몇 분 걸릴 수 있다');
   const r = await runInstallScript($, [], 600000);
   if (!r) return `T1 설치를 mod 에서 실행하지 못했다. ${hint}`;
@@ -89,8 +90,8 @@ export function register(on) {
     try {
       await $.command.register({
         name: 'kste',
-        description: 'KSTE 켜기/끄기, 모드(80%/strict), T1 설정, 마지막 답변 검사 결과',
-        argumentHint: 'on | off | 80 | strict | t1 on | t1 off | t1 install | status | last',
+        description: 'KSTE 켜기/끄기, 모드(default/strict), T1 설정, 마지막 답변 검사 결과',
+        argumentHint: 'on | off | default | strict | t1 on | t1 off | t1 install | status | last',
       });
       await refresh($);
     } catch (err) {
@@ -123,6 +124,8 @@ export function register(on) {
         const result = lintAnswer(e.answer, state.mode, await $.clock.now());
         if (result) {
           await $.store.set('last', result);
+          const existing = (await readFile($)) ?? {};
+          await $.fs.write(await statePath($), JSON.stringify({ ...existing, ...state, chatLast: result }, null, 2) + '\n');
           if (result.errors > 0) $.ui.toast(toastOf(result));
         }
       }
@@ -133,7 +136,7 @@ export function register(on) {
   on('command.run', { command: 'kste' }, async ($, e) => {
     const args = (e.args || '').trim().split(/\s+/).filter(Boolean);
     if ((args[0] || '').toLowerCase() === 'last') {
-      return { text: reportOf((await $.store.get('last')) ?? null) };
+      return { text: reportOf((await readFile($))?.chatLast ?? (await $.store.get('last')) ?? null) };
     }
     const r = applyStateArgs(await refresh($), args);
     if (!r.ok) return { text: r.error };
@@ -142,14 +145,14 @@ export function register(on) {
       await save($, r.state);
       $.ui.invalidate('ui.render');
     }
-    const status = !args.length || (args[0] || '').toLowerCase() === 'status';
+    const status = !args.length || (args[0] || '').toLowerCase() === 'status' || args[0]?.toLowerCase() === 't1' && args[1]?.toLowerCase() === 'status';
     return { text: statusLine(r.state, await statePath($)) + (status ? await t1Status($) : '') };
   });
 
   // 스피너 접미사: 켜져 있을 때만
   on('ui.render', { component: 'Spinner' }, async ($, e, next) => {
     if (!current.enabled) return next(e);
-    const suffix = ` · KSTE[${current.mode === 'strict' ? 'strict' : '80%'}]`;
+    const suffix = ` · KSTE[${current.mode === 'strict' ? 'strict' : 'default'}]`;
     return next({ ...e, props: { ...e.props, suffix: (e.props?.suffix ?? '') + suffix } });
   });
 }

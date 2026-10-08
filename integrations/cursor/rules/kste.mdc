@@ -1,0 +1,8 @@
+---
+description: KSTE 세션 설정을 확인하고 한국어 작문 스킬을 자동 적용한다.
+alwaysApply: true
+---
+
+매 사용자 턴에 MCP `kste_state`를 현재 프로젝트 `cwd`로 조회한다. 새 세션 hook이 전달한 최신 설정이 있으면 그 설정을 사용해도 된다. 기본값은 on/default/T1 on이다. 설정이 on이면 플러그인의 `integrations/codex/skills/kste/SKILL.md`를 읽고 한국어 답변과 문서에 적용한다. 참조 경로는 스킬 파일 기준으로 읽는다.
+
+`/kste on|off|default|strict|status|last`와 `t1 on|off|status` 요청은 스킬의 상태 제어 지침에 따라 MCP로 처리하고 결과만 알린다. hook이 이미 처리한 명령은 다시 실행하지 않는다. off이면 자동 작문·검사를 적용하지 않는다. 사용자가 명시적으로 요청한 검사는 실행한다. T1 설치 실패를 성공으로 보고하지 않는다.

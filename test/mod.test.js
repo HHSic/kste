@@ -147,7 +147,7 @@ test('mod: /kste last 는 마지막 린트 리포트 전체를 낸다', async ()
   assert.match((await t.cmd('last')).text, /검사한 답변이 없습니다/);
   await t.done(KO_BAD);
   const out = (await t.cmd('last')).text;
-  assert.match(out, /^KSTE: error [1-9]\d* · warn \d+ \(80% 모드, T0\)/);
+  assert.match(out, /^KSTE: error [1-9]\d* · warn \d+ \(default 모드, T0\)/);
   assert.match(out, /K\d\.\d/);
 });
 
@@ -156,7 +156,7 @@ test('mod: /kste off 가 .kste/state.json 을 갱신하고 hook 이 그것을 �
   const file = path.join(t.dir, 'state.json');
   writeFileSync(file, JSON.stringify({ enabled: true, mode: '80', t1: false, retries: { x: { count: 2, at: 1 } } }));
   const out = await t.cmd('off');
-  assert.match(out.text, /KSTE hook: off · 모드 80% · T1 off/);
+  assert.match(out.text, /KSTE hook: off · 모드 default · T1 off/);
   const saved = JSON.parse(readFileSync(file, 'utf8'));
   assert.equal(saved.enabled, false);
   assert.deepEqual(saved.retries, { x: { count: 2, at: 1 } }); // hook 전용 필드 보존
@@ -194,7 +194,7 @@ test('mod: 스피너 접미사는 켜져 있을 때만', async () => {
   const t = setup();
   const spin = () => t.run('ui.render', { component: 'Spinner', props: {} }, 'Spinner');
   await t.cmd('on');
-  assert.equal((await spin()).props.suffix, ' · KSTE[80%]');
+  assert.equal((await spin()).props.suffix, ' · KSTE[default]');
   await t.cmd('strict');
   assert.equal((await spin()).props.suffix, ' · KSTE[strict]');
   await t.cmd('off');

@@ -1,24 +1,23 @@
 ---
 description: 한국어 문서를 KSTE로 재작성하고 정보 보존과 린터를 확인합니다. Rewrite a Korean document to KSTE with information-preservation checks.
 argument-hint: "[파일]"
-allowed-tools: Bash(node:*), Bash(cp:*), Read, Write, Edit
 ---
 
 `$ARGUMENTS` 파일을 KSTE로 재작성합니다. 인자가 없으면 이 대화에서 가장 최근에 다룬 한국어 `.md` 파일을 대상으로 하고, 정할 수 없으면 사용자에게 물어보세요. 먼저 `kste` 스킬을 따릅니다.
 
 1. 원문을 읽고 `<파일>.orig` 이름으로 복사해 둡니다(예: `cp "<파일>" "<파일>.orig"`). 재작성이 끝나면 이 복사본은 사용자에게 알리고 남겨 둡니다.
 2. 스킬의 템플릿으로 재작성해 같은 파일에 씁니다. 숫자, 단위, 부정어, 고유명사, 문장을 지우지 않습니다. 코드 블록, 명령어, 파일명, URL은 그대로 둡니다.
-3. 정보 보존을 확인합니다.
+3. MCP `kste_diff`에 원문과 수정문 경로 및 프로젝트 `cwd`를 전달해 정보 보존을 확인합니다. `t1`은 생략해 현재 설정을 따릅니다. MCP가 없는 환경은 현재 T1 설정(on/off)에 맞춰 다음 CLI의 `--t1` 값을 지정합니다.
 
    ```
-   node "${CLAUDE_PLUGIN_ROOT}/bin/kste.js" diff "<파일>.orig" "<파일>" --t1 auto
+   node "${CLAUDE_PLUGIN_ROOT}/bin/kste.js" diff "<파일>.orig" "<파일>" --t1 <on|off>
    ```
 
    K8.1(숫자·식별자 누락)은 오류입니다. 사라진 값을 되살립니다. K8.2(문장 수 감소), K8.3(명사 보존율), K8.4(부정어 수 변화)는 하나씩 원문과 비교해 정보를 되돌립니다. 되돌릴 수 없으면 그 문장은 원문을 남깁니다.
-4. 린터를 돌립니다.
+4. MCP `kste_check`에 파일 경로와 프로젝트 `cwd`를 전달해 검사합니다. `t1`을 생략해 현재 T1·strict 설정을 따릅니다. MCP가 없는 환경은 다음 CLI의 `--t1` 값을 현재 설정(on/off)에 맞춥니다.
 
    ```
-   node "${CLAUDE_PLUGIN_ROOT}/bin/kste.js" check "<파일>" --t1 auto
+   node "${CLAUDE_PLUGIN_ROOT}/bin/kste.js" check "<파일>" --t1 <on|off>
    ```
 
 5. error가 있으면 지적된 줄만 고칩니다. 전체를 다시 쓰지 않습니다. warn은 대표 항목만 고칩니다. 고친 뒤 3번과 4번을 다시 합니다. 최대 3회입니다.

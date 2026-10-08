@@ -5,11 +5,18 @@ import { lintText } from '../lib/engine/tier0.js';
 import { comparePreservation } from '../lib/engine/preserve.js';
 import { lintTextT1, compareT1, resolveT1Mode, closeT1 } from '../lib/t1/engine.js';
 import { buildReport, renderMarkdown, renderJson, shouldFail, filterFindings } from '../lib/engine/report.js';
+import { setState } from '../integrations/shared/state.mjs';
+import { formatHookLogs, readHookLogs } from '../integrations/shared/hook-log.mjs';
+import { setup, parseArgs as parseInstallArgs, completionMessage } from '../integrations/codex/install.mjs';
 
 const USAGE = `사용법:
   kste check <file|-> [--genre procedural|descriptive|auto] [--all] [--json] [--fail-on error|warn] [--noun-chain] [--t1 auto|on|off]
   kste diff <원문> <수정문> [--json] [--t1 auto|on|off] [--fail-on error|warn]
   kste rules
+  kste set [on|off|default|strict|t1 on|t1 off|t1 status|status|last]
+  kste logs [--cwd 프로젝트경로] [--limit 30] [--json]
+  kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]
+  kste install cursor [--dry-run] [--home 경로] [--uninstall]
 종료 코드: 0 정상, 1 fail-on 이상 위반 있음, 2 사용법 오류`;
 
 function parseArgs(argv) {
@@ -20,7 +27,7 @@ function parseArgs(argv) {
     if (a === '-') pos.push(a);
     else if (a.startsWith('--')) {
       const [k, v] = a.slice(2).split('=');
-      if (['genre', 'fail-on', 't1'].includes(k)) opt[k] = v ?? argv[++i];
+      if (['genre', 'fail-on', 't1', 'cwd', 'limit'].includes(k)) opt[k] = v ?? argv[++i];
       else opt[k] = true;
     } else pos.push(a);
   }
@@ -48,7 +55,30 @@ function out(s) {
 
 async function main() {
   const [cmd, ...rest] = process.argv.slice(2);
+  if (cmd === 'install') {
+    if (rest[0] === 'cursor') {
+      const { install, parseArgs } = await import('../integrations/cursor/install.mjs');
+      out(install(parseArgs(rest.slice(1))).join('\n') + '\n');
+      return 0;
+    }
+    if (rest[0] !== 'codex') throw new Error('사용: kste install codex [--dry-run] [--no-hooks] [--no-t1] [--uninstall]');
+    const opts = parseInstallArgs(rest.slice(1));
+    out((await setup(opts)).join('\n') + '\n');
+    const message = completionMessage(opts);
+    if (message) out(message + '\n');
+    return 0;
+  }
+  if (cmd === 'set') {
+    out(setState(rest).text + '\n');
+    return 0;
+  }
   const { pos, opt } = parseArgs(rest);
+  if (cmd === 'logs') {
+    const cwd = opt.cwd ?? process.cwd();
+    const limit = opt.limit === undefined ? 30 : Number(opt.limit);
+    out((opt.json ? JSON.stringify(readHookLogs(cwd, limit), null, 2) : formatHookLogs(cwd, limit)) + '\n');
+    return 0;
+  }
   const failOn = opt['fail-on'] ?? 'error';
   const t1Mode = opt.t1 ?? 'auto';
   if (!['auto', 'on', 'off'].includes(t1Mode)) {

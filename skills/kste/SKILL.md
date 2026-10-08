@@ -6,6 +6,10 @@ description: 한국어 기술문서(매뉴얼, 개발자 문서, 보고서, READ
 
 # KSTE 한국어 기술문서 작문
 
+<!-- claude:control:begin -->
+상태 명령 `on/off/default/strict/status/last/logs`, `t1 on/off/status`는 MCP `kste_state`에 인자 배열과 프로젝트 `cwd`를 전달합니다. hook에서 처리한 명령은 다시 실행하지 않습니다. 기본은 on/default/T1 on이며 default(별칭 80)는 KSTE와 T1을 켭니다. off이면 자동 작문 지침을 끕니다.
+<!-- claude:control:end -->
+
 제1원칙: 독자가 추론할 것을 남기지 않습니다. 조사와 서술어를 채우고, 어려운 말을 풀고, 한 문장에 한 뜻만 담습니다. 짧게 쓰는 것이 목적이 아닙니다.
 
 ## 등급
@@ -32,3 +36,5 @@ description: 한국어 기술문서(매뉴얼, 개발자 문서, 보고서, READ
 숫자, 단위, 부정어(않다, 없다, 금지, 말다), 고유명사, 문장을 지우거나 바꾸지 않습니다. 짧아졌다고 통과가 아닙니다. 확인은 `kste diff 원문 수정문`. 의심스러우면 원문을 남깁니다.
 
 기계가 못 보는 것(위험 수준, 지시어 대상, 주어 복원, 중의성)은 사람이 확인하도록 남깁니다. 규칙 전문: [references/rules.md](references/rules.md)
+
+Hook 진단은 MCP `kste_state`의 `args: ["logs"]`로 조회합니다. Codex에서는 `/kste logs` 또는 `$kste logs`를 쓰며 실제 호출 메뉴 등록과는 별개입니다. 실행 오류(runtime_error), 파일 검사 피드백(exit=2), 답변 수정 요청(exit=0)을 구분합니다.

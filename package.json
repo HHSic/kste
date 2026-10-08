@@ -1,11 +1,13 @@
 {
   "name": "kste",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "KSTE linter (Tier 0 regex + Tier 1 Kiwi morphology)",
   "scripts": {
     "test": "node --test",
     "install-t1": "node scripts/install-t1.mjs",
-    "build-mod-rules": "node scripts/build-mod-rules.mjs"
+    "install-codex": "node integrations/codex/install.mjs",
+    "build-mod-rules": "node scripts/build-mod-rules.mjs",
+    "install-cursor": "node integrations/cursor/install.mjs"
   },
   "license": "MIT",
   "type": "module",
@@ -25,9 +27,13 @@
     "commands",
     "scripts",
     "integrations",
+    ".codex-plugin",
+    ".agents/plugins",
     ".claude-plugin",
     "LICENSE",
-    "THIRD_PARTY.md"
+    "THIRD_PARTY.md",
+    ".cursor-plugin",
+    ".mcp.json"
   ],
   "engines": {
     "node": ">=20"

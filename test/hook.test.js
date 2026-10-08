@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { writeFileSync, mkdtempSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdtempSync, readFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,6 +14,8 @@ function sandbox() {
   const stateDir = path.join(dir, '.kste');
   const env = { ...process.env, KSTE_STATE_DIR: stateDir };
   delete env.CLAUDE_PROJECT_DIR;
+  mkdirSync(stateDir, { recursive: true });
+  writeFileSync(path.join(stateDir, 'state.json'), JSON.stringify({ t1: false })); // T0 검사 fixture
   const file = (name, text) => {
     const p = path.join(dir, name);
     writeFileSync(p, text);
@@ -131,7 +133,7 @@ test('set: 잘못된 인자는 종료 1, status 는 상태 한 줄', () => {
   assert.equal(s.set('bogus').status, 1);
   const r = s.set('status');
   assert.equal(r.status, 0);
-  assert.match(r.stdout, /KSTE hook: on · 모드 80% · T1 off/);
+  assert.match(r.stdout, /KSTE hook: on · 모드 default · T1 off/);
   assert.match(s.set('strict').stdout, /모드 strict/);
   assert.match(s.set('t1', 'on').stdout, /T1 on/);
 });
