@@ -175,6 +175,19 @@ test('코드 스팬은 T1 검사에서 제외된다 (K1.8)', opts, async () => {
   assert.ok(!(await ids('`저장되어집니다` 를 출력한다.')).includes('K2.6-001'));
 });
 
+test('K2.7: 한글이 없는 문장은 검사하지 않고, 이어진 영어 어절은 한 어절로 센다', opts, async () => {
+  const k27 = async (t) => (await lintTextT1(t)).findings.filter((f) => f.ruleId === 'K2.7-001');
+  assert.deepEqual(await k27('The backup job copies the database to the remote storage bucket every night.'), []);
+  assert.deepEqual(await k27('Run 2 jobs at 3 AM on 5 servers.'), []);
+  assert.deepEqual(await k27('참고 자료는 Disaster Recovery Planning Guide for Small Operations Teams이다.'), []);
+  const [f] = await k27('Claude Code 플러그인 설정 파일 변경 이력을 본다.');
+  assert.equal(f.words, 5);
+  assert.equal(f.severity, 'warn');
+  const [g] = await k27('데이터베이스 서버 설정 파일 변경 이력 관리를 한다.');
+  assert.equal(g.words, 6);
+  assert.equal(g.severity, 'error');
+});
+
 test('userWords: 용어표 preferred 가 한 토큰으로 유지된다', opts, async () => {
   const { getT1 } = await import('../../lib/t1/worker.js');
   const c = await getT1();
