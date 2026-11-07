@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { writeFileSync, mkdtempSync } from 'node:fs';
+import { writeFileSync, mkdtempSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -82,4 +82,14 @@ test('사용법 오류는 종료 코드 2', () => {
   assert.equal(run([]).status, 2);
   assert.equal(run(['check']).status, 2);
   assert.equal(run(['check', path.join(tmp, 'nope.md')]).status, 2);
+});
+
+test('K1.1: 현재 폴더의 rules/terms.yaml 변이형을 찾는다', () => {
+  const proj = mkdtempSync(path.join(tmpdir(), 'kste-cli-proj-'));
+  mkdirSync(path.join(proj, 'rules'));
+  writeFileSync(path.join(proj, 'rules', 'terms.yaml'), 'terms:\n  - preferred: 설정\n    variants: [세팅]\n    pos: NNG\n    source: "테스트 용어집"\n    status: approved\n');
+  writeFileSync(path.join(proj, 'doc.md'), '먼저 세팅 화면을 엽니다.\n');
+  const r = spawnSync(process.execPath, [BIN, 'check', 'doc.md', '--t1', 'off'], { cwd: proj, encoding: 'utf8', env: { ...process.env, CLAUDE_PROJECT_DIR: '' } });
+  assert.equal(r.status, 1, r.stdout + r.stderr);
+  assert.match(r.stdout, /error\s+K1\.1-001 L1:\d+\s+"세팅" → 설정/);
 });
